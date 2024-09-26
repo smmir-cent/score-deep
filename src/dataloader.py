@@ -1,9 +1,8 @@
 import pandas as pd
 import numpy as np
-
 import logging
 
-datasets_path = "data/raw/"
+datasets_path = ""
 
 def get_datasets(names_only: bool = False):
     DATASET_DICT = {
@@ -20,7 +19,9 @@ def get_datasets(names_only: bool = False):
         return DATASET_DICT
 
 
-def load_data(dataset: str):
+def load_data(dataset: str, ds_path: str):
+    global datasets_path
+    datasets_path = ds_path
     logging.debug(f'Dataloader: Loading {dataset}')
 
     dataset_dict = get_datasets()
