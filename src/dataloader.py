@@ -1,6 +1,11 @@
 import pandas as pd
 import numpy as np
 import logging
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
+from sklearn.impute import SimpleImputer
+from sklearn.compose import ColumnTransformer
+from helpers import get_cat_dims
 
 datasets_path = ""
 
@@ -173,3 +178,11 @@ def load_gmsc():
     num_cols = [c for c in df.columns if c != target_col]
 
     return df, cat_cols, num_cols, target_col
+
+def preprocess_data(X_train, X_test, num_cols, cat_cols):
+    num_prep = make_pipeline(SimpleImputer(strategy='mean'), MinMaxScaler())
+    cat_prep = make_pipeline(SimpleImputer(strategy='most_frequent'), OneHotEncoder(handle_unknown='ignore', sparse=False))
+    prep = ColumnTransformer([('num', num_prep, num_cols), ('cat', cat_prep, cat_cols)], remainder='drop')
+    X_train_trans = prep.fit_transform(X_train)
+    X_test_trans = prep.transform(X_test)
+    return X_train_trans, X_test_trans
