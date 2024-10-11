@@ -5,7 +5,6 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
-from helpers import get_cat_dims
 
 datasets_path = ""
 
@@ -185,4 +184,4 @@ def preprocess_data(X_train, X_test, num_cols, cat_cols):
     prep = ColumnTransformer([('num', num_prep, num_cols), ('cat', cat_prep, cat_cols)], remainder='drop')
     X_train_trans = prep.fit_transform(X_train)
     X_test_trans = prep.transform(X_test)
-    return X_train_trans, X_test_trans
+    return X_train_trans, X_test_trans, prep
