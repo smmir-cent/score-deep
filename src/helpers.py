@@ -162,6 +162,10 @@ def score_oversampling_performance(X_y_real: torch.Tensor, X_y_fake: torch.Tenso
         y_real = torch.Tensor(y_real).view(-1) if not isinstance(y_real, torch.Tensor) else y_real.view(-1)
         y_fake = torch.Tensor(y_fake).view(-1) if not isinstance(y_fake, torch.Tensor) else y_fake.view(-1)
 
+    if torch.is_tensor(X_real):
+        X_real = X_real.cpu().detach().numpy()
+    if torch.is_tensor(y_real):
+        y_real = y_real.cpu().detach().numpy()
     X_train, X_test, y_train, y_test = train_test_split(X_real, y_real, test_size=0.1, stratify=y_real)
 
     # only fake minority data added is class 1
@@ -187,6 +191,10 @@ def score_oversampling_performance(X_y_real: torch.Tensor, X_y_fake: torch.Tenso
 
 def score_real_fake(X_real: np.array, X_fake: np.array,
                     classifier: str = 'rfc') -> dict:
+    if torch.is_tensor(X_real):
+        X_real = X_real.cpu().detach().numpy()
+    if torch.is_tensor(X_fake):
+        X_fake = X_fake.cpu().detach().numpy()    
     rfX = np.vstack([X_real, X_fake])
     rfy = np.hstack([[1] * X_real.shape[0], [0] * X_fake.shape[0]])
 
@@ -222,7 +230,11 @@ def get_dimwise_prob_metrics(X_real: np.array, X_fake: np.array,
         fake = X_fake.std(axis=0)
     else:
         raise ValueError(f'"measure" must be "mean" or "std" but "{measure}" was specified.')
+    if torch.is_tensor(real):
+        real = real.cpu().detach().numpy()
 
+    if torch.is_tensor(fake):
+        fake = fake.cpu().detach().numpy()
     corr_value = pearsonr(real, fake)[0]
     rmse_value = np.sqrt(mean_squared_error(real, fake))
 

@@ -19,7 +19,16 @@ from pathlib import Path
 import logging
 import matplotlib.pyplot as plt
 
+import inspect
 
+device__ = ""
+
+def print_debug_info():
+    # Get the current frame and go back one frame to the caller
+    frame = inspect.currentframe().f_back
+    filename = frame.f_code.co_filename  # Get the filename
+    line_number = frame.f_lineno  # Get the line number
+    print(f"File: {filename}, Line: {line_number}")
 
 class BaseGAN():
     def __init__(self,
@@ -46,19 +55,24 @@ class BaseGAN():
                  num_cols=None,
                  cat_cols=None,
                  cat_dims=None):
+        
+        global device__
 
-        # if these are None, they will be initialised by calling .fit()
-        self.netG = netG
-        self.netD = netD
+        self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+        device__ = self.device
+        logging.info(f'Using device: {self.device}')
+
+        self.netG = netG.to(self.device) if netG is not None else None
+        self.netD = netD.to(self.device) if netD is not None else None
         self.g_optim = g_optim
         self.d_optim = d_optim
 
         self.use_aux_classifier_loss = use_aux_classifier_loss
-        self.aux_classifier = aux_classifier
+        self.aux_classifier = aux_classifier.to(self.device) if aux_classifier is not None else None
         self.aux_classifier_optim = aux_classifier_optim
 
         self.use_aux_teacher_loss = use_aux_teacher_loss
-        self.aux_teacher = aux_teacher
+        self.aux_teacher = aux_teacher.to(self.device) if aux_teacher is not None else None
         self.aux_teacher_optim = aux_teacher_optim
 
         self.d_updates_per_g = d_updates_per_g
@@ -102,14 +116,14 @@ class BaseGAN():
         logging.debug('GAN got no netG during init. Initialising now.')
         netG = Generator(cat_output_dims=self.cat_dims,
                          output_dim=self.num_dim,
-                         **kwargs)
+                         **kwargs).to(self.device)
         return netG
 
     def _init_netD(self, kwargs=dict()):
         logging.debug('GAN got no netG during init. Initialising now.')
         netD = Discriminator(cat_input_dims=self.cat_dims,
                              input_dim=self.num_dim,
-                             **kwargs)
+                             **kwargs).to(self.device)
         return netD
 
     def _init_aux_classifier(self, kwargs=None):
@@ -130,7 +144,7 @@ class BaseGAN():
         kwargs.update({'condition': False})
         aux_classifier = Discriminator(cat_input_dims=aux_classifier_cat_dims,
                                        input_dim=self.num_dim,
-                                       **kwargs)
+                                       **kwargs).to(self.device)
         return aux_classifier
 
     def _pretrain_aux_classifier(self, X, y):
@@ -155,11 +169,17 @@ class BaseGAN():
                 self.aux_classifier_optim.step()
         self.aux_classifier.eval()
 
-        preds = self.aux_classifier(torch.Tensor(X)).detach().numpy()
+        # Ensure X is a numpy array before converting to a torch.Tensor
+        X_tensor = torch.Tensor(X).to(self.device)  # Ensure it's on the correct device
+        preds = self.aux_classifier(X_tensor).detach().cpu().numpy()  # Move predictions to CPU
+
+        # Ensure y is a numpy array for compatibility with the metrics
+        y_np = y.cpu().numpy() if isinstance(y, torch.Tensor) else y  # Convert y to numpy if it's a tensor
+
         logging.info(f'Finished training auxiliary classifier. '
-                     f'ACC: {accuracy_score(y[:, -1], np.where(preds > 0.5, 1, 0)):.4f} '
-                     f'AUC: {roc_auc_score(y[:, -1], preds):.4f} '
-                     f'BCE: {log_loss(y[:, -1], preds):.4f}')
+                    f'ACC: {accuracy_score(y_np[:, -1], np.where(preds > 0.5, 1, 0)):.4f} '
+                    f'AUC: {roc_auc_score(y_np[:, -1], preds):.4f} '
+                    f'BCE: {log_loss(y_np[:, -1], preds):.4f}')
 
     def _compute_aux_clf_loss(self, fake, y_batch):
         if not self.condition:
@@ -216,7 +236,7 @@ class BaseGAN():
                 self.aux_teacher_optim.step()
         self.aux_teacher.eval()
 
-        preds = self.aux_teacher(torch.Tensor(X)).detach().numpy()
+        preds = self.aux_teacher(torch.Tensor(X)).detach().cpu().numpy()
         logging.info(f'Finished training auxiliary teacher. '
                      f'ACC: {accuracy_score(np.where(y[:, -1] > 0.6, 1, 0), np.where(preds > 0.5, 1, 0)):.4f} '
                      f'AUC: {roc_auc_score(np.where(y[:, -1] > 0.6, 1, 0), preds):.4f}')
@@ -263,8 +283,8 @@ class BaseGAN():
         if cat_dims is not None:
             self.cat_dims = cat_dims
 
-        X_tens = torch.Tensor(X) if type(X).__name__ != 'DataFrame' else torch.Tensor(X.values)
-        y_tens = torch.Tensor(y).view(-1, 1) if y is not None else None
+        X_tens = torch.Tensor(X if type(X).__name__ != 'DataFrame' else X.values).to(self.device)
+        y_tens = torch.Tensor(y).view(-1, 1).to(self.device) if y is not None else None
 
         # if networks have been set during init/during a previous fit, their state supersedes the condition value
         if self.netG is not None:
@@ -437,7 +457,7 @@ class BaseGAN():
         # predict on real batch
         output = self.netD(X_batch, y_batch).view(-1)
         # loss, label for real is 1
-        lossD_real = F.binary_cross_entropy(output, torch.ones(self.batch_size))
+        lossD_real = F.binary_cross_entropy(output, torch.ones(self.batch_size, device=self.device))
         lossD_real.backward()
         D_x = output.mean().item()
 
@@ -446,7 +466,7 @@ class BaseGAN():
         fake = self.netG.sample(self.batch_size, y=y_batch)
         # predict, label for fake is 0
         output = self.netD(fake, y_batch).view(-1)
-        lossD_fake = F.binary_cross_entropy(output, torch.zeros(self.batch_size))
+        lossD_fake = F.binary_cross_entropy(output, torch.zeros(self.batch_size, device=self.device))
         lossD_fake.backward()
         D_G_z = output.mean().item()
 
@@ -466,7 +486,7 @@ class BaseGAN():
         # sample fake batch
         fake = self.netG.sample(self.batch_size, y=y_batch)
         output = self.netD(fake, y_batch).view(-1)
-        lossG = F.binary_cross_entropy(output, torch.ones(self.batch_size))
+        lossG = F.binary_cross_entropy(output, torch.ones(self.batch_size, device=self.device))
         if self.use_aux_classifier_loss:
             aux_clf_loss = self._compute_aux_clf_loss(fake=fake, y_batch=y_batch)
             lossG += 0.1 * aux_clf_loss
@@ -496,15 +516,15 @@ class BaseGAN():
 
         if remainder != 0:
             if y is not None and not isinstance(y, (int, float, str)):
-                X = self.netG.sample(n=remainder, y=y[:remainder]).detach().numpy()
+                X = self.netG.sample(n=remainder, y=y[:remainder]).detach().cpu().numpy()
             else:
-                X = self.netG.sample(n=remainder, y=y).detach().numpy()
+                X = self.netG.sample(n=remainder, y=y).detach().cpu().numpy()
 
         for i in range(q):
             if y is not None and not isinstance(y, (int, float, str)):
-                X_curr = self.netG.sample(n=1000, y=y[remainder + i * 1000:remainder + (i + 1) * 1000]).detach().numpy()
+                X_curr = self.netG.sample(n=1000, y=y[remainder + i * 1000:remainder + (i + 1) * 1000]).detach().cpu().numpy()
             else:
-                X_curr = self.netG.sample(n=1000, y=y).detach().numpy()
+                X_curr = self.netG.sample(n=1000, y=y).detach().cpu().numpy()
             try:
                 X = np.vstack([X, X_curr])
             except UnboundLocalError:
@@ -860,80 +880,83 @@ class WGANGP(BaseGAN):
         self.gp_with_embs = gp_with_embs
         self.metrics['GP'] = []
         self.metrics['Distance'] = []
+        # Move models to the GPU
+        # self.netG = self.netG.to(self.device)
+        # self.netD = self.netD.to(self.device)
+
+        # Auxiliary networks to GPU if they are used
+        if self.use_aux_classifier_loss and aux_classifier is not None:
+            self.aux_classifier = aux_classifier.to(self.device)
+        if self.use_aux_teacher_loss and aux_teacher is not None:
+            self.aux_teacher = aux_teacher.to(self.device)
+
 
     def _netD_iter(self, X_batch, y_batch=None):
+        X_batch, y_batch = X_batch.to(self.device), (y_batch.to(self.device) if y_batch is not None else None)
+        
         self.netD.zero_grad()
-        # sample fake batch
-        fake = self.netG.sample(self.batch_size, y=y_batch)
-
+        
+        fake = self.netG.sample(self.batch_size, y=y_batch).to(self.device)
         d_real = self.netD(X_batch, y_batch).view(-1)
         d_fake = self.netD(fake, y_batch).view(-1)
-
-        # get gradient penalty
+        
         gradient_penalty = self._calc_gradient_penalty(X_batch, fake, y=y_batch)
-
-        # loss and optimise
+        
         g_loss = d_fake.mean()
         distance = d_real.mean() - g_loss
         d_loss = -distance + (self.gp_weight * gradient_penalty)
         d_loss.backward()
         self.d_optim.step()
-
-        # updates
+        
+        # Store metrics, moving back to CPU as needed
         self.metrics['total_iters'].append(self.total_iters)
-        self.metrics['netD_loss'].append(-d_loss.data.numpy().item())
-        self.metrics['avg_D_real'].append(d_real.data.mean().numpy().item())
-        self.metrics['avg_D_fake'].append(d_fake.data.mean().numpy().item())
-        self.metrics['GP'].append(gradient_penalty.data.numpy().item())
-        self.metrics['Distance'].append(distance.data.numpy().item())
+        self.metrics['netD_loss'].append(-d_loss.detach().cpu().item())
+        self.metrics['avg_D_real'].append(d_real.detach().cpu().mean().item())
+        self.metrics['avg_D_fake'].append(d_fake.detach().cpu().mean().item())
+        self.metrics['GP'].append(gradient_penalty.detach().cpu().item())
+        self.metrics['Distance'].append(distance.detach().cpu().item())       
 
     def _netG_iter(self, X_batch, y_batch=None):
-        # zero gradients
         self.g_optim.zero_grad()
-        # sample fake batch
-        fake = self.netG.sample(self.batch_size, y=y_batch)
+        
+        fake = self.netG.sample(self.batch_size, y=y_batch).to(self.device)
         d_fake = self.netD(fake, y_batch).view(-1)
-        g_loss = - d_fake.mean()
+        g_loss = -d_fake.mean()
 
         if self.use_aux_classifier_loss:
             aux_clf_loss = self._compute_aux_clf_loss(fake=fake, y_batch=y_batch)
-            aux_clf_loss_scaled = aux_clf_loss * (abs(g_loss.detach().item()))
+            aux_clf_loss_scaled = aux_clf_loss * abs(g_loss.detach().item())
             g_loss += 0.1 * aux_clf_loss_scaled
 
         if self.use_aux_teacher_loss:
             aux_teacher_loss = self._compute_aux_teacher_loss(fake=fake, y_batch=y_batch)
-            aux_teacher_loss_scaled = aux_teacher_loss * (abs(g_loss.item()))
+            aux_teacher_loss_scaled = aux_teacher_loss * abs(g_loss.item())
             g_loss += 0.05 * aux_teacher_loss_scaled
 
         g_loss.backward()
         self.g_optim.step()
-
-        # updates
         self.total_gen_iters += 1
         for _ in range(self.d_updates_per_g):
             self.metrics['total_gen_iters'].append(self.total_gen_iters)
-            self.metrics['netG_loss'].append(g_loss.data.item())
+            self.metrics['netG_loss'].append(g_loss.detach().cpu().item())
             if self.use_aux_classifier_loss:
-                self.metrics['aux_clf_loss'].append(aux_clf_loss.item())
+                self.metrics['aux_clf_loss'].append(aux_clf_loss.detach().cpu().item())
             if self.use_aux_teacher_loss:
-                self.metrics['aux_teacher_loss'].append(aux_teacher_loss.item())
-
+                self.metrics['aux_teacher_loss'].append(aux_teacher_loss.detach().cpu().item())
+                
     def _calc_gradient_penalty(self, real_data, fake_data, y=None):
-        # make linear interpolation of real and fake data
-        epsilon = torch.rand(self.batch_size, 1)
+        epsilon = torch.rand(self.batch_size, 1, device=self.device)
         interpolated = epsilon * real_data.data + (1 - epsilon) * fake_data.data
+        interpolated = interpolated.to(self.device)
         interpolated.requires_grad = True
+        
+        d_interpolated = self.netD(interpolated, y.to(self.device) if y is not None else None)
 
-        d_interpolated = self.netD(interpolated, y)
-
-        gradients = torch_grad(outputs=d_interpolated, inputs=interpolated,
-                               grad_outputs=torch.ones(d_interpolated.size()),
-                               create_graph=True, retain_graph=True, only_inputs=True)[0]
-
-        # Derivatives of the gradient close to 0 can cause problems because of
-        # the square root, so manually calculate norm and add epsilon
+        gradients = torch.autograd.grad(outputs=d_interpolated, inputs=interpolated,
+                                        grad_outputs=torch.ones(d_interpolated.size(), device=self.device),
+                                        create_graph=True, retain_graph=True, only_inputs=True)[0]
+        
         gradients_norm = torch.sqrt(torch.sum(gradients ** 2, dim=1) + 1e-12)
-
         return ((gradients_norm - 1) ** 2).mean()
 
     def _print_metrics(self, n_iters, end='\n'):
@@ -1132,6 +1155,9 @@ class Generator(nn.Module):
         self.final_layer = nn.Linear(input_to_final_dim, output_dim)
 
     def forward(self, x, y=None):
+        global device__
+        x = x.to(device__)
+        y = y.to(device__)
         if y is not None:
             # y \in {0,1} > {-1,1}
             y = (y + (y - 1))
@@ -1142,7 +1168,6 @@ class Generator(nn.Module):
         if self.condition:
             # append y to noise if conditioning
             x = torch.cat([x, y], dim=1)
-
         if self.n_cross_layers > 0:
             x0 = x
 

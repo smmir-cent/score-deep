@@ -1,10 +1,17 @@
 from sklearn.ensemble import RandomForestClassifier
 from models import WGANGP
 from helpers import evaluate_model
+import torch
+import time
 
 def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
-    gan = WGANGP(write_to_disk=True, # whether to create an output folder. Plotting will be surpressed if flase
-                compute_metrics_every=1250, print_every=2500, plot_every=10000,
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    print(f"Using device: {device}")    
+    # num_cols = num_cols.to(device)
+    # cat_cols = cat_cols.to(device)
+    # prep = prep.to(device)
+    gan = WGANGP(write_to_disk=False, # whether to create an output folder. Plotting will be surpressed if flase
+                compute_metrics_every=1250, print_every=2500, plot_every=10000000000,
                 num_cols = num_cols, cat_dims=cat_dims,
                 # pass the one hot encoder to the GAN to enable count plots of categorical variables
                 transformer=prep.named_transformers_['cat']['onehotencoder'],
@@ -12,10 +19,11 @@ def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
                 cat_cols=cat_cols,
                 use_aux_classifier_loss=True,
                 d_updates_per_g=3, gp_weight=15)
+    # gan = gan.to(device)
 
     gan.fit(preprocessed_dataset["X_train_trans"], y=preprocessed_dataset["y_train"].values, 
             condition=True,
-            epochs=300,  
+            epochs=10,  
             batch_size=64,
             netG_kwargs = {'hidden_layer_sizes': (128,64), 
                             'n_cross_layers': 1,
@@ -48,6 +56,12 @@ def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
 
 def run_all_cwgan(preprocessed_datasets):
     for ds_name in preprocessed_datasets:
+        start_time = time.time()
         print("############# " + ds_name + " #############")
         run_wgan_pipeline(preprocessed_datasets[ds_name], preprocessed_datasets[ds_name]["num_cols"], preprocessed_datasets[ds_name]["cat_cols"], preprocessed_datasets[ds_name]["cat_dims"], preprocessed_datasets[ds_name]["prep"])
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+
+        # Print the elapsed time
+        print(f"Time taken for {ds_name} dataset: {elapsed_time:.4f} seconds")
 
