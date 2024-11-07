@@ -19,11 +19,15 @@ if __name__ == "__main__":
         X = df.loc[:, num_cols + cat_cols]
         y = df.loc[:, target_col]
         test_size=0.1
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=2020)
+        # Splitting data into training (70%), validation (20%), and test (10%)
+        X_train_full, X_test, y_train_full, y_test = train_test_split(X, y, test_size=0.1, random_state=2020)
+        X_train, X_val, y_train, y_val = train_test_split(X_train_full, y_train_full, test_size=0.2222, random_state=2020)  # 0.2222 to get 20% of the original data        
         cat_dims = get_cat_dims(X_train, cat_cols)
-        X_train_trans, X_test_trans, prep = preprocess_data(X_train, X_test, num_cols, cat_cols)
+        X_train_trans, X_val_trans, X_test_trans, prep = preprocess_data(X_train, X_val, X_test, num_cols, cat_cols)
         preprocessed_datasets[ds_name]["X_train_trans"] = X_train_trans
         preprocessed_datasets[ds_name]["y_train"] = y_train
+        preprocessed_datasets[ds_name]["X_val_trans"] = X_val_trans
+        preprocessed_datasets[ds_name]["y_val"] = y_val        
         preprocessed_datasets[ds_name]["X_test_trans"] = X_test_trans
         preprocessed_datasets[ds_name]["y_test"] = y_test
         preprocessed_datasets[ds_name]["num_cols"] = num_cols
@@ -31,7 +35,7 @@ if __name__ == "__main__":
         preprocessed_datasets[ds_name]["cat_dims"] = cat_dims
         preprocessed_datasets[ds_name]["prep"] = prep
         
-    # run_all(preprocessed_datasets)
-    run_all_cwgan(preprocessed_datasets)
+    run_all(preprocessed_datasets)
+    # run_all_cwgan(preprocessed_datasets)
     
         

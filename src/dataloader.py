@@ -178,10 +178,11 @@ def load_gmsc():
 
     return df, cat_cols, num_cols, target_col
 
-def preprocess_data(X_train, X_test, num_cols, cat_cols):
+def preprocess_data(X_train, X_val, X_test, num_cols, cat_cols):
     num_prep = make_pipeline(SimpleImputer(strategy='mean'), MinMaxScaler())
     cat_prep = make_pipeline(SimpleImputer(strategy='most_frequent'), OneHotEncoder(handle_unknown='ignore', sparse=False))
     prep = ColumnTransformer([('num', num_prep, num_cols), ('cat', cat_prep, cat_cols)], remainder='drop')
     X_train_trans = prep.fit_transform(X_train)
     X_test_trans = prep.transform(X_test)
-    return X_train_trans, X_test_trans, prep
+    X_val_trans = prep.transform(X_val)
+    return X_train_trans, X_val_trans, X_test_trans, prep

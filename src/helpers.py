@@ -26,6 +26,7 @@ from typing import Tuple
 
 import logging
 
+results = []
 
 def make_scores_dict(X_train, y_train, X_test, y_test, clf_list, print_scores=True, bootstrap=True) -> dict:
     metrics_to_use = ['auc', 'brier', 'f1', 'aps', 'acc', 'gmean', 'bacc']
@@ -572,12 +573,12 @@ def evaluate_model(clf, X_test, y_test):
     y_proba = clf.predict_proba(X_test)[:, 1]  # Assuming binary classification for AUC metrics
     
     # Confusion Matrix and Classification Report
-    print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
-    print("\nClassification Report:\n", classification_report(y_test, y_pred))
+    # print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+    # print("\nClassification Report:\n", classification_report(y_test, y_pred))
     
     # F1-Score
     f1 = f1_score(y_test, y_pred)
-    print(f"\nF1-Score: {f1:.4f}")
+    print(f"F1-Score: {f1:.4f}")
     
     # AUC-ROC
     roc_auc = roc_auc_score(y_test, y_proba)
@@ -586,4 +587,39 @@ def evaluate_model(clf, X_test, y_test):
     # AUC-PR
     precision, recall, _ = precision_recall_curve(y_test, y_proba)
     auc_pr = auc(recall, precision)
-    print(f"AUC-PR: {auc_pr:.4f}")
+    print(f"AUC-PR: {auc_pr:.4f}\n")
+    
+    return f1, roc_auc, auc_pr 
+
+def store_results(ds_name, resample_method, clf_type, metric, value):
+    global results
+    results.append({
+        'dataset': ds_name,
+        'resample_method': resample_method,
+        'classifier': clf_type,
+        'metric': metric,
+        'value': value
+    })
+    
+
+def rank_models():
+    import pandas as pd
+    df = pd.DataFrame(results)
+    
+    # Pivot to get metrics as columns
+    pivot_df = df.pivot_table(index=['resample_method', 'classifier'], columns='metric', values='value')
+    
+    # Rank models separately for each metric
+    ranked_f1 = pivot_df['F1-Score'].rank(ascending=False).sort_values()
+    ranked_auc_roc = pivot_df['AUC-ROC'].rank(ascending=False).sort_values()
+    ranked_auc_pr = pivot_df['AUC-PR'].rank(ascending=False).sort_values()
+
+    # Display rankings for each metric
+    print("Model Rankings by F1-Score:")
+    print(ranked_f1, "\n")
+    
+    print("Model Rankings by AUC-ROC:")
+    print(ranked_auc_roc, "\n")
+    
+    print("Model Rankings by AUC-PR:")
+    print(ranked_auc_pr, "\n")
