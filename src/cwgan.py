@@ -1,6 +1,6 @@
 from sklearn.ensemble import RandomForestClassifier
 from models import WGANGP
-from helpers import evaluate_model
+from helpers import evaluate_model, store_results
 
 def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
     gan = WGANGP(write_to_disk=True, # whether to create an output folder. Plotting will be surpressed if flase
@@ -42,12 +42,15 @@ def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
                                 random_state=2020, n_jobs=2)
 
     clf.fit(X_res, y_res)
-    evaluate_model(clf, preprocessed_dataset["X_test_trans"], preprocessed_dataset["y_test"])
-
-    return
+    return evaluate_model(clf, preprocessed_dataset["X_test_trans"], preprocessed_dataset["y_test"])
 
 def run_all_cwgan(preprocessed_datasets):
     for ds_name in preprocessed_datasets:
         print("############# " + ds_name + " #############")
-        run_wgan_pipeline(preprocessed_datasets[ds_name], preprocessed_datasets[ds_name]["num_cols"], preprocessed_datasets[ds_name]["cat_cols"], preprocessed_datasets[ds_name]["cat_dims"], preprocessed_datasets[ds_name]["prep"])
+        
+        f1, roc_auc, auc_pr = run_wgan_pipeline(preprocessed_datasets[ds_name], preprocessed_datasets[ds_name]["num_cols"], preprocessed_datasets[ds_name]["cat_cols"], preprocessed_datasets[ds_name]["cat_dims"], preprocessed_datasets[ds_name]["prep"])
+        store_results(ds_name, "cwgan", "Random forest", 'F1-Score', f1)
+        store_results(ds_name, "cwgan", "Random forest", 'AUC-ROC', roc_auc)
+        store_results(ds_name, "cwgan", "Random forest", 'AUC-PR', auc_pr)
+        
 

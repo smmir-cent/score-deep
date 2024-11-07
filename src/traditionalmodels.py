@@ -3,7 +3,7 @@ from imblearn.under_sampling import (RandomUnderSampler, NearMiss, EditedNearest
 from imblearn.combine import (SMOTEENN, SMOTETomek)
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 
-from helpers import evaluate_model, store_results, rank_models
+from helpers import evaluate_model, store_results
 import numpy
 
 resampling_methods = {
@@ -58,8 +58,4 @@ def run_all(preprocessed_datasets):
                 store_results(ds_name, resample_method, clf_type, 'F1-Score', f1)
                 store_results(ds_name, resample_method, clf_type, 'AUC-ROC', roc_auc)
                 store_results(ds_name, resample_method, clf_type, 'AUC-PR', auc_pr)
-            #     break
-            # break
-        rank_models()
-        break
 

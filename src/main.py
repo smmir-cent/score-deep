@@ -4,7 +4,7 @@ logging.getLogger().setLevel(logging.DEBUG)
 
 from dataloader import load_data, preprocess_data
 from traditionalmodels import run_all
-from helpers import get_cat_dims
+from helpers import get_cat_dims, rank_models
 from cwgan import run_all_cwgan
 
 if __name__ == "__main__":
@@ -37,5 +37,6 @@ if __name__ == "__main__":
         
     run_all(preprocessed_datasets)
     # run_all_cwgan(preprocessed_datasets)
+    rank_models()
     
         
