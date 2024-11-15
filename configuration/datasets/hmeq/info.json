@@ -1,0 +1,34 @@
+{
+    "name": "HMEQ Loan Risk",
+    "id": "hmeq--default",
+    "task_type": "binclass",
+    "n_num_features": 10,
+    "n_cat_features": 2,
+    "test_size": 673,
+    "train_size": 2018,
+    "val_size": 673,
+    "dataset_config": {
+        "cat_columns": [
+            "REASON",
+            "JOB"
+        ],
+        "non_cat_columns": [],
+        "log_columns": [],
+        "general_columns": [],
+        "mixed_columns": {},
+        "int_columns": [
+            "LOAN",
+            "MORTDUE",
+            "VALUE",
+            "YOJ",
+            "DEROG",
+            "DELINQ",
+            "CLAGE",
+            "NINQ",
+            "CLNO",
+            "DEBTINC"
+        ],
+        "problem_type": "binclass",
+        "target_column": "BAD"
+    }
+}

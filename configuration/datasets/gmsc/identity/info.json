@@ -1,0 +1,10 @@
+{
+    "name": "give me some credit-identity",
+    "id": "identity--default",
+    "task_type": "binclass",
+    "n_num_features": 10,
+    "n_cat_features": 0,
+    "test_size": 30000,
+    "val_size": 30000,
+    "train_size": 90000
+}

@@ -1,0 +1,10 @@
+{
+    "name": "hmeq loan risk-identity",
+    "id": "identity--default",
+    "task_type": "binclass",
+    "n_num_features": 10,
+    "n_cat_features": 2,
+    "test_size": 1192,
+    "val_size": 1192,
+    "train_size": 3576
+}

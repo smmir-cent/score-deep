@@ -1,0 +1,10 @@
+{
+    "name": "taiwan default of credit card clients-identity",
+    "id": "identity--default",
+    "task_type": "binclass",
+    "n_num_features": 14,
+    "n_cat_features": 9,
+    "test_size": 6000,
+    "val_size": 6000,
+    "train_size": 18000
+}

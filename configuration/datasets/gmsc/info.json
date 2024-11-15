@@ -1,0 +1,31 @@
+{
+    "name": "Give Me Some Credit",
+    "id": "gmsc--default",
+    "task_type": "binclass",
+    "n_num_features": 10,
+    "n_cat_features": 0,
+    "test_size": 24054,
+    "train_size": 72161,
+    "val_size": 24054,
+    "dataset_config": {
+        "cat_columns": [],
+        "non_cat_columns": [],
+        "log_columns": [],
+        "general_columns": [],
+        "mixed_columns": {},
+        "int_columns": [
+            "RevolvingUtilizationOfUnsecuredLines",
+            "age",
+            "NumberOfTime30-59DaysPastDueNotWorse",
+            "DebtRatio",
+            "MonthlyIncome",
+            "NumberOfOpenCreditLinesAndLoans",
+            "NumberOfTimes90DaysLate",
+            "NumberRealEstateLoansOrLines",
+            "NumberOfTime60-89DaysPastDueNotWorse",
+            "NumberOfDependents"
+        ],
+        "problem_type": "binclass",
+        "target_column": "SeriousDlqin2yrs"
+    }
+}

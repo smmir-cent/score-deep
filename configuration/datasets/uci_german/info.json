@@ -1,0 +1,42 @@
+{
+    "name": "German Credit",
+    "id": "german--default",
+    "task_type": "binclass",
+    "n_num_features": 7,
+    "n_cat_features": 13,
+    "test_size": 100,
+    "train_size": 700,
+    "val_size": 200,
+    "dataset_config": {
+        "cat_columns": [
+            "Status_checking_account",
+            "Credit_history",
+            "Purpose",
+            "Savings_account_bonds",
+            "Present_employment_since",
+            "Personal_status_sex",
+            "Other_debtors_guarantors",
+            "Property",
+            "Other_instalment_plans",
+            "Housing",
+            "Job",
+            "Telephone",
+            "Foreign_worker"
+        ],
+        "non_cat_columns": [],
+        "log_columns": [],
+        "general_columns": [],
+        "mixed_columns": {},
+        "int_columns": [
+            "Duration_months",
+            "Credit_amount",
+            "Instalment_rate_percent_of_income",
+            "Present_residence_since",
+            "Age_years",
+            "Number_of_existing_credits",
+            "Dependants"
+        ],
+        "problem_type": "binclass",
+        "target_column": "Status_loan"
+    }
+}

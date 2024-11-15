@@ -1,0 +1,10 @@
+{
+    "name": "pakdd credit risk-identity",
+    "id": "identity--default",
+    "task_type": "binclass",
+    "n_num_features": 8,
+    "n_cat_features": 28,
+    "test_size": 3454,
+    "val_size": 3454,
+    "train_size": 10359
+}

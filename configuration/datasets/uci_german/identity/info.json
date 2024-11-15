@@ -1,0 +1,10 @@
+{
+    "name": "german credit-identity",
+    "id": "identity--default",
+    "task_type": "binclass",
+    "n_num_features": 7,
+    "n_cat_features": 13,
+    "test_size": 200,
+    "val_size": 200,
+    "train_size": 600
+}
