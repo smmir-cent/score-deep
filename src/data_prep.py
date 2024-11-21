@@ -1,12 +1,12 @@
 import os
 import numpy as np
 import pandas as pd
-from ucimlrepo import fetch_ucirepo
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import make_pipeline
+import dataloader
 
 def save_data(data_dir, X_num, X_cat, y, split_name):
     """Save numerical, categorical, and target arrays to .npy files."""
@@ -15,29 +15,64 @@ def save_data(data_dir, X_num, X_cat, y, split_name):
     np.save(os.path.join(data_dir, f'X_cat_{split_name}.npy'), X_cat)
     np.save(os.path.join(data_dir, f'y_{split_name}.npy'), y)
 
+
+def pr_data(X_train, X_val, X_test, num_cols, cat_cols):
+    """Preprocess numerical and categorical data and split them separately."""
+    num_prep = make_pipeline(
+        SimpleImputer(strategy='most_frequent'),
+        # MinMaxScaler()
+    )
+    cat_prep = make_pipeline(
+        SimpleImputer(strategy='most_frequent'),
+        # OneHotEncoder(handle_unknown='ignore', sparse=False)
+    )
+    prep = ColumnTransformer(
+        [('num', num_prep, num_cols), ('cat', cat_prep, cat_cols)],
+        remainder='drop'
+    )
+    X_train_trans = prep.fit_transform(X_train)
+    X_val_trans = prep.transform(X_val)
+    X_test_trans = prep.transform(X_test)
+    
+    num_cols_transformed = [i for i, col in enumerate(num_cols)]
+    cat_cols_transformed = [i + len(num_cols) for i, col in enumerate(cat_cols)]
+
+    X_num_train = X_train_trans[:, num_cols_transformed]
+    X_cat_train = X_train_trans[:, cat_cols_transformed]
+    X_num_val = X_val_trans[:, num_cols_transformed]
+    X_cat_val = X_val_trans[:, cat_cols_transformed]
+    X_num_test = X_test_trans[:, num_cols_transformed]
+    X_cat_test = X_test_trans[:, cat_cols_transformed]
+
+    return (
+        X_num_train.astype(np.int64), 
+        X_cat_train, 
+        X_num_val.astype(np.int64), 
+        X_cat_val, 
+        X_num_test.astype(np.int64), 
+        X_cat_test, 
+        prep
+    )
+    # return X_num_train, X_cat_train, X_num_val, X_cat_val, X_num_test, X_cat_test, prep
+
 def preprocess_data(X, y, num_cols, cat_cols, data_dir):
     """Preprocess and save dataset splits as .npy files."""
     # Split data
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.25, random_state=42)
-
-    # Separate numerical and categorical columns
-    X_num_train = X_train[num_cols].values
-    X_num_val = X_val[num_cols].values
-    X_num_test = X_test[num_cols].values
-    print(X_num_train.shape)
-    print(X_num_val.shape)
-    print(X_num_test.shape)
-
-    X_cat_train = X_train[cat_cols].values
-    X_cat_val = X_val[cat_cols].values
-    X_cat_test = X_test[cat_cols].values
+    X_num_train, X_cat_train, X_num_val, X_cat_val, X_num_test, X_cat_test, prep = pr_data(
+        X_train, X_val, X_test, num_cols, cat_cols
+    )
 
     # Encode target variable if needed
     label_encoder = LabelEncoder()
     y_train = label_encoder.fit_transform(y_train).reshape(-1,)
     y_val = label_encoder.transform(y_val).reshape(-1,)
     y_test = label_encoder.transform(y_test).reshape(-1,)
+
+    print("train set: ", X_num_train.shape, X_cat_train.shape, y_train.shape)
+    print("val set: ", X_num_val.shape, X_cat_val.shape, y_val.shape)
+    print("test set: ", X_num_test.shape, X_cat_test.shape, y_test.shape)
 
     # Save all splits
     save_data(data_dir, X_num_train, X_cat_train, y_train, 'train')
@@ -63,7 +98,7 @@ def load_german_data():
     # Load dataset
     df = pd.read_csv('data/raw/uci_german/german.data', sep=' ', header=None, index_col=False, names=col_names,
                      dtype={col: 'category' for col in cat_cols})
-
+            
     df[target_col] = df[target_col] - 1  # Adjust target labels if necessary
 
     X = df.loc[:, num_cols + cat_cols]
@@ -97,9 +132,6 @@ def load_pakdd_data():
 
     num_cols = ['PERSONAL_MONTHLY_INCOME', 'OTHER_INCOMES', 'PERSONAL_ASSETS_VALUE', 'AGE', 'MONTHS_IN_RESIDENCE',
                 'QUANT_DEPENDANTS', 'QUANT_CARS', 'MONTHS_IN_THE_JOB']
-    print(len(num_cols))
-    print(len(cat_cols))
-    print(len(columns))
 
     target_col = 'TARGET_BAD'
 
@@ -112,9 +144,6 @@ def load_pakdd_data():
                      index_col='ID_CLIENT', encoding='unicode_escape',
                      header=None, names=columns, low_memory=False, 
                      dtype={col: 'category' for col in cat_cols}).drop(drop_cols, axis=1)
-    print(df)
-    df = df.dropna()
-    print(df)
     
     X = df.loc[:, num_cols + cat_cols]
     y = df[target_col]
@@ -135,18 +164,15 @@ def load_taiwan():
     # Read the dataset
     df = pd.read_excel(path, index_col=0)
     
-    # Ensure categorical columns are strings
     for col in cat_cols:
         if col in df.columns:
-            df[col] = df[col].astype(str)
+            df[col] = df[col].astype('category')
+            # Map each categorical value to a unique string like "cat_1", "cat_2", ...
+            unique_values = df[col].cat.categories
+            mapping = {val: f"cat_{i+1}" for i, val in enumerate(unique_values)}
+            df[col] = df[col].map(mapping).astype('category')
         else:
             print(f"Warning: Column {col} not found in the dataset.")
-    
-    # Drop rows with missing values
-    df = df.dropna()
-
-    print(df)
-
     # Select features and target
     X = df.loc[:, num_cols + cat_cols]
     y = df[target_col]
@@ -166,10 +192,6 @@ def load_hmeq_data():
     # Load dataset with specified column types
     df = pd.read_csv(path, sep=',', index_col=False,
                      dtype={col: 'category' for col in cat_cols})
-    print("Initial data:\n", df)
-
-    # Drop rows with any NaN values
-    df = df.dropna()
 
     # Separate features and target
     X = df.loc[:, num_cols + cat_cols]
@@ -185,22 +207,27 @@ def load_gmsc_data():
     target_col = 'SeriousDlqin2yrs'
 
     df = pd.read_csv(path, sep=',', index_col=0,
-                     dtype={col: 'category' for col in cat_cols})
-    print(df)
-    df = df.dropna()
-    print(df)    
+                     dtype={col: 'category' for col in cat_cols})  
 
     num_cols = [c for c in df.columns if c != target_col]
     X = df.loc[:, num_cols + cat_cols]
     y = df[target_col]
-    print(y)
-    print(y.shape)
 
     # Preprocess and save
     preprocess_data(X, y, num_cols, cat_cols, 'configuration/datasets/gmsc')
 
-load_german_data()
-load_pakdd_data()
-load_hmeq_data()
-load_taiwan()
-load_gmsc_data()
+def main():
+    print("german_data dataset preparation")
+    load_german_data()
+    print("pakdd_data dataset preparation")
+    load_pakdd_data()
+    print("hmeq_data dataset preparation")
+    load_hmeq_data()
+    print("taiwan dataset preparation")
+    load_taiwan()
+    print("gmsc_data dataset preparation")
+    load_gmsc_data()
+    
+
+if __name__ == "__main__":
+    main()

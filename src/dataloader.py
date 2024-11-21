@@ -7,13 +7,150 @@ from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 
 datasets_path = ""
+datasets_info = {
+    "uci_german": {
+        "cat_cols": [
+            "Status_checking_account",
+            "Credit_history",
+            "Purpose",
+            "Savings_account_bonds",
+            "Present_employment_since",
+            "Personal_status_sex",
+            "Other_debtors_guarantors",
+            "Property",
+            "Other_instalment_plans",
+            "Housing",
+            "Job",
+            "Telephone",
+            "Foreign_worker"
+        ],
+        "num_cols": [
+            "Duration_months",
+            "Credit_amount",
+            "Instalment_rate_percent_of_income",
+            "Present_residence_since",
+            "Age_years",
+            "Number_of_existing_credits",
+            "Dependants"
+        ],
+        "target_col": "Status_loan"
+    },
+    "uci_taiwan": {
+        "cat_cols": [
+            "SEX",
+            "EDUCATION",
+            "MARRIAGE",
+            "PAY_0",
+            "PAY_2",
+            "PAY_3",
+            "PAY_4",
+            "PAY_5",
+            "PAY_6"
+        ],
+        "num_cols": [
+            "LIMIT_BAL",
+            "AGE",
+            "BILL_AMT1",
+            "BILL_AMT2",
+            "BILL_AMT3",
+            "BILL_AMT4",
+            "BILL_AMT5",
+            "BILL_AMT6",
+            "PAY_AMT1",
+            "PAY_AMT2",
+            "PAY_AMT3",
+            "PAY_AMT4",
+            "PAY_AMT5",
+            "PAY_AMT6"
+        ],
+        "target_col": "default payment next month"
+    },
+    "pakdd": {
+        "cat_cols": [
+            "PAYMENT_DAY",
+            "APPLICATION_SUBMISSION_TYPE",
+            "POSTAL_ADDRESS_TYPE",
+            "SEX",
+            "MARITAL_STATUS",
+            "STATE_OF_BIRTH",
+            "NACIONALITY",
+            "RESIDENCIAL_STATE",
+            "FLAG_RESIDENCIAL_PHONE",
+            "RESIDENCIAL_PHONE_AREA_CODE",
+            "RESIDENCE_TYPE",
+            "FLAG_EMAIL",
+            "FLAG_VISA",
+            "FLAG_MASTERCARD",
+            "FLAG_DINERS",
+            "FLAG_AMERICAN_EXPRESS",
+            "FLAG_OTHER_CARDS",
+            "QUANT_BANKING_ACCOUNTS",
+            "QUANT_SPECIAL_BANKING_ACCOUNTS",
+            "COMPANY",
+            "PROFESSIONAL_STATE",
+            "FLAG_PROFESSIONAL_PHONE",
+            "PROFESSIONAL_PHONE_AREA_CODE",
+            "PROFESSION_CODE",
+            "OCCUPATION_TYPE",
+            "MATE_PROFESSION_CODE",
+            "MATE_EDUCATION_LEVEL",
+            "PRODUCT"
+        ],
+        "num_cols": [
+            "PERSONAL_MONTHLY_INCOME",
+            "OTHER_INCOMES",
+            "PERSONAL_ASSETS_VALUE",
+            "AGE",
+            "MONTHS_IN_RESIDENCE",
+            "QUANT_DEPENDANTS",
+            "QUANT_CARS",
+            "MONTHS_IN_THE_JOB"
+        ],
+        "target_col": "TARGET_BAD"
+    },
+    "hmeq": {
+        "cat_cols": [
+            "REASON",
+            "JOB"
+        ],
+        "num_cols": [
+            "LOAN",
+            "MORTDUE",
+            "VALUE",
+            "YOJ",
+            "DEROG",
+            "DELINQ",
+            "CLAGE",
+            "NINQ",
+            "CLNO",
+            "DEBTINC"
+        ],
+        "target_col": "BAD"
+    },
+    "gmsc": {
+        "cat_cols": [],
+        "num_cols": [
+            "RevolvingUtilizationOfUnsecuredLines",
+            "age",
+            "NumberOfTime30-59DaysPastDueNotWorse",
+            "DebtRatio",
+            "MonthlyIncome",
+            "NumberOfOpenCreditLinesAndLoans",
+            "NumberOfTimes90DaysLate",
+            "NumberRealEstateLoansOrLines",
+            "NumberOfTime60-89DaysPastDueNotWorse",
+            "NumberOfDependents"
+        ],
+        "target_col": "SeriousDlqin2yrs"
+    }
+}
 
 def get_datasets(names_only: bool = False):
     DATASET_DICT = {
-        'german': load_german,
-        'taiwan': load_taiwan,
+        'uci_german': load_german,
+        'uci_taiwan': load_taiwan,
         'pakdd': load_pakdd,
-        'homeeq': load_homeeq,
+        'hmeq': load_homeeq,
         'gmsc': load_gmsc,
     }
 
@@ -22,7 +159,10 @@ def get_datasets(names_only: bool = False):
     else:
         return DATASET_DICT
 
-
+def get_datasets_nums_cat(ds_name):
+    global datasets_info
+    return datasets_info[ds_name]
+    
 def load_data(dataset: str, ds_path: str):
     global datasets_path
     datasets_path = ds_path
@@ -43,6 +183,13 @@ def load_data(dataset: str, ds_path: str):
 
     logging.info(f'Dataloader: Loaded dataset: {dataset}. Returning data.')
 
+    # datasets_info[dataset] = {}
+    # datasets_info[dataset]["cat_cols"] = cat_cols
+    # datasets_info[dataset]["num_cols"] = num_cols
+    # datasets_info[dataset]["target_col"] = target_col
+    # if dataset == "gmsc":
+    #     import json
+    #     print(json.dumps(datasets_info, indent=4))
     return df, cat_cols, num_cols, target_col
 
 
@@ -129,16 +276,21 @@ def load_taiwan():
     path = datasets_path + 'uci_taiwan/default of credit card clients.xls'
 
     cat_cols = ['SEX', 'EDUCATION', 'MARRIAGE', 'PAY_0', 'PAY_2', 'PAY_3', 'PAY_4', 'PAY_5', 'PAY_6']
-
     target_col = 'default payment next month'
 
     df = pd.read_excel(path, index_col=0)
-    # df = pd.read_excel(path, index_col=0, dtype={col: 'category' for col in cat_cols})
+    
     for col in cat_cols:
         if col in df.columns:
             df[col] = df[col].astype('category')
+            # Map each categorical value to a unique string like "cat_1", "cat_2", ...
+            unique_values = df[col].cat.categories
+            mapping = {val: f"cat_{i+1}" for i, val in enumerate(unique_values)}
+            df[col] = df[col].map(mapping).astype('category')
         else:
             print(f"Warning: Column {col} not found in the dataset.")
+    print(df) 
+
     num_cols = [c for c in df.columns if c not in cat_cols and c != target_col]
 
     return df, cat_cols, num_cols, target_col

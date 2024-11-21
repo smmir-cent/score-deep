@@ -1,7 +1,7 @@
 ''' This have not been changed despite some comments and documentation.'''
 import numpy as np
 import os
-import lib
+import lib_tab
 from tab_ddpm.modules import MLPDiffusion, ResNetDiffusion
 from inspect import currentframe, getframeinfo
 
@@ -67,12 +67,12 @@ def concat_y_to_X(X, y):
 
 def make_dataset(
     data_path: str,
-    T: lib.Transformations,
+    T: lib_tab.Transformations,
     num_classes: int,
     is_y_cond: bool,
     change_val: bool,
     skip_splits: list = []
-) -> lib.Dataset:
+) -> lib_tab.Dataset:
     """
     Reads and transforms the dataset from the given path, applies the provided
     transformations, and returns a `lib.Dataset` object.
@@ -105,7 +105,7 @@ def make_dataset(
         y = {} 
 
         for split in ['train', 'val', 'test']:
-            X_num_t, X_cat_t, y_t = lib.read_pure_data(data_path, split)
+            X_num_t, X_cat_t, y_t = lib_tab.read_pure_data(data_path, split)
             if X_num is not None:
                 X_num[split] = X_num_t
             if not is_y_cond:
@@ -120,7 +120,7 @@ def make_dataset(
         y = {}
 
         for split in ['train', 'val', 'test']:
-            X_num_t, X_cat_t, y_t = lib.read_pure_data(data_path, split)
+            X_num_t, X_cat_t, y_t = lib_tab.read_pure_data(data_path, split)
             if not is_y_cond:
                 X_num_t = concat_y_to_X(X_num_t, y_t)
             if X_num is not None:
@@ -129,17 +129,17 @@ def make_dataset(
                 X_cat[split] = X_cat_t
             y[split] = y_t
 
-    info = lib.load_json(os.path.join(data_path, 'info.json'))
+    info = lib_tab.load_json(os.path.join(data_path, 'info.json'))
 
-    D = lib.Dataset(
+    D = lib_tab.Dataset(
         X_num,
         X_cat,
         y,
         y_info={},
-        task_type=lib.TaskType(info['task_type']),
+        task_type=lib_tab.TaskType(info['task_type']),
         n_classes=info.get('n_classes')
     )
 
     if change_val:
-        D = lib.change_val(D)
-    return lib.transform_dataset(D, T, None, skip_splits=skip_splits)
+        D = lib_tab.change_val(D)
+    return lib_tab.transform_dataset(D, T, None, skip_splits=skip_splits)

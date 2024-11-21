@@ -5,7 +5,7 @@ import numpy as np
 import zero
 from tab_ddpm import GaussianMultinomialDiffusion
 from utils_train import get_model, make_dataset, update_ema
-import lib
+import lib_tab
 import pandas as pd
 # from azureml.core import Run
 from tabular_processing.tabular_data_controller import TabularDataController
@@ -204,7 +204,7 @@ def train(
 
 
     # Set up dataset and model
-    T = lib.Transformations(**T_dict)  
+    T = lib_tab.Transformations(**T_dict)  
     dataset = make_dataset(
         real_data_path,
         T,
@@ -235,7 +235,7 @@ def train(
 
     # Prepare data loader
     # train_loader = lib.prepare_beton_loader(dataset, split='train', batch_size=batch_size)
-    train_loader = lib.prepare_fast_dataloader(dataset, split='train', batch_size=batch_size)
+    train_loader = lib_tab.prepare_fast_dataloader(dataset, split='train', batch_size=batch_size)
 
     # Set up diffusion model
     diffusion = GaussianMultinomialDiffusion(

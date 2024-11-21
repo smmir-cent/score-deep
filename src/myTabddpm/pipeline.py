@@ -10,7 +10,7 @@ from sample import sample
 import pandas as pd
 import matplotlib.pyplot as plt
 import zero
-import lib
+import lib_tab
 import torch
 
 def load_config(path) :
@@ -34,7 +34,7 @@ def main():
     parser.add_argument('--change_val', action='store_true',  default=False)
 
     args = parser.parse_args()
-    raw_config = lib.load_config(args.config)
+    raw_config = lib_tab.load_config(args.config)
     if 'device' in raw_config:
         device = torch.device(raw_config['device'])
     else:

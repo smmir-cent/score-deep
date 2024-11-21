@@ -611,71 +611,17 @@ def store_results(ds_name, resample_method, clf_type, metric, value):
 def rank_models():
     # Create a DataFrame from the results
     df = pd.DataFrame(results)
+    print(df)
 
     # Pivot to get metrics as columns and group by dataset and resample_method
     pivot_df = df.pivot_table(index=['dataset', 'resample_method', 'classifier'], columns='metric', values='value')
+    print(pivot_df)
+    print(" =============> Sorted by AUC-PR:")
+    print(pivot_df.sort_values(by='AUC-PR', ascending=False))
 
-    # Dictionary to store the rankings and comparisons
-    rankings = {
-        'F1-Score': {},
-        'AUC-ROC': {},
-        'AUC-PR': {}
-    }
-    pairwise_results = {}
+    print("\n =============> Sorted by AUC-ROC:")
+    print(pivot_df.sort_values(by='AUC-ROC', ascending=False))
 
-    # Rank models within each dataset and resampling method for each metric
-    for (dataset, resample_method), group_df in pivot_df.groupby(level=['dataset', 'resample_method']):
-        for metric in ['F1-Score', 'AUC-ROC', 'AUC-PR']:
-            if metric in group_df:
-                # Rank the models for the metric
-                ranked_metric = group_df[metric].rank(ascending=False)
-                rankings[metric][(dataset, resample_method)] = ranked_metric
-                
-                # Find the best model (highest rank)
-                best_model = ranked_metric.idxmin()
-                best_score = group_df.loc[best_model, metric]
-
-                # Pairwise comparison against the best model
-                pairwise_results[(dataset, resample_method, metric)] = {}
-                for other_model in group_df.index:
-                    if other_model != best_model:
-                        score_other = group_df.loc[other_model, metric]
-                        _, p_value = wilcoxon([best_score], [score_other])
-                        pairwise_results[(dataset, resample_method, metric)][(best_model, other_model)] = p_value
-
-    # Print rankings and pairwise comparisons
-    for metric, ranking_data in rankings.items():
-        print(f"\nRankings for {metric}:")
-        for (dataset, resample_method), ranked_data in ranking_data.items():
-            print(f"Dataset: {dataset}, Resample Method: {resample_method}")
-            print(ranked_data.sort_values(), "\n")
-
-    for (dataset, resample_method, metric), comparisons in pairwise_results.items():
-        print(f"\nPairwise comparisons for {metric} (Dataset: {dataset}, Resample Method: {resample_method}):")
-        for (best_model, other_model), p_value in comparisons.items():
-            print(f"  {best_model} vs {other_model} - p-value: {p_value}")
-
-    # Combine all rankings for statistical testing with Friedman and Nemenyi test
-    for metric in ['F1-Score', 'AUC-ROC', 'AUC-PR']:
-        print(f"\nStatistical Test for {metric} across classifiers:")
-        scores = []
-        groups = []
-        
-        # Collect scores by classifier across datasets and resampling methods for the metric
-        for (dataset, resample_method), group_df in pivot_df.groupby(level=['dataset', 'resample_method']):
-            if metric in group_df:
-                scores.append(group_df[metric].values)
-                groups.append(f"{dataset}-{resample_method}")
-        
-        # Perform Friedman test if we have enough data
-        if len(scores) > 1:
-            friedman_stat, p_value = friedmanchisquare(*scores)
-            print(f"Friedman test statistic: {friedman_stat}, p-value: {p_value}")
-            
-            # Apply Nemenyi test if the Friedman test is significant
-            if p_value < 0.05:
-                print("\nSignificant differences found with Friedman test; performing Nemenyi post hoc test...")
-                # Code for Nemenyi test would go here if implemented (requires specialized libraries)
-        else:
-            print("Not enough data for Friedman test.")
-        
+    print("\n =============> Sorted by F1-Score:")
+    print(pivot_df.sort_values(by='F1-Score', ascending=False))
+    

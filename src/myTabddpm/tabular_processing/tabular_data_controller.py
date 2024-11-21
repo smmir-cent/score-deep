@@ -9,7 +9,7 @@ from .ft_processor import FTProcessor
 from pathlib import Path
 from typing import Tuple, Union
 from enum import Enum
-import  lib
+import lib_tab
 import pickle
 import numpy as np
 
@@ -408,7 +408,7 @@ class TabularDataController:
         # taken and extended from utils_train.py
         if self.num_classes > 0:
             for split in splits:
-                X_num_t, X_cat_t, y_t = lib.read_pure_data(self.data_path, split)
+                X_num_t, X_cat_t, y_t = lib_tab.read_pure_data(self.data_path, split)
                 if self.x_num is not None:
                     self.x_num[split] = X_num_t
                 # if not self.is_y_cond:
@@ -419,7 +419,7 @@ class TabularDataController:
         else:
         # regression
             for split in splits:
-                x_num_t, x_cat_t, y_t = lib.read_pure_data(self.data_path, split)
+                x_num_t, x_cat_t, y_t = lib_tab.read_pure_data(self.data_path, split)
                 # if not self.is_y_cond:
                 #     x_num_t = concat_y_to_X(x_num_t, y_t)
                 if self.x_num is not None:

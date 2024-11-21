@@ -6,8 +6,8 @@ from tab_ddpm.gaussian_multinomial_diffsuion import GaussianMultinomialDiffusion
 from tab_ddpm.utils import FoundNANsError
 from tabular_processing.tabular_data_controller import TabularDataController
 from utils_train import get_model, make_dataset
-from lib import round_columns
-import lib
+from lib_tab import round_columns
+import lib_tab
 
 def to_good_ohe(ohe, X):
     indices = np.cumsum([0] + ohe._n_features_outs)
@@ -103,7 +103,7 @@ def sample(
         real_data_path = os.path.join(real_data_path, processor_type)
 
     # create dataset and load transformations
-    T = lib.Transformations(**T_dict)
+    T = lib_tab.Transformations(**T_dict)
     D = make_dataset(
         real_data_path,
         T,
