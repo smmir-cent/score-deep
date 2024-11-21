@@ -38,11 +38,6 @@ def merge_and_preprocess_training_set(original_dir, generated_dir, output_dir, n
         df_orig[col] = X_cat_orig[:, i]
     df_orig[target_col] = y_orig
 
-    print("==================> merge_and_preprocess_training_set (df_orig)")
-    print(f"DataFrame size: {df_orig.shape}")
-    print(f"Label counts in '{target_col}':\n{df_orig[target_col].value_counts()}")
-    print("merge_and_preprocess_training_set <==================")
-
     # Load generated training data
     X_num_gen = np.load(f"{generated_dir}/X_num_{suffix}.npy", allow_pickle=True)
     if len(cat_cols) != 0:
@@ -53,18 +48,9 @@ def merge_and_preprocess_training_set(original_dir, generated_dir, output_dir, n
     for i, col in enumerate(cat_cols):
         df_gen[col] = X_cat_gen[:, i]
     df_gen[target_col] = y_gen
-    
-    print("==================> merge_and_preprocess_training_set (df_gen)")
-    print(f"DataFrame size: {df_gen.shape}")
-    print(f"Label counts in '{target_col}':\n{df_gen[target_col].value_counts()}")
-    print("merge_and_preprocess_training_set <==================")
 
     # Combine original and generated datasets
     df_combined = pd.concat([df_orig, df_gen], axis=0).reset_index(drop=True)
-    print("==================> merge_and_preprocess_training_set (df_combined)")
-    print(f"DataFrame size: {df_combined.shape}")
-    print(f"Label counts in '{target_col}':\n{df_combined[target_col].value_counts()}")
-    print("merge_and_preprocess_training_set <==================")
     # Separate features and target
     X_combined = df_combined[num_cols + cat_cols]
     y_combined = df_combined[target_col].to_numpy()
@@ -83,6 +69,14 @@ def merge_and_preprocess_training_set(original_dir, generated_dir, output_dir, n
     np.save(f"{output_dir}/y_train.npy", y_train)
     np.save(f"{output_dir}/y_val.npy", y_val)
     np.save(f"{output_dir}/y_test.npy", y_test)
+
+    log_message = (
+        f"[VALIDATION] Data merged successfully:\n"
+        f"- Original data: {df_orig.shape}, Labels: {df_orig[target_col].value_counts().to_dict()}\n"
+        f"- Generated data: {df_gen.shape}, Labels: {df_gen[target_col].value_counts().to_dict()}\n"
+        f"- Combined data: {df_combined.shape}, Labels: {df_combined[target_col].value_counts().to_dict()}"
+    )
+    print(log_message)
 
     print(f"Training set merged, preprocessed, and saved in {output_dir}.")
     return X_train_trans, y_train, X_val_trans, y_val, X_test_trans, y_test

@@ -283,7 +283,6 @@ def cat_encode(
         y_train = None
 
     # Step 1. Map strings to 0-based ranges
-    print(X)
 
     if encoding is None:
         unknown_value = np.iinfo('int64').max - 3
@@ -427,11 +426,6 @@ def transform_dataset(
         tmp={}
         for split in skip_splits:
             tmp[split]=X_cat.pop(split)
-        # print(type(X_cat['train']))
-        # print(len(X_cat['train']))
-        # print(X_cat['train'].size)
-        # cat_exist = X_cat['train'].size != 0
-        # if cat_exist:
         X_cat, is_num, cat_transform = cat_encode(
             X_cat,
             transformations.cat_encoding,

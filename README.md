@@ -14,33 +14,10 @@
 ### Custom TabDDPM Implementation
 Run the following commands to execute the pipeline for different datasets:
 
-#### Dataset preparation
+#### Dataset preparation and TabDDPM sampling
 ```
-python src/data_prep.py
-```
-
-#### UCI German Dataset
-```
-python src/myTabddpm/pipeline.py --config configuration/datasets/uci_german/config.toml --train --sample
+python src/sampling_tabddpm.py
 ```
 
-#### HMEQ Dataset
-```
-python src/myTabddpm/pipeline.py --config configuration/datasets/hmeq/config.toml --train --sample
-```
 
-#### GMSC Dataset
-```
-python src/myTabddpm/pipeline.py --config configuration/datasets/gmsc/config.toml --train --sample
-```
-
-#### PAKDD Dataset
-```
-python src/myTabddpm/pipeline.py --config configuration/datasets/pakdd/config.toml --train --sample
-```
-
-#### UCI Taiwan Dataset
-```
-python src/myTabddpm/pipeline.py --config configuration/datasets/uci_taiwan/config.toml --train --sample
-```
 
