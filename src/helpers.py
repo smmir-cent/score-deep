@@ -611,17 +611,39 @@ def store_results(ds_name, resample_method, clf_type, metric, value):
 def rank_models():
     # Create a DataFrame from the results
     df = pd.DataFrame(results)
+    print("Complete Results DataFrame:")
     print(df)
+    print("\n" + "="*80 + "\n")
 
-    # Pivot to get metrics as columns and group by dataset and resample_method
-    pivot_df = df.pivot_table(index=['dataset', 'resample_method', 'classifier'], columns='metric', values='value')
-    print(pivot_df)
-    print(" =============> Sorted by AUC-PR:")
-    print(pivot_df.sort_values(by='AUC-PR', ascending=False))
+    # Get unique datasets
+    datasets = df['dataset'].unique()
 
-    print("\n =============> Sorted by AUC-ROC:")
-    print(pivot_df.sort_values(by='AUC-ROC', ascending=False))
-
-    print("\n =============> Sorted by F1-Score:")
-    print(pivot_df.sort_values(by='F1-Score', ascending=False))
+    # Analyze each dataset separately
+    for dataset in datasets:
+        print(f"\nANALYSIS FOR DATASET: {dataset}")
+        print("="*50)
+        
+        # Filter data for current dataset
+        dataset_df = df[df['dataset'] == dataset]
+        
+        # Pivot to get metrics as columns and group by resample_method and classifier
+        pivot_df = dataset_df.pivot_table(
+            index=['resample_method', 'classifier'],
+            columns='metric',
+            values='value'
+        )
+        
+        print("\nAll Results:")
+        print(pivot_df)
+        
+        print("\nSorted by AUC-PR:")
+        print(pivot_df.sort_values(by='AUC-PR', ascending=False))
+        
+        print("\nSorted by AUC-ROC:")
+        print(pivot_df.sort_values(by='AUC-ROC', ascending=False))
+        
+        print("\nSorted by F1-Score:")
+        print(pivot_df.sort_values(by='F1-Score', ascending=False))
+        
+        print("\n" + "="*80 + "\n")
     

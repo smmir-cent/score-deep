@@ -55,7 +55,8 @@ def main():
             T_dict=raw_config['train']['T'],
             num_numerical_features=raw_config['num_numerical_features'],
             device=device,
-            change_val=args.change_val
+            change_val=args.change_val,
+            processor_type=raw_config['tabular_processor']['type']
         )
     if args.sample:
         sample(
@@ -72,7 +73,8 @@ def main():
             num_numerical_features=raw_config['num_numerical_features'],
             device=device,
             seed=raw_config['sample'].get('seed', 0),
-            change_val=args.change_val
+            change_val=args.change_val,
+            processor_type=raw_config['tabular_processor']['type']
         )
 
     save_file(os.path.join(raw_config['parent_dir'], 'info.json'), os.path.join(raw_config['real_data_path'], 'info.json'))

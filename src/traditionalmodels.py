@@ -4,7 +4,7 @@ from imblearn.combine import (SMOTEENN, SMOTETomek)
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
 
 from helpers import evaluate_model, store_results
-import numpy
+import numpy as np
 
 resampling_methods = {
     'ros': RandomOverSampler(random_state=2020),
@@ -29,7 +29,8 @@ classifiers = {
 def resample_data(X, y, method):
     resampler = resampling_methods.get(method)
     if resampler:
-        return resampler.fit_resample(X, y)
+        x_samples, y_samples = resampler.fit_resample(X, y)
+        return x_samples, y_samples
     raise ValueError(f"Resampling method '{method}' not found.")
 
 def train_classifier(X_train, y_train, clf_type):
@@ -40,11 +41,8 @@ def train_classifier(X_train, y_train, clf_type):
     raise ValueError(f"Classifier '{clf_type}' not found.")
 
 
-def run_pipeline(X_train_trans, y_train, X_val_trans, y_val, X_test_trans, y_test, resample_method='ros', clf_type='rf'):
-    X_res, y_res = resample_data(X_train_trans, y_train, resample_method)
+def run_pipeline( X_res, y_res, X_test_trans, y_test, clf_type='rf'):
     clf = train_classifier(X_res, y_res, clf_type)
-    print("Validation Set Evaluation:")
-    evaluate_model(clf, X_val_trans, y_val)
     print("Test Set Evaluation:")
     return evaluate_model(clf, X_test_trans, y_test)
 
@@ -52,9 +50,14 @@ def run_pipeline(X_train_trans, y_train, X_val_trans, y_val, X_test_trans, y_tes
 def run_all(preprocessed_datasets):
     for ds_name in preprocessed_datasets:
         for resample_method in resampling_methods:
+            print(f"############### Dataset: {ds_name}, resampling method: {resample_method} ###############")
+            X_train_combined = np.concatenate((preprocessed_datasets[ds_name]["X_train_trans"], preprocessed_datasets[ds_name]["X_val_trans"]), axis=0)
+            y_train_combined = np.concatenate((preprocessed_datasets[ds_name]["y_train"], preprocessed_datasets[ds_name]["y_val"]), axis=0)
+            X_res, y_res = resample_data(X_train_combined, y_train_combined, resample_method)
+            # continue
             for clf_type in classifiers:
                 print(f"############### Dataset: {ds_name}, resampling method: {resample_method}, classifier: {clf_type} ###############")
-                f1, roc_auc, auc_pr = run_pipeline(preprocessed_datasets[ds_name]["X_train_trans"], preprocessed_datasets[ds_name]["y_train"], preprocessed_datasets[ds_name]["X_val_trans"], preprocessed_datasets[ds_name]["y_val"], preprocessed_datasets[ds_name]["X_test_trans"], preprocessed_datasets[ds_name]["y_test"], resample_method, clf_type)
+                f1, roc_auc, auc_pr = run_pipeline(X_res, y_res, preprocessed_datasets[ds_name]["X_test_trans"], preprocessed_datasets[ds_name]["y_test"], clf_type)
                 store_results(ds_name, resample_method, clf_type, 'F1-Score', f1)
                 store_results(ds_name, resample_method, clf_type, 'AUC-ROC', roc_auc)
                 store_results(ds_name, resample_method, clf_type, 'AUC-PR', auc_pr)
