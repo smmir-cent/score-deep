@@ -15,10 +15,10 @@ d_layers = [
     256,
     256,
 ]
-dropout = 0.0
+dropout = 0.8
 
 [diffusion_params]
-num_timesteps = 100
+num_timesteps = 1000
 gaussian_loss_type = "mse"
 scheduler = "cosine"
 
@@ -41,7 +41,7 @@ y_policy = "default"
 type = "identity"
 
 [sample]
-num_samples = 100
+num_samples = 586239
 batch_size = 10000
 seed = 0
 

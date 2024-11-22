@@ -15,15 +15,15 @@ d_layers = [
     256,
     256,
 ]
-dropout = 0.9
+dropout = 0.8
 
 [diffusion_params]
-num_timesteps = 100
+num_timesteps = 1000
 gaussian_loss_type = "mse"
 scheduler = "cosine"
 
 [train.main]
-steps = 10
+steps = 500
 lr = 0.001
 weight_decay = 1e-05
 batch_size = 4096
@@ -41,7 +41,7 @@ y_policy = "default"
 type = "identity"
 
 [sample]
-num_samples = 100
+num_samples = 27796
 batch_size = 10000
 seed = 0
 
