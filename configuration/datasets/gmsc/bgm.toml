@@ -1,5 +1,5 @@
-parent_dir = "experiments/uci_german"
-real_data_path = "configuration/datasets/uci_german/"
+parent_dir = "Experiments/tabddpm/bgm/gmsc"
+real_data_path = "configuration/datasets/gmsc/"
 num_numerical_features = 6
 model_type = "mlp"
 seed = 0
@@ -38,10 +38,10 @@ cat_encoding = "__none__"
 y_policy = "default"
 
 [tabular_processor]
-type = "identity"
+type = "bgm"
 
 [sample]
-num_samples = 405
+num_samples = 586239
 batch_size = 10000
 seed = 0
 

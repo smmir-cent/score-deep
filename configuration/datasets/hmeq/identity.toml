@@ -1,6 +1,6 @@
-parent_dir = "experiments/pakdd"
-real_data_path = "configuration/datasets/pakdd/"
-num_numerical_features = 8
+parent_dir = "Experiments/tabddpm/identity/hmeq"
+real_data_path = "configuration/datasets/hmeq/"
+num_numerical_features = 10
 model_type = "mlp"
 seed = 0
 # device = "cuda:0"
@@ -23,7 +23,7 @@ gaussian_loss_type = "mse"
 scheduler = "cosine"
 
 [train.main]
-steps = 500
+steps = 1000
 lr = 0.001
 weight_decay = 1e-05
 batch_size = 4096
@@ -41,7 +41,7 @@ y_policy = "default"
 type = "identity"
 
 [sample]
-num_samples = 27796
+num_samples = 6010
 batch_size = 10000
 seed = 0
 

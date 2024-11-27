@@ -3,7 +3,7 @@ from models import WGANGP
 from helpers import evaluate_model, store_results
 
 def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
-    gan = WGANGP(write_to_disk=True, # whether to create an output folder. Plotting will be surpressed if flase
+    gan = WGANGP(write_to_disk=False, # whether to create an output folder. Plotting will be surpressed if flase
                 compute_metrics_every=1250, print_every=2500, plot_every=10000,
                 num_cols = num_cols, cat_dims=cat_dims,
                 # pass the one hot encoder to the GAN to enable count plots of categorical variables

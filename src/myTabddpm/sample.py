@@ -98,7 +98,7 @@ def sample(
     
     # also transform because information from transformation process might be needed
     # will be reloaded if TabularProcessor is already saved
-    tabular_controller.fit_transform(reload = True, save_processor = True) 
+    tabular_controller.fit_transform(reload = False, save_processor = True) 
     if processor_type is not None:
         real_data_path = os.path.join(real_data_path, processor_type)
 

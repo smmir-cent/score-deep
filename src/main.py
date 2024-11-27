@@ -11,7 +11,7 @@ from run_all_tabddpm import run_all_diff
 if __name__ == "__main__":
     datasets_path = "data/raw/"
     dataset_names = ['uci_german', 'uci_taiwan', 'pakdd', 'hmeq', 'gmsc']    
-    dataset_names = ['gmsc']
+    dataset_names = ['uci_german', 'uci_taiwan', 'hmeq']    
     preprocessed_datasets = {}
     for ds_name in dataset_names:
         print("########## " + ds_name + " ##########")
@@ -36,8 +36,8 @@ if __name__ == "__main__":
         preprocessed_datasets[ds_name]["cat_dims"] = cat_dims
         preprocessed_datasets[ds_name]["prep"] = prep
         
-    # run_all(preprocessed_datasets)
-    # run_all_cwgan(preprocessed_datasets)
+    run_all(preprocessed_datasets)
+    run_all_cwgan(preprocessed_datasets)
     run_all_diff(dataset_names)
     rank_models()
     

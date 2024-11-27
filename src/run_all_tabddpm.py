@@ -7,9 +7,10 @@ from helpers import evaluate_model, store_results
 from dataloader import preprocess_data, get_datasets_nums_cat
 
 original_dir = "configuration/datasets/"
-generated_dir = "Experiments/"
+generated_dir = "Experiments/tabddpm/"
 output_dir = "Merged/"
 
+tabddpm_version = ['identity', 'bgm']
 
 # Define classifiers
 classifiers = {
@@ -62,20 +63,19 @@ def merge_and_preprocess_training_set(
     # Separate features and targets
     X_combined = df_combined[num_cols + cat_cols]
     y_combined = df_combined[target_col].to_numpy()
-    X_val = df_orig_val[num_cols + cat_cols]
-    y_val = df_orig_val[target_col].to_numpy()
+    X_val = df_orig_val[num_cols + cat_cols] # just for calling preprocess_data
     X_test = df_orig_test[num_cols + cat_cols]
     y_test = df_orig_test[target_col].to_numpy()
 
     # Preprocess data
-    X_train_trans, X_val_trans, X_test_trans, prep = preprocess_data(
+    X_train_trans, _, X_test_trans, prep = preprocess_data(
         X_combined, X_val, X_test, num_cols, cat_cols
     )
 
     # Save preprocessed data
     for data, name in zip(
-        [X_train_trans, X_val_trans, X_test_trans, y_combined, y_val, y_test],
-        ["X_train", "X_val", "X_test", "y_train", "y_val", "y_test"],
+        [X_train_trans, X_test_trans, y_combined, y_test],
+        ["X_train", "X_test", "y_train", "y_test"],
     ):
         np.save(f"{output_dir}/{name}.npy", data)
 
@@ -89,24 +89,26 @@ def merge_and_preprocess_training_set(
     print(log_message)
 
     print(f"Training set merged, preprocessed, and saved in {output_dir}.")
-    return X_train_trans, y_combined, X_val_trans, y_val, X_test_trans, y_test
+    return X_train_trans, y_combined, X_test_trans, y_test
 
-def run_benchmark(ds_name, X_train, X_test, y_train, y_test):
+def run_benchmark(ds_name, tab_version, X_train, X_test, y_train, y_test):
     for clf_name, clf in classifiers.items():
         print(f"Training and evaluating {clf_name} on {ds_name} dataset...")
         clf.fit(X_train, y_train)
         f1, roc_auc, auc_pr = evaluate_model(clf, X_test, y_test)
         
         # Store results
-        store_results(ds_name, "tabddpm" ,clf_name, 'F1-Score', f1)
-        store_results(ds_name, "tabddpm" ,clf_name, 'AUC-ROC', roc_auc)
-        store_results(ds_name, "tabddpm" ,clf_name, 'AUC-PR', auc_pr)
+        store_results(ds_name, f"tabddpm_{tab_version}" ,clf_name, 'F1-Score', f1)
+        store_results(ds_name, f"tabddpm_{tab_version}" ,clf_name, 'AUC-ROC', roc_auc)
+        store_results(ds_name, f"tabddpm_{tab_version}" ,clf_name, 'AUC-PR', auc_pr)
 
         print(f"Results for {clf_name}:\n F1-Score: {f1:.4f}, AUC-ROC: {roc_auc:.4f}, AUC-PR: {auc_pr:.4f}\n")
 
-def run_all_diff(ds_names):    
+def run_all_diff(ds_names):
+    global generated_dir
     for ds_name in ds_names:
-        infos = get_datasets_nums_cat(ds_name)        
-        X_train_trans, y_train, X_val_trans, y_val, X_test_trans, y_test = merge_and_preprocess_training_set(original_dir + ds_name, generated_dir + ds_name, output_dir + ds_name, infos["num_cols"], infos["cat_cols"], infos["target_col"], ds_name)
-        run_benchmark(ds_name, X_train_trans, X_test_trans, y_train, y_test)
+        infos = get_datasets_nums_cat(ds_name)
+        for tab_version in tabddpm_version:
+            X_train_trans, y_train, X_test_trans, y_test = merge_and_preprocess_training_set(original_dir + ds_name, f'{generated_dir}{tab_version}/{ds_name}', output_dir + ds_name, infos["num_cols"], infos["cat_cols"], infos["target_col"], ds_name)
+            run_benchmark(ds_name, tab_version, X_train_trans, X_test_trans, y_train, y_test)
 

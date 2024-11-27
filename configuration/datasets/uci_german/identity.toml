@@ -1,6 +1,6 @@
-parent_dir = "experiments/uci_taiwan"
-real_data_path = "configuration/datasets/uci_taiwan/"
-num_numerical_features = 14
+parent_dir = "Experiments/tabddpm/identity/uci_german"
+real_data_path = "configuration/datasets/uci_german/"
+num_numerical_features = 6
 model_type = "mlp"
 seed = 0
 # device = "cuda:0"
@@ -41,7 +41,7 @@ y_policy = "default"
 type = "identity"
 
 [sample]
-num_samples = 22429
+num_samples = 405
 batch_size = 10000
 seed = 0
 

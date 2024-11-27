@@ -1,6 +1,6 @@
-parent_dir = "experiments/gmsc"
-real_data_path = "configuration/datasets/gmsc/"
-num_numerical_features = 6
+parent_dir = "Experiments/tabddpm/bgm/pakdd"
+real_data_path = "configuration/datasets/pakdd/"
+num_numerical_features = 8
 model_type = "mlp"
 seed = 0
 # device = "cuda:0"
@@ -23,7 +23,7 @@ gaussian_loss_type = "mse"
 scheduler = "cosine"
 
 [train.main]
-steps = 1000
+steps = 500
 lr = 0.001
 weight_decay = 1e-05
 batch_size = 4096
@@ -38,10 +38,10 @@ cat_encoding = "__none__"
 y_policy = "default"
 
 [tabular_processor]
-type = "identity"
+type = "bgm"
 
 [sample]
-num_samples = 586239
+num_samples = 27796
 batch_size = 10000
 seed = 0
 

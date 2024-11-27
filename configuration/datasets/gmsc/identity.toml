@@ -1,6 +1,6 @@
-parent_dir = "experiments/hmeq"
-real_data_path = "configuration/datasets/hmeq/"
-num_numerical_features = 10
+parent_dir = "Experiments/tabddpm/identity/gmsc"
+real_data_path = "configuration/datasets/gmsc/"
+num_numerical_features = 6
 model_type = "mlp"
 seed = 0
 # device = "cuda:0"
@@ -41,7 +41,7 @@ y_policy = "default"
 type = "identity"
 
 [sample]
-num_samples = 6010
+num_samples = 586239
 batch_size = 10000
 seed = 0
 
