@@ -16,7 +16,7 @@ Run the following commands to execute the pipeline for different datasets:
 
 #### Dataset preparation and TabDDPM sampling
 ```
-python src/sampling_tabddpm.py
+start "src\tabddpm_sampling.bat"
 ```
 
 
