@@ -81,10 +81,14 @@ def merge_and_preprocess_training_set(
 
     # Log dataset summary
     log_message = (
-        f"[VALIDATION] Data merged successfully:\n"
-        f"- Original training data: {df_orig_train.shape}, Labels: {df_orig_train[target_col].value_counts().to_dict()}\n"
-        f"- Generated data: {df_gen.shape}, Labels: {df_gen[target_col].value_counts().to_dict()}\n"
-        f"- Combined data: {df_combined.shape}, Labels: {df_combined[target_col].value_counts().to_dict()}"
+        f"[INFO] Data merged successfully (training set includes validation set):\n"
+        f"- Original data (training + validation): "
+        f"{df_orig_train.shape[0] + df_orig_val.shape[0]} samples, "
+        f"Labels: {(df_orig_train[target_col].value_counts() + df_orig_val[target_col].value_counts()).to_dict()}\n"
+        f"- Generated data: {df_gen.shape[0]} samples, "
+        f"Labels: {df_gen[target_col].value_counts().to_dict()}\n"
+        f"- Combined training data: {df_combined.shape[0]} samples, "
+        f"Labels: {df_combined[target_col].value_counts().to_dict()}"
     )
     print(log_message)
 
