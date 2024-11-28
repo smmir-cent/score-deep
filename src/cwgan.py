@@ -13,6 +13,7 @@ def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
                 use_aux_classifier_loss=True,
                 d_updates_per_g=3, gp_weight=15)
 
+    condition_num_on_cat = bool(cat_cols)
     gan.fit(preprocessed_dataset["X_train_trans"], y=preprocessed_dataset["y_train"].values, 
             condition=True,
             epochs=300,  
@@ -21,7 +22,7 @@ def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
                             'n_cross_layers': 1,
                             'cat_activation': 'gumbel_softmax',
                             'num_activation': 'none',
-                            'condition_num_on_cat': True, 
+                            'condition_num_on_cat': condition_num_on_cat, 
                             'noise_dim': 30, 
                             'normal_noise': False,
                             'activation':  'leaky_relu',
