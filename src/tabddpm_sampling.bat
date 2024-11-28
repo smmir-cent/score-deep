@@ -12,7 +12,7 @@ python src\myTabddpm\pipeline.py --config configuration\datasets\hmeq\identity.t
 echo ######################### myTabddpm (identity): gmsc #########################
 python src\myTabddpm\pipeline.py --config configuration\datasets\gmsc\identity.toml --train --sample
 echo ######################### myTabddpm (identity): pakdd #########################
-@REM python src\myTabddpm\pipeline.py --config configuration\datasets\pakdd\identity.toml --train --sample
+python src\myTabddpm\pipeline.py --config configuration\datasets\pakdd\identity.toml --train --sample
 
 
 echo ######################### myTabddpm (bgm): uci_german #########################
@@ -25,7 +25,7 @@ python src\myTabddpm\pipeline.py --config configuration\datasets\hmeq\bgm.toml -
 echo ######################### myTabddpm (bgm): gmsc #########################
 python src\myTabddpm\pipeline.py --config configuration\datasets\gmsc\bgm.toml --train --sample
 echo ######################### myTabddpm (bgm): pakdd #########################
-@REM python src\myTabddpm\pipeline.py --config configuration\datasets\pakdd\bgm.toml --train --sample
+python src\myTabddpm\pipeline.py --config configuration\datasets\pakdd\bgm.toml --train --sample
 
 
 echo All tasks completed!

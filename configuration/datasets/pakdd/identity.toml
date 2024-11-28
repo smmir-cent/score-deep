@@ -23,7 +23,7 @@ gaussian_loss_type = "mse"
 scheduler = "cosine"
 
 [train.main]
-steps = 500
+steps = 250
 lr = 0.001
 weight_decay = 1e-05
 batch_size = 4096

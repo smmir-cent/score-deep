@@ -76,7 +76,6 @@ datasets_info = {
             "NACIONALITY",
             "RESIDENCIAL_STATE",
             "FLAG_RESIDENCIAL_PHONE",
-            "RESIDENCIAL_PHONE_AREA_CODE",
             "RESIDENCE_TYPE",
             "FLAG_EMAIL",
             "FLAG_VISA",
@@ -89,10 +88,8 @@ datasets_info = {
             "COMPANY",
             "PROFESSIONAL_STATE",
             "FLAG_PROFESSIONAL_PHONE",
-            "PROFESSIONAL_PHONE_AREA_CODE",
             "PROFESSION_CODE",
             "OCCUPATION_TYPE",
-            "MATE_PROFESSION_CODE",
             "MATE_EDUCATION_LEVEL",
             "PRODUCT"
         ],

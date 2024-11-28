@@ -124,11 +124,10 @@ def load_pakdd_data():
 
     cat_cols = ['PAYMENT_DAY', 'APPLICATION_SUBMISSION_TYPE', 'POSTAL_ADDRESS_TYPE', 'SEX', 'MARITAL_STATUS',
                 'STATE_OF_BIRTH', 'NACIONALITY', 'RESIDENCIAL_STATE', 'FLAG_RESIDENCIAL_PHONE',
-                'RESIDENCIAL_PHONE_AREA_CODE', 'RESIDENCE_TYPE', 'FLAG_EMAIL', 'FLAG_VISA', 'FLAG_MASTERCARD',
+                'RESIDENCE_TYPE', 'FLAG_EMAIL', 'FLAG_VISA', 'FLAG_MASTERCARD',
                 'FLAG_DINERS', 'FLAG_AMERICAN_EXPRESS', 'FLAG_OTHER_CARDS', 'QUANT_BANKING_ACCOUNTS',
                 'QUANT_SPECIAL_BANKING_ACCOUNTS', 'COMPANY', 'PROFESSIONAL_STATE', 'FLAG_PROFESSIONAL_PHONE',
-                'PROFESSIONAL_PHONE_AREA_CODE', 'PROFESSION_CODE', 'OCCUPATION_TYPE', 'MATE_PROFESSION_CODE',
-                'MATE_EDUCATION_LEVEL', 'PRODUCT']
+                'PROFESSION_CODE', 'OCCUPATION_TYPE', 'MATE_EDUCATION_LEVEL', 'PRODUCT']
 
     num_cols = ['PERSONAL_MONTHLY_INCOME', 'OTHER_INCOMES', 'PERSONAL_ASSETS_VALUE', 'AGE', 'MONTHS_IN_RESIDENCE',
                 'QUANT_DEPENDANTS', 'QUANT_CARS', 'MONTHS_IN_THE_JOB']
@@ -138,12 +137,21 @@ def load_pakdd_data():
     drop_cols = ['CITY_OF_BIRTH', 'RESIDENCIAL_CITY', 'RESIDENCIAL_BOROUGH', 'PROFESSIONAL_CITY',
                  'PROFESSIONAL_BOROUGH', 'RESIDENCIAL_ZIP_3', 'PROFESSIONAL_ZIP_3', 'FLAG_HOME_ADDRESS_DOCUMENT',
                  'FLAG_RG', 'FLAG_CPF', 'FLAG_INCOME_PROOF', 'FLAG_ACSP_RECORD', 'CLERK_TYPE', 'QUANT_ADDITIONAL_CARDS',
-                 'EDUCATION_LEVEL', 'FLAG_MOBILE_PHONE']
+                 'EDUCATION_LEVEL', 'FLAG_MOBILE_PHONE', 'PROFESSIONAL_PHONE_AREA_CODE', 'MATE_PROFESSION_CODE', 'RESIDENCIAL_PHONE_AREA_CODE']
 
     df = pd.read_csv(path, sep='\t',
                      index_col='ID_CLIENT', encoding='unicode_escape',
                      header=None, names=columns, low_memory=False, 
                      dtype={col: 'category' for col in cat_cols}).drop(drop_cols, axis=1)
+    for col in cat_cols:
+        if col in df.columns:
+            df[col] = df[col].astype('category')
+            # Map each categorical value to a unique string like "cat_1", "cat_2", ...
+            unique_values = df[col].cat.categories
+            mapping = {val: f"cat_{i+1}" for i, val in enumerate(unique_values)}
+            df[col] = df[col].map(mapping).astype('category')
+        else:
+            print(f"Warning: Column {col} not found in the dataset.")
     
     X = df.loc[:, num_cols + cat_cols]
     y = df[target_col]
