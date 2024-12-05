@@ -50,11 +50,9 @@ def run_pipeline( X_res, y_res, X_test_trans, y_test, clf_type='rf'):
 def run_all(preprocessed_datasets):
     for ds_name in preprocessed_datasets:
         for resample_method in resampling_methods:
-            print(f"############### Dataset: {ds_name}, resampling method: {resample_method} ###############")
             X_train_combined = np.concatenate((preprocessed_datasets[ds_name]["X_train_trans"], preprocessed_datasets[ds_name]["X_val_trans"]), axis=0)
             y_train_combined = np.concatenate((preprocessed_datasets[ds_name]["y_train"], preprocessed_datasets[ds_name]["y_val"]), axis=0)
             X_res, y_res = resample_data(X_train_combined, y_train_combined, resample_method)
-            # continue
             for clf_type in classifiers:
                 print(f"############### Dataset: {ds_name}, resampling method: {resample_method}, classifier: {clf_type} ###############")
                 f1, roc_auc, auc_pr = run_pipeline(X_res, y_res, preprocessed_datasets[ds_name]["X_test_trans"], preprocessed_datasets[ds_name]["y_test"], clf_type)

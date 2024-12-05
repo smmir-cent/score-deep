@@ -41,7 +41,7 @@ y_policy = "default"
 type = "bgm"
 
 [sample]
-num_samples = 405
+num_samples = 1055
 batch_size = 10000
 seed = 0
 

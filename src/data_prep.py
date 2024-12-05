@@ -6,7 +6,6 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler, OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import make_pipeline
-import dataloader
 
 def save_data(data_dir, X_num, X_cat, y, split_name):
     """Save numerical, categorical, and target arrays to .npy files."""

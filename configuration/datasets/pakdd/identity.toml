@@ -41,7 +41,7 @@ y_policy = "default"
 type = "identity"
 
 [sample]
-num_samples = 27796
+num_samples = 74187
 batch_size = 10000
 seed = 0
 
