@@ -1,0 +1,3470 @@
+Starting script at: Thu 12/05/2024 11:47:59.38
+german_data dataset preparation
+train set:  (600, 7) (600, 13) (600,)
+val set:  (200, 7) (200, 13) (200,)
+test set:  (200, 7) (200, 13) (200,)
+pakdd_data dataset preparation
+train set:  (30000, 8) (30000, 25) (30000,)
+val set:  (10000, 8) (10000, 25) (10000,)
+test set:  (10000, 8) (10000, 25) (10000,)
+hmeq_data dataset preparation
+train set:  (3576, 10) (3576, 2) (3576,)
+val set:  (1192, 10) (1192, 2) (1192,)
+test set:  (1192, 10) (1192, 2) (1192,)
+taiwan dataset preparation
+train set:  (18000, 14) (18000, 9) (18000,)
+val set:  (6000, 14) (6000, 9) (6000,)
+test set:  (6000, 14) (6000, 9) (6000,)
+gmsc_data dataset preparation
+train set:  (90000, 10) (90000, 0) (90000,)
+val set:  (30000, 10) (30000, 0) (30000,)
+test set:  (30000, 10) (30000, 0) (30000,)
+Finished data prep at: Thu 12/05/2024 11:48:04.17
+######################### myTabddpm (identity): uci_german #########################
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 61}
+mlp
+Step 500/1000 MLoss: 1.0228 GLoss: 1.0121 Sum: 2.0349
+Step 1000/1000 MLoss: 1.0071 GLoss: 1.0088 Sum: 2.0159000000000002
+Found files in Experiments\tabddpm\identity\uci_german:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_cat_train.npy', 'X_cat_unnorm.npy', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Discrete cols: [0, 2, 3, 5, 6]
+Saving Synthetic Data at:  Experiments/tabddpm/identity/uci_german
+Num shape:  (1055, 7)
+Elapsed time: 0:02:54
+Finished uci_german (identity) at: Thu 12/05/2024 11:51:03.41
+######################### myTabddpm (identity): uci_taiwan #########################
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 91}
+mlp
+Step 500/1000 MLoss: 1.1305 GLoss: 1.0282 Sum: 2.1587
+Step 1000/1000 MLoss: 1.0674 GLoss: 1.018 Sum: 2.0854
+Found files in Experiments\tabddpm\identity\uci_taiwan:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_cat_train.npy', 'X_cat_unnorm.npy', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Discrete cols: []
+Saving Synthetic Data at:  Experiments/tabddpm/identity/uci_taiwan
+Num shape:  (60209, 14)
+Elapsed time: 0:21:54
+Finished uci_taiwan (identity) at: Thu 12/05/2024 12:13:03.15
+######################### myTabddpm (identity): hmeq #########################
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 18}
+mlp
+Step 500/1000 MLoss: 1.0288 GLoss: 1.0053 Sum: 2.0341
+Step 1000/1000 MLoss: 1.0253 GLoss: 1.004 Sum: 2.0293
+Found files in Experiments\tabddpm\identity\hmeq:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_cat_train.npy', 'X_cat_unnorm.npy', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Sample timestep    0
+Discrete cols: [4, 5, 7]
+Saving Synthetic Data at:  Experiments/tabddpm/identity/hmeq
+Num shape:  (15067, 10)
+Elapsed time: 0:03:11
+Finished hmeq (identity) at: Thu 12/05/2024 12:16:20.01
+######################### myTabddpm (identity): gmsc #########################
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 10}
+mlp
+Step 500/1000 MLoss: 0.0 GLoss: 0.6704 Sum: 0.6704
+Step 1000/1000 MLoss: 0.0 GLoss: 0.6431 Sum: 0.6431
+Found files in Experiments\tabddpm\identity\gmsc:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Discrete cols: [2, 6, 7, 8, 9]
+Saving Synthetic Data at:  Experiments/tabddpm/identity/gmsc
+Num shape:  (1544386, 10)
+Elapsed time: 2:10:05
+Finished gmsc (identity) at: Thu 12/05/2024 14:26:39.57
+######################### myTabddpm (identity): pakdd #########################
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 181}
+mlp
+Found files in Experiments\tabddpm\identity\pakdd:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_cat_train.npy', 'X_cat_unnorm.npy', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  identity
+Fitting processor
+Saved processor state to:  outputs\processor_state\processor_identity.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Discrete cols: [5, 6, 7]
+Saving Synthetic Data at:  Experiments/tabddpm/identity/pakdd
+Num shape:  (74187, 8)
+Elapsed time: 0:46:15
+Finished pakdd (identity) at: Thu 12/05/2024 15:13:01.12
+######################### myTabddpm (bgm): uci_german #########################
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (4) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (4) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (4) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 85}
+mlp
+Step 500/1000 MLoss: 1.0244 GLoss: 1.0096 Sum: 2.034
+Step 1000/1000 MLoss: 1.0089 GLoss: 1.0082 Sum: 2.0171
+Found files in Experiments\tabddpm\bgm\uci_german:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_cat_train.npy', 'X_cat_unnorm.npy', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (4) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (4) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (4) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Discrete cols: []
+Saving Synthetic Data at:  Experiments/tabddpm/bgm/uci_german
+Num shape:  (1055, 7)
+Elapsed time: 0:03:56
+Finished uci_german (bgm) at: Thu 12/05/2024 15:17:02.66
+######################### myTabddpm (bgm): uci_taiwan #########################
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 200}
+mlp
+Step 500/1000 MLoss: 1.4703 GLoss: 1.0156 Sum: 2.4859
+Step 1000/1000 MLoss: 1.4568 GLoss: 1.0137 Sum: 2.4705000000000004
+Found files in Experiments\tabddpm\bgm\uci_taiwan:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_cat_train.npy', 'X_cat_unnorm.npy', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Discrete cols: []
+Saving Synthetic Data at:  Experiments/tabddpm/bgm/uci_taiwan
+Num shape:  (60209, 14)
+Elapsed time: 0:43:51
+Finished uci_taiwan (bgm) at: Thu 12/05/2024 16:00:59.49
+######################### myTabddpm (bgm): hmeq #########################
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 81}
+mlp
+Step 500/1000 MLoss: 1.3905 GLoss: 1.0103 Sum: 2.4008000000000003
+Step 1000/1000 MLoss: 1.3745 GLoss: 1.0075 Sum: 2.382
+Found files in Experiments\tabddpm\bgm\hmeq:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_cat_train.npy', 'X_cat_unnorm.npy', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Sample timestep    0
+Discrete cols: []
+Saving Synthetic Data at:  Experiments/tabddpm/bgm/hmeq
+Num shape:  (15067, 10)
+Elapsed time: 0:08:00
+Finished hmeq (bgm) at: Thu 12/05/2024 16:09:05.14
+######################### myTabddpm (bgm): gmsc #########################
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 60}
+mlp
+Step 500/1000 MLoss: 0.9998 GLoss: 1.0139 Sum: 2.0137
+Step 1000/1000 MLoss: 0.982 GLoss: 1.0094 Sum: 1.9914
+Found files in Experiments\tabddpm\bgm\gmsc:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_cat_unnorm.npy', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Discrete cols: []
+Saving Synthetic Data at:  Experiments/tabddpm/bgm/gmsc
+Num shape:  (1544386, 10)
+Elapsed time: 6:14:19
+Finished gmsc (bgm) at: Thu 12/05/2024 22:23:29.87
+######################### myTabddpm (bgm): pakdd #########################
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+Done
+
+{'num_classes': 2, 'is_y_cond': True, 'rtdl_params': {'d_layers': [256, 256], 'dropout': 0.8}, 'd_in': 219}
+mlp
+Found files in Experiments\tabddpm\bgm\pakdd:
+['config.toml', 'info.json', 'loss.csv', 'model.pt', 'model_ema.pt', 'X_cat_train.npy', 'X_cat_unnorm.npy', 'X_num_train.npy', 'X_num_unnorm.npy', 'y_train.npy']
+Saved model to outputs folder
+Selected tabular processor:  bgm
+Fitting processor
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:277: ConvergenceWarning: Initialization 1 did not converge. Try different init parameters, or increase max_iter, tol or check for degenerate data.
+  warnings.warn(
+C:\Users\ASUS\Documents\Extra Courses\ML-DL\env\lib\site-packages\sklearn\mixture\_base.py:146: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (10). Possibly due to duplicate points in X.
+  .fit(X)
+Saved processor state to:  outputs\processor_state\processor_bgm.pkl
+mlp
+C:\Users\ASUS\Documents\University\MSc\__Thesis__\__Project__\score-deep\src\myTabddpm\sample.py:134: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(model_path, map_location="cpu")
+Model Loaded Successfully!
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Sample timestep    0
+Discrete cols: []
+Saving Synthetic Data at:  Experiments/tabddpm/bgm/pakdd
+Num shape:  (74187, 8)
+Elapsed time: 0:52:04
+Finished pakdd (bgm) at: Thu 12/05/2024 23:15:40.13
+######################### PYTHON SRC/MAIN.PY #########################
+########## uci_german ##########
+DEBUG:root:Dataloader: Loading uci_german
+DEBUG:root:Dataloader: Loaded available datasets.
+INFO:root:Dataloader: Loaded dataset: uci_german. Returning data.
+########## uci_taiwan ##########
+DEBUG:root:Dataloader: Loading uci_taiwan
+DEBUG:root:Dataloader: Loaded available datasets.
+       LIMIT_BAL    SEX EDUCATION MARRIAGE  AGE  PAY_0  PAY_2  PAY_3  PAY_4  PAY_5  ... BILL_AMT4  BILL_AMT5  BILL_AMT6  PAY_AMT1  PAY_AMT2  PAY_AMT3  PAY_AMT4  PAY_AMT5  PAY_AMT6  default payment next month
+ID                                                                                  ...
+1          20000  cat_2     cat_3    cat_2   24  cat_5  cat_5  cat_2  cat_2  cat_1  ...         0          0          0         0       689         0         0         0         0                           1
+2         120000  cat_2     cat_3    cat_3   26  cat_2  cat_5  cat_3  cat_3  cat_3  ...      3272       3455       3261         0      1000      1000      1000         0      2000                           1
+3          90000  cat_2     cat_3    cat_3   34  cat_3  cat_3  cat_3  cat_3  cat_3  ...     14331      14948      15549      1518      1500      1000      1000      1000      5000                           0
+4          50000  cat_2     cat_3    cat_2   37  cat_3  cat_3  cat_3  cat_3  cat_3  ...     28314      28959      29547      2000      2019      1200      1100      1069      1000                           0
+5          50000  cat_1     cat_3    cat_2   57  cat_2  cat_3  cat_2  cat_3  cat_3  ...     20940      19146      19131      2000     36681     10000      9000       689       679                           0
+...          ...    ...       ...      ...  ...    ...    ...    ...    ...    ...  ...       ...        ...        ...       ...       ...       ...       ...       ...       ...                         ...
+29996     220000  cat_1     cat_4    cat_2   39  cat_3  cat_3  cat_3  cat_3  cat_3  ...     88004      31237      15980      8500     20000      5003      3047      5000      1000                           0
+29997     150000  cat_1     cat_4    cat_3   43  cat_2  cat_2  cat_2  cat_2  cat_3  ...      8979       5190          0      1837      3526      8998       129         0         0                           0
+29998      30000  cat_1     cat_3    cat_3   37  cat_7  cat_6  cat_5  cat_2  cat_3  ...     20878      20582      19357         0         0     22000      4200      2000      3100                           1
+29999      80000  cat_1     cat_4    cat_2   41  cat_4  cat_2  cat_3  cat_3  cat_3  ...     52774      11855      48944     85900      3409      1178      1926     52964      1804                           1
+30000      50000  cat_1     cat_3    cat_2   46  cat_3  cat_3  cat_3  cat_3  cat_3  ...     36535      32428      15313      2078      1800      1430      1000      1000      1000                           1
+
+[30000 rows x 24 columns]
+INFO:root:Dataloader: Loaded dataset: uci_taiwan. Returning data.
+########## pakdd ##########
+DEBUG:root:Dataloader: Loading pakdd
+DEBUG:root:Dataloader: Loaded available datasets.
+INFO:root:Dataloader: Loaded dataset: pakdd. Returning data.
+########## hmeq ##########
+DEBUG:root:Dataloader: Loading hmeq
+DEBUG:root:Dataloader: Loaded available datasets.
+INFO:root:Dataloader: Loaded dataset: hmeq. Returning data.
+########## gmsc ##########
+DEBUG:root:Dataloader: Loading gmsc
+DEBUG:root:Dataloader: Loaded available datasets.
+INFO:root:Dataloader: Loaded dataset: gmsc. Returning data.
+############### Dataset: uci_german, resampling method: ros, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5652
+AUC-ROC: 0.7856
+AUC-PR: 0.5637
+
+############### Dataset: uci_german, resampling method: ros, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5714
+AUC-ROC: 0.7625
+AUC-PR: 0.4646
+
+############### Dataset: uci_german, resampling method: ros, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5714
+AUC-ROC: 0.7853
+AUC-PR: 0.5456
+
+############### Dataset: uci_german, resampling method: rus, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5970
+AUC-ROC: 0.8020
+AUC-PR: 0.6198
+
+############### Dataset: uci_german, resampling method: rus, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5970
+AUC-ROC: 0.7765
+AUC-PR: 0.4412
+
+############### Dataset: uci_german, resampling method: rus, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5846
+AUC-ROC: 0.7859
+AUC-PR: 0.4860
+
+############### Dataset: uci_german, resampling method: nearmiss, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.4688
+AUC-ROC: 0.6897
+AUC-PR: 0.4301
+
+############### Dataset: uci_german, resampling method: nearmiss, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5397
+AUC-ROC: 0.7079
+AUC-PR: 0.4059
+
+############### Dataset: uci_german, resampling method: nearmiss, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4928
+AUC-ROC: 0.6965
+AUC-PR: 0.4348
+
+############### Dataset: uci_german, resampling method: enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.6053
+AUC-ROC: 0.7853
+AUC-PR: 0.5978
+
+############### Dataset: uci_german, resampling method: enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6176
+AUC-ROC: 0.7713
+AUC-PR: 0.4440
+
+############### Dataset: uci_german, resampling method: enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5405
+AUC-ROC: 0.7775
+AUC-PR: 0.5728
+
+############### Dataset: uci_german, resampling method: tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5417
+AUC-ROC: 0.7622
+AUC-PR: 0.5401
+
+############### Dataset: uci_german, resampling method: tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.4583
+AUC-ROC: 0.7734
+AUC-PR: 0.4745
+
+############### Dataset: uci_german, resampling method: tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5000
+AUC-ROC: 0.7749
+AUC-PR: 0.4645
+
+############### Dataset: uci_german, resampling method: smote, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5417
+AUC-ROC: 0.7916
+AUC-PR: 0.5809
+
+############### Dataset: uci_german, resampling method: smote, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6552
+AUC-ROC: 0.7859
+AUC-PR: 0.4892
+
+############### Dataset: uci_german, resampling method: smote, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5769
+AUC-ROC: 0.8046
+AUC-PR: 0.5629
+
+############### Dataset: uci_german, resampling method: smote_bs1, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.6296
+AUC-ROC: 0.8004
+AUC-PR: 0.6410
+
+############### Dataset: uci_german, resampling method: smote_bs1, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6667
+AUC-ROC: 0.7890
+AUC-PR: 0.5031
+
+############### Dataset: uci_german, resampling method: smote_bs1, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.6038
+AUC-ROC: 0.7989
+AUC-PR: 0.5457
+
+############### Dataset: uci_german, resampling method: smote_bs2, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.6000
+AUC-ROC: 0.8085
+AUC-PR: 0.6025
+
+############### Dataset: uci_german, resampling method: smote_bs2, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5357
+AUC-ROC: 0.7620
+AUC-PR: 0.4606
+
+############### Dataset: uci_german, resampling method: smote_bs2, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.6154
+AUC-ROC: 0.8015
+AUC-PR: 0.5237
+
+############### Dataset: uci_german, resampling method: smote_enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.6111
+AUC-ROC: 0.7911
+AUC-PR: 0.5714
+
+############### Dataset: uci_german, resampling method: smote_enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5714
+AUC-ROC: 0.7963
+AUC-PR: 0.5324
+
+############### Dataset: uci_german, resampling method: smote_enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5915
+AUC-ROC: 0.7885
+AUC-PR: 0.5242
+
+############### Dataset: uci_german, resampling method: smote_tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.6000
+AUC-ROC: 0.8012
+AUC-PR: 0.6394
+
+############### Dataset: uci_german, resampling method: smote_tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6429
+AUC-ROC: 0.7957
+AUC-PR: 0.4980
+
+############### Dataset: uci_german, resampling method: smote_tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5660
+AUC-ROC: 0.7994
+AUC-PR: 0.5772
+
+############### Dataset: uci_german, resampling method: adasyn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5652
+AUC-ROC: 0.8121
+AUC-PR: 0.6482
+
+############### Dataset: uci_german, resampling method: adasyn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6230
+AUC-ROC: 0.7874
+AUC-PR: 0.5093
+
+############### Dataset: uci_german, resampling method: adasyn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5926
+AUC-ROC: 0.7931
+AUC-PR: 0.5186
+
+############### Dataset: uci_taiwan, resampling method: ros, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5274
+AUC-ROC: 0.7786
+AUC-PR: 0.5664
+
+############### Dataset: uci_taiwan, resampling method: ros, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5477
+AUC-ROC: 0.7929
+AUC-PR: 0.5775
+
+############### Dataset: uci_taiwan, resampling method: ros, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5602
+AUC-ROC: 0.7986
+AUC-PR: 0.5900
+
+############### Dataset: uci_taiwan, resampling method: rus, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5323
+AUC-ROC: 0.7869
+AUC-PR: 0.5721
+
+############### Dataset: uci_taiwan, resampling method: rus, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5535
+AUC-ROC: 0.7934
+AUC-PR: 0.5767
+
+############### Dataset: uci_taiwan, resampling method: rus, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5590
+AUC-ROC: 0.7992
+AUC-PR: 0.5860
+
+############### Dataset: uci_taiwan, resampling method: nearmiss, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.4100
+AUC-ROC: 0.6336
+AUC-PR: 0.3352
+
+############### Dataset: uci_taiwan, resampling method: nearmiss, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.4137
+AUC-ROC: 0.6382
+AUC-PR: 0.2960
+
+############### Dataset: uci_taiwan, resampling method: nearmiss, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4142
+AUC-ROC: 0.6587
+AUC-PR: 0.3145
+
+############### Dataset: uci_taiwan, resampling method: enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5588
+AUC-ROC: 0.7860
+AUC-PR: 0.5880
+
+############### Dataset: uci_taiwan, resampling method: enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5493
+AUC-ROC: 0.8009
+AUC-PR: 0.5853
+
+############### Dataset: uci_taiwan, resampling method: enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5636
+AUC-ROC: 0.8021
+AUC-PR: 0.5866
+
+############### Dataset: uci_taiwan, resampling method: tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5229
+AUC-ROC: 0.7831
+AUC-PR: 0.5716
+
+############### Dataset: uci_taiwan, resampling method: tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5058
+AUC-ROC: 0.7951
+AUC-PR: 0.5783
+
+############### Dataset: uci_taiwan, resampling method: tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5254
+AUC-ROC: 0.8012
+AUC-PR: 0.5905
+
+############### Dataset: uci_taiwan, resampling method: smote, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5193
+AUC-ROC: 0.7675
+AUC-PR: 0.5493
+
+############### Dataset: uci_taiwan, resampling method: smote, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5538
+AUC-ROC: 0.7713
+AUC-PR: 0.5633
+
+############### Dataset: uci_taiwan, resampling method: smote, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5542
+AUC-ROC: 0.7862
+AUC-PR: 0.5850
+
+############### Dataset: uci_taiwan, resampling method: smote_bs1, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5238
+AUC-ROC: 0.7670
+AUC-PR: 0.5180
+
+############### Dataset: uci_taiwan, resampling method: smote_bs1, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5162
+AUC-ROC: 0.7592
+AUC-PR: 0.5440
+
+############### Dataset: uci_taiwan, resampling method: smote_bs1, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5522
+AUC-ROC: 0.7836
+AUC-PR: 0.5733
+
+############### Dataset: uci_taiwan, resampling method: smote_bs2, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5208
+AUC-ROC: 0.7733
+AUC-PR: 0.5290
+
+############### Dataset: uci_taiwan, resampling method: smote_bs2, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5329
+AUC-ROC: 0.7806
+AUC-PR: 0.5558
+
+############### Dataset: uci_taiwan, resampling method: smote_bs2, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5487
+AUC-ROC: 0.7876
+AUC-PR: 0.5650
+
+############### Dataset: uci_taiwan, resampling method: smote_enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5399
+AUC-ROC: 0.7749
+AUC-PR: 0.5625
+
+############### Dataset: uci_taiwan, resampling method: smote_enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5239
+AUC-ROC: 0.7813
+AUC-PR: 0.5700
+
+############### Dataset: uci_taiwan, resampling method: smote_enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5509
+AUC-ROC: 0.7891
+AUC-PR: 0.5828
+
+############### Dataset: uci_taiwan, resampling method: smote_tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5176
+AUC-ROC: 0.7630
+AUC-PR: 0.5411
+
+############### Dataset: uci_taiwan, resampling method: smote_tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5399
+AUC-ROC: 0.7646
+AUC-PR: 0.5633
+
+############### Dataset: uci_taiwan, resampling method: smote_tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5576
+AUC-ROC: 0.7854
+AUC-PR: 0.5811
+
+############### Dataset: uci_taiwan, resampling method: adasyn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.5182
+AUC-ROC: 0.7614
+AUC-PR: 0.5399
+
+############### Dataset: uci_taiwan, resampling method: adasyn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.5288
+AUC-ROC: 0.7601
+AUC-PR: 0.5499
+
+############### Dataset: uci_taiwan, resampling method: adasyn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5479
+AUC-ROC: 0.7803
+AUC-PR: 0.5795
+
+############### Dataset: pakdd, resampling method: ros, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.2027
+AUC-ROC: 0.6253
+AUC-PR: 0.3474
+
+############### Dataset: pakdd, resampling method: ros, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.4405
+AUC-ROC: 0.6398
+AUC-PR: 0.3539
+
+############### Dataset: pakdd, resampling method: ros, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4561
+AUC-ROC: 0.6529
+AUC-PR: 0.3671
+
+############### Dataset: pakdd, resampling method: rus, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.4294
+AUC-ROC: 0.6247
+AUC-PR: 0.3446
+
+############### Dataset: pakdd, resampling method: rus, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.4384
+AUC-ROC: 0.6391
+AUC-PR: 0.3528
+
+############### Dataset: pakdd, resampling method: rus, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4584
+AUC-ROC: 0.6525
+AUC-PR: 0.3622
+
+############### Dataset: pakdd, resampling method: nearmiss, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3973
+AUC-ROC: 0.5483
+AUC-PR: 0.2844
+
+############### Dataset: pakdd, resampling method: nearmiss, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3993
+AUC-ROC: 0.5534
+AUC-PR: 0.2812
+
+############### Dataset: pakdd, resampling method: nearmiss, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.3961
+AUC-ROC: 0.5569
+AUC-PR: 0.2893
+
+############### Dataset: pakdd, resampling method: enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.4391
+AUC-ROC: 0.6366
+AUC-PR: 0.3554
+
+############### Dataset: pakdd, resampling method: enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.4142
+AUC-ROC: 0.6348
+AUC-PR: 0.3512
+
+############### Dataset: pakdd, resampling method: enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4289
+AUC-ROC: 0.6473
+AUC-PR: 0.3606
+
+############### Dataset: pakdd, resampling method: tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.1322
+AUC-ROC: 0.6244
+AUC-PR: 0.3499
+
+############### Dataset: pakdd, resampling method: tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.0515
+AUC-ROC: 0.6361
+AUC-PR: 0.3467
+
+############### Dataset: pakdd, resampling method: tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.0196
+AUC-ROC: 0.6513
+AUC-PR: 0.3661
+
+############### Dataset: pakdd, resampling method: smote, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.1678
+AUC-ROC: 0.6186
+AUC-PR: 0.3426
+
+############### Dataset: pakdd, resampling method: smote, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3189
+AUC-ROC: 0.6012
+AUC-PR: 0.3290
+
+############### Dataset: pakdd, resampling method: smote, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.0967
+AUC-ROC: 0.6351
+AUC-PR: 0.3529
+
+############### Dataset: pakdd, resampling method: smote_bs1, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.1626
+AUC-ROC: 0.6218
+AUC-PR: 0.3458
+
+############### Dataset: pakdd, resampling method: smote_bs1, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3186
+AUC-ROC: 0.6114
+AUC-PR: 0.3411
+
+############### Dataset: pakdd, resampling method: smote_bs1, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.0727
+AUC-ROC: 0.6318
+AUC-PR: 0.3502
+
+############### Dataset: pakdd, resampling method: smote_bs2, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.1752
+AUC-ROC: 0.6232
+AUC-PR: 0.3447
+
+############### Dataset: pakdd, resampling method: smote_bs2, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3127
+AUC-ROC: 0.6018
+AUC-PR: 0.3259
+
+############### Dataset: pakdd, resampling method: smote_bs2, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.1120
+AUC-ROC: 0.6294
+AUC-PR: 0.3510
+
+############### Dataset: pakdd, resampling method: smote_enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.4505
+AUC-ROC: 0.6353
+AUC-PR: 0.3554
+
+############### Dataset: pakdd, resampling method: smote_enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.4432
+AUC-ROC: 0.6221
+AUC-PR: 0.3379
+
+############### Dataset: pakdd, resampling method: smote_enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4502
+AUC-ROC: 0.6447
+AUC-PR: 0.3671
+
+############### Dataset: pakdd, resampling method: smote_tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.1561
+AUC-ROC: 0.6207
+AUC-PR: 0.3455
+
+############### Dataset: pakdd, resampling method: smote_tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3166
+AUC-ROC: 0.6015
+AUC-PR: 0.3285
+
+############### Dataset: pakdd, resampling method: smote_tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.1026
+AUC-ROC: 0.6330
+AUC-PR: 0.3490
+
+############### Dataset: pakdd, resampling method: adasyn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.1716
+AUC-ROC: 0.6162
+AUC-PR: 0.3446
+
+############### Dataset: pakdd, resampling method: adasyn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3412
+AUC-ROC: 0.6049
+AUC-PR: 0.3295
+
+############### Dataset: pakdd, resampling method: adasyn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.0939
+AUC-ROC: 0.6311
+AUC-PR: 0.3484
+
+############### Dataset: hmeq, resampling method: ros, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.7895
+AUC-ROC: 0.9697
+AUC-PR: 0.9007
+
+############### Dataset: hmeq, resampling method: ros, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6982
+AUC-ROC: 0.9186
+AUC-PR: 0.8294
+
+############### Dataset: hmeq, resampling method: ros, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7273
+AUC-ROC: 0.9207
+AUC-PR: 0.8356
+
+############### Dataset: hmeq, resampling method: rus, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.7509
+AUC-ROC: 0.9486
+AUC-PR: 0.8532
+
+############### Dataset: hmeq, resampling method: rus, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6857
+AUC-ROC: 0.9162
+AUC-PR: 0.8058
+
+############### Dataset: hmeq, resampling method: rus, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7273
+AUC-ROC: 0.9252
+AUC-PR: 0.8354
+
+############### Dataset: hmeq, resampling method: nearmiss, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.4839
+AUC-ROC: 0.8410
+AUC-PR: 0.5857
+
+############### Dataset: hmeq, resampling method: nearmiss, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.4914
+AUC-ROC: 0.8027
+AUC-PR: 0.4805
+
+############### Dataset: hmeq, resampling method: nearmiss, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.5087
+AUC-ROC: 0.8537
+AUC-PR: 0.6489
+
+############### Dataset: hmeq, resampling method: enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.8093
+AUC-ROC: 0.9728
+AUC-PR: 0.9166
+
+############### Dataset: hmeq, resampling method: enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.7315
+AUC-ROC: 0.9110
+AUC-PR: 0.8160
+
+############### Dataset: hmeq, resampling method: enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7053
+AUC-ROC: 0.9243
+AUC-PR: 0.8419
+
+############### Dataset: hmeq, resampling method: tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.8000
+AUC-ROC: 0.9733
+AUC-PR: 0.9203
+
+############### Dataset: hmeq, resampling method: tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.7290
+AUC-ROC: 0.9118
+AUC-PR: 0.8180
+
+############### Dataset: hmeq, resampling method: tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7368
+AUC-ROC: 0.9196
+AUC-PR: 0.8429
+
+############### Dataset: hmeq, resampling method: smote, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.8407
+AUC-ROC: 0.9796
+AUC-PR: 0.9340
+
+############### Dataset: hmeq, resampling method: smote, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6866
+AUC-ROC: 0.9018
+AUC-PR: 0.8018
+
+############### Dataset: hmeq, resampling method: smote, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7309
+AUC-ROC: 0.9191
+AUC-PR: 0.8287
+
+############### Dataset: hmeq, resampling method: smote_bs1, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.8267
+AUC-ROC: 0.9748
+AUC-PR: 0.9217
+
+############### Dataset: hmeq, resampling method: smote_bs1, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6691
+AUC-ROC: 0.8913
+AUC-PR: 0.7782
+
+############### Dataset: hmeq, resampling method: smote_bs1, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7194
+AUC-ROC: 0.9169
+AUC-PR: 0.8187
+
+############### Dataset: hmeq, resampling method: smote_bs2, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.8416
+AUC-ROC: 0.9791
+AUC-PR: 0.9350
+
+############### Dataset: hmeq, resampling method: smote_bs2, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6551
+AUC-ROC: 0.8927
+AUC-PR: 0.7677
+
+############### Dataset: hmeq, resampling method: smote_bs2, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7216
+AUC-ROC: 0.9199
+AUC-PR: 0.8227
+
+############### Dataset: hmeq, resampling method: smote_enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.8194
+AUC-ROC: 0.9736
+AUC-PR: 0.9095
+
+############### Dataset: hmeq, resampling method: smote_enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6973
+AUC-ROC: 0.8909
+AUC-PR: 0.7867
+
+############### Dataset: hmeq, resampling method: smote_enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7572
+AUC-ROC: 0.9157
+AUC-PR: 0.8292
+
+############### Dataset: hmeq, resampling method: smote_tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.8384
+AUC-ROC: 0.9775
+AUC-PR: 0.9277
+
+############### Dataset: hmeq, resampling method: smote_tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6891
+AUC-ROC: 0.8960
+AUC-PR: 0.7968
+
+############### Dataset: hmeq, resampling method: smote_tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7309
+AUC-ROC: 0.9173
+AUC-PR: 0.8288
+
+############### Dataset: hmeq, resampling method: adasyn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.8261
+AUC-ROC: 0.9786
+AUC-PR: 0.9274
+
+############### Dataset: hmeq, resampling method: adasyn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.6813
+AUC-ROC: 0.8959
+AUC-PR: 0.7875
+
+############### Dataset: hmeq, resampling method: adasyn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.7510
+AUC-ROC: 0.9206
+AUC-PR: 0.8301
+
+############### Dataset: gmsc, resampling method: ros, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3303
+AUC-ROC: 0.8228
+AUC-PR: 0.3177
+
+############### Dataset: gmsc, resampling method: ros, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3459
+AUC-ROC: 0.8257
+AUC-PR: 0.3570
+
+############### Dataset: gmsc, resampling method: ros, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.3441
+AUC-ROC: 0.8305
+AUC-PR: 0.3744
+
+############### Dataset: gmsc, resampling method: rus, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3260
+AUC-ROC: 0.8481
+AUC-PR: 0.3592
+
+############### Dataset: gmsc, resampling method: rus, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3401
+AUC-ROC: 0.8257
+AUC-PR: 0.3465
+
+############### Dataset: gmsc, resampling method: rus, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.3394
+AUC-ROC: 0.8390
+AUC-PR: 0.3755
+
+############### Dataset: gmsc, resampling method: nearmiss, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.1604
+AUC-ROC: 0.7510
+AUC-PR: 0.3221
+
+############### Dataset: gmsc, resampling method: nearmiss, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.1695
+AUC-ROC: 0.6883
+AUC-PR: 0.1181
+
+############### Dataset: gmsc, resampling method: nearmiss, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.1685
+AUC-ROC: 0.7448
+AUC-PR: 0.2189
+
+############### Dataset: gmsc, resampling method: enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3867
+AUC-ROC: 0.8403
+AUC-PR: 0.3664
+
+############### Dataset: gmsc, resampling method: enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3711
+AUC-ROC: 0.8253
+AUC-PR: 0.3681
+
+############### Dataset: gmsc, resampling method: enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4012
+AUC-ROC: 0.8308
+AUC-PR: 0.3808
+
+############### Dataset: gmsc, resampling method: tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3156
+AUC-ROC: 0.8376
+AUC-PR: 0.3601
+
+############### Dataset: gmsc, resampling method: tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.2942
+AUC-ROC: 0.8250
+AUC-PR: 0.3537
+
+############### Dataset: gmsc, resampling method: tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.3163
+AUC-ROC: 0.8303
+AUC-PR: 0.3851
+
+############### Dataset: gmsc, resampling method: smote, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3149
+AUC-ROC: 0.8246
+AUC-PR: 0.3058
+
+############### Dataset: gmsc, resampling method: smote, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3714
+AUC-ROC: 0.8008
+AUC-PR: 0.3265
+
+############### Dataset: gmsc, resampling method: smote, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4065
+AUC-ROC: 0.8188
+AUC-PR: 0.3447
+
+############### Dataset: gmsc, resampling method: smote_bs1, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3215
+AUC-ROC: 0.8319
+AUC-PR: 0.3150
+
+############### Dataset: gmsc, resampling method: smote_bs1, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3773
+AUC-ROC: 0.8083
+AUC-PR: 0.3232
+
+############### Dataset: gmsc, resampling method: smote_bs1, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4055
+AUC-ROC: 0.8217
+AUC-PR: 0.3369
+
+############### Dataset: gmsc, resampling method: smote_bs2, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3282
+AUC-ROC: 0.8352
+AUC-PR: 0.3028
+
+############### Dataset: gmsc, resampling method: smote_bs2, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3501
+AUC-ROC: 0.8076
+AUC-PR: 0.3258
+
+############### Dataset: gmsc, resampling method: smote_bs2, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.3706
+AUC-ROC: 0.8216
+AUC-PR: 0.3409
+
+############### Dataset: gmsc, resampling method: smote_enn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.4164
+AUC-ROC: 0.8406
+AUC-PR: 0.3544
+
+############### Dataset: gmsc, resampling method: smote_enn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3697
+AUC-ROC: 0.8153
+AUC-PR: 0.3428
+
+############### Dataset: gmsc, resampling method: smote_enn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.3839
+AUC-ROC: 0.8286
+AUC-PR: 0.3578
+
+############### Dataset: gmsc, resampling method: smote_tomek, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3255
+AUC-ROC: 0.8257
+AUC-PR: 0.3066
+
+############### Dataset: gmsc, resampling method: smote_tomek, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3845
+AUC-ROC: 0.8097
+AUC-PR: 0.3297
+
+############### Dataset: gmsc, resampling method: smote_tomek, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4102
+AUC-ROC: 0.8214
+AUC-PR: 0.3473
+
+############### Dataset: gmsc, resampling method: adasyn, classifier: Random Forest ###############
+Test Set Evaluation:
+F1-Score: 0.3234
+AUC-ROC: 0.8184
+AUC-PR: 0.3016
+
+############### Dataset: gmsc, resampling method: adasyn, classifier: AdaBoost ###############
+Test Set Evaluation:
+F1-Score: 0.3691
+AUC-ROC: 0.8033
+AUC-PR: 0.3187
+
+############### Dataset: gmsc, resampling method: adasyn, classifier: Gradient Boosting ###############
+Test Set Evaluation:
+F1-Score: 0.4038
+AUC-ROC: 0.8159
+AUC-PR: 0.3392
+
+############# uci_german #############
+DEBUG:root:GAN initilisation finished.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no auxillary classifier during init, but use_aux_classifier_loss is True. Initialising now.
+DEBUG:root:Using an auxiliary classifier loss. Starting pretraining.
+INFO:root:Finished training auxiliary classifier. ACC: 0.8467 AUC: 0.9009 BCE: 0.3829
+INFO:root:Pretrained the aux classifier. Proceeding to training GAN or aux teacher if used.
+INFO:root:Starting training. Expecting to train for 300 epochs at 15 iters per epoch to reach target of 4500.
+[ 2500/4500] LG:0.567 LD:0.523 D:0.657 GP:0.009 AC: 0.629 RMSEAVG:0.166 NUM:0.144 SynTraiAuc:0.520 RFAcc:0.958
+[ 4500/4500] LG:0.420 LD:0.857 D:0.923 GP:0.004 AC: 0.606 RMSEAVG:0.078 NUM:0.143 SynTraiAuc:0.520 RFAcc:0.918
+INFO:root:Finished training after 4500/4500.
+F1-Score: 0.5455
+AUC-ROC: 0.7955
+AUC-PR: 0.5950
+
+############# uci_taiwan #############
+DEBUG:root:GAN initilisation finished.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no auxillary classifier during init, but use_aux_classifier_loss is True. Initialising now.
+DEBUG:root:Using an auxiliary classifier loss. Starting pretraining.
+INFO:root:Finished training auxiliary classifier. ACC: 0.8302 AUC: 0.8017 BCE: 0.4103
+INFO:root:Pretrained the aux classifier. Proceeding to training GAN or aux teacher if used.
+INFO:root:Starting training. Expecting to train for 300 epochs at 422 iters per epoch to reach target of 126600.
+[ 2500/126600] LG:1.022 LD:0.914 D:0.963 GP:0.003 AC: 0.342 RMSEAVG:0.041 NUM:0.028 SynTraiAuc:0.413 RFAcc:0.968
+[ 5000/126600] LG:1.401 LD:0.956 D:1.061 GP:0.007 AC: 0.310 RMSEAVG:0.031 NUM:0.015 SynTraiAuc:0.711 RFAcc:0.953
+[ 7500/126600] LG:1.472 LD:1.069 D:1.116 GP:0.003 AC: 0.306 RMSEAVG:0.033 NUM:0.031 SynTraiAuc:0.711 RFAcc:0.919
+[10000/126600] LG:1.635 LD:0.798 D:0.863 GP:0.004 AC: 0.308 RMSEAVG:0.037 NUM:0.022 SynTraiAuc:0.785 RFAcc:0.922
+[12500/126600] LG:1.820 LD:0.637 D:0.725 GP:0.006 AC: 0.307 RMSEAVG:0.040 NUM:0.024 SynTraiAuc:0.785 RFAcc:0.909
+[15000/126600] LG:2.011 LD:0.723 D:0.797 GP:0.005 AC: 0.306 RMSEAVG:0.036 NUM:0.021 SynTraiAuc:0.756 RFAcc:0.943
+[17500/126600] LG:2.184 LD:0.775 D:0.846 GP:0.005 AC: 0.304 RMSEAVG:0.043 NUM:0.016 SynTraiAuc:0.756 RFAcc:0.910
+[20000/126600] LG:2.312 LD:0.784 D:0.846 GP:0.004 AC: 0.303 RMSEAVG:0.046 NUM:0.020 SynTraiAuc:0.752 RFAcc:0.905
+[22500/126600] LG:2.425 LD:0.779 D:0.825 GP:0.003 AC: 0.303 RMSEAVG:0.036 NUM:0.016 SynTraiAuc:0.752 RFAcc:0.932
+[25000/126600] LG:2.480 LD:0.741 D:0.791 GP:0.003 AC: 0.304 RMSEAVG:0.047 NUM:0.017 SynTraiAuc:0.714 RFAcc:0.920
+[27500/126600] LG:2.584 LD:0.735 D:0.782 GP:0.003 AC: 0.301 RMSEAVG:0.031 NUM:0.016 SynTraiAuc:0.714 RFAcc:0.934
+[30000/126600] LG:2.687 LD:0.846 D:0.901 GP:0.004 AC: 0.303 RMSEAVG:0.026 NUM:0.017 SynTraiAuc:0.734 RFAcc:0.929
+[32500/126600] LG:2.819 LD:0.650 D:0.709 GP:0.004 AC: 0.322 RMSEAVG:0.038 NUM:0.020 SynTraiAuc:0.734 RFAcc:0.926
+[35000/126600] LG:2.778 LD:0.745 D:0.785 GP:0.003 AC: 0.307 RMSEAVG:0.038 NUM:0.015 SynTraiAuc:0.739 RFAcc:0.932
+[37500/126600] LG:2.913 LD:0.533 D:0.574 GP:0.003 AC: 0.304 RMSEAVG:0.033 NUM:0.015 SynTraiAuc:0.739 RFAcc:0.890
+[40000/126600] LG:2.923 LD:0.622 D:0.683 GP:0.004 AC: 0.308 RMSEAVG:0.030 NUM:0.018 SynTraiAuc:0.728 RFAcc:0.925
+[42500/126600] LG:3.013 LD:0.679 D:0.739 GP:0.004 AC: 0.309 RMSEAVG:0.030 NUM:0.015 SynTraiAuc:0.728 RFAcc:0.915
+[45000/126600] LG:3.079 LD:0.526 D:0.580 GP:0.004 AC: 0.307 RMSEAVG:0.032 NUM:0.015 SynTraiAuc:0.758 RFAcc:0.895
+[47500/126600] LG:3.098 LD:0.445 D:0.487 GP:0.003 AC: 0.312 RMSEAVG:0.029 NUM:0.022 SynTraiAuc:0.758 RFAcc:0.945
+[50000/126600] LG:3.146 LD:0.622 D:0.658 GP:0.002 AC: 0.302 RMSEAVG:0.035 NUM:0.018 SynTraiAuc:0.735 RFAcc:0.896
+[52500/126600] LG:3.270 LD:0.558 D:0.589 GP:0.002 AC: 0.308 RMSEAVG:0.031 NUM:0.023 SynTraiAuc:0.735 RFAcc:0.892
+[55000/126600] LG:3.278 LD:0.459 D:0.515 GP:0.004 AC: 0.306 RMSEAVG:0.030 NUM:0.015 SynTraiAuc:0.710 RFAcc:0.882
+[57500/126600] LG:3.313 LD:0.397 D:0.460 GP:0.004 AC: 0.303 RMSEAVG:0.028 NUM:0.017 SynTraiAuc:0.710 RFAcc:0.915
+[60000/126600] LG:3.380 LD:0.506 D:0.533 GP:0.002 AC: 0.305 RMSEAVG:0.036 NUM:0.019 SynTraiAuc:0.731 RFAcc:0.945
+[62500/126600] LG:3.435 LD:0.434 D:0.472 GP:0.003 AC: 0.311 RMSEAVG:0.034 NUM:0.030 SynTraiAuc:0.731 RFAcc:0.958
+[65000/126600] LG:3.489 LD:0.391 D:0.437 GP:0.003 AC: 0.303 RMSEAVG:0.031 NUM:0.020 SynTraiAuc:0.743 RFAcc:0.956
+[67500/126600] LG:3.476 LD:0.331 D:0.372 GP:0.003 AC: 0.311 RMSEAVG:0.029 NUM:0.018 SynTraiAuc:0.743 RFAcc:0.949
+[70000/126600] LG:3.427 LD:0.450 D:0.506 GP:0.004 AC: 0.301 RMSEAVG:0.030 NUM:0.017 SynTraiAuc:0.731 RFAcc:0.979
+[72500/126600] LG:3.550 LD:0.503 D:0.548 GP:0.003 AC: 0.305 RMSEAVG:0.029 NUM:0.023 SynTraiAuc:0.731 RFAcc:0.961
+[75000/126600] LG:3.554 LD:0.497 D:0.552 GP:0.004 AC: 0.312 RMSEAVG:0.032 NUM:0.017 SynTraiAuc:0.746 RFAcc:0.924
+[77500/126600] LG:3.473 LD:0.494 D:0.545 GP:0.003 AC: 0.304 RMSEAVG:0.027 NUM:0.029 SynTraiAuc:0.746 RFAcc:1.000
+[80000/126600] LG:3.504 LD:0.441 D:0.492 GP:0.003 AC: 0.312 RMSEAVG:0.025 NUM:0.016 SynTraiAuc:0.758 RFAcc:0.912
+[82500/126600] LG:3.632 LD:0.489 D:0.534 GP:0.003 AC: 0.305 RMSEAVG:0.028 NUM:0.021 SynTraiAuc:0.758 RFAcc:0.949
+[85000/126600] LG:3.615 LD:0.487 D:0.542 GP:0.004 AC: 0.312 RMSEAVG:0.029 NUM:0.030 SynTraiAuc:0.744 RFAcc:0.991
+[87500/126600] LG:3.590 LD:0.438 D:0.482 GP:0.003 AC: 0.306 RMSEAVG:0.024 NUM:0.021 SynTraiAuc:0.744 RFAcc:0.936
+[90000/126600] LG:3.746 LD:0.545 D:0.594 GP:0.003 AC: 0.302 RMSEAVG:0.026 NUM:0.022 SynTraiAuc:0.741 RFAcc:0.980
+[92500/126600] LG:3.682 LD:0.375 D:0.423 GP:0.003 AC: 0.311 RMSEAVG:0.031 NUM:0.022 SynTraiAuc:0.741 RFAcc:0.912
+[95000/126600] LG:3.628 LD:0.278 D:0.306 GP:0.002 AC: 0.306 RMSEAVG:0.030 NUM:0.014 SynTraiAuc:0.742 RFAcc:0.927
+[97500/126600] LG:3.599 LD:0.330 D:0.350 GP:0.001 AC: 0.304 RMSEAVG:0.024 NUM:0.017 SynTraiAuc:0.742 RFAcc:0.958
+[100000/126600] LG:3.619 LD:0.228 D:0.288 GP:0.004 AC: 0.303 RMSEAVG:0.021 NUM:0.021 SynTraiAuc:0.733 RFAcc:0.953
+[102500/126600] LG:3.644 LD:0.366 D:0.397 GP:0.002 AC: 0.313 RMSEAVG:0.021 NUM:0.023 SynTraiAuc:0.733 RFAcc:0.966
+[105000/126600] LG:3.608 LD:0.386 D:0.414 GP:0.002 AC: 0.310 RMSEAVG:0.021 NUM:0.019 SynTraiAuc:0.733 RFAcc:0.925
+[107500/126600] LG:3.587 LD:0.344 D:0.378 GP:0.002 AC: 0.313 RMSEAVG:0.023 NUM:0.022 SynTraiAuc:0.733 RFAcc:0.927
+[110000/126600] LG:3.675 LD:0.218 D:0.249 GP:0.002 AC: 0.304 RMSEAVG:0.021 NUM:0.016 SynTraiAuc:0.725 RFAcc:0.938
+[112500/126600] LG:3.745 LD:0.217 D:0.240 GP:0.002 AC: 0.307 RMSEAVG:0.023 NUM:0.020 SynTraiAuc:0.725 RFAcc:0.965
+[115000/126600] LG:3.667 LD:0.243 D:0.277 GP:0.002 AC: 0.308 RMSEAVG:0.028 NUM:0.022 SynTraiAuc:0.771 RFAcc:0.944
+[117500/126600] LG:3.661 LD:0.261 D:0.300 GP:0.003 AC: 0.310 RMSEAVG:0.024 NUM:0.022 SynTraiAuc:0.771 RFAcc:0.945
+[120000/126600] LG:3.576 LD:0.232 D:0.258 GP:0.002 AC: 0.309 RMSEAVG:0.021 NUM:0.017 SynTraiAuc:0.746 RFAcc:0.936
+[122500/126600] LG:3.667 LD:0.290 D:0.318 GP:0.002 AC: 0.310 RMSEAVG:0.026 NUM:0.022 SynTraiAuc:0.746 RFAcc:0.986
+[125000/126600] LG:3.640 LD:0.209 D:0.249 GP:0.003 AC: 0.302 RMSEAVG:0.020 NUM:0.019 SynTraiAuc:0.764 RFAcc:0.939
+[126600/126600] LG:3.624 LD:0.212 D:0.234 GP:0.001 AC: 0.304 RMSEAVG:0.026 NUM:0.020 SynTraiAuc:0.764 RFAcc:0.938
+INFO:root:Finished training after 126600/126600.
+F1-Score: 0.5019
+AUC-ROC: 0.7810
+AUC-PR: 0.5803
+
+############# pakdd #############
+DEBUG:root:GAN initilisation finished.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no auxillary classifier during init, but use_aux_classifier_loss is True. Initialising now.
+DEBUG:root:Using an auxiliary classifier loss. Starting pretraining.
+INFO:root:Finished training auxiliary classifier. ACC: 0.7553 AUC: 0.7388 BCE: 0.5154
+INFO:root:Pretrained the aux classifier. Proceeding to training GAN or aux teacher if used.
+INFO:root:Starting training. Expecting to train for 300 epochs at 704 iters per epoch to reach target of 211200.
+[ 2500/211200] LG:0.877 LD:1.072 D:1.211 GP:0.009 AC: 0.365 RMSEAVG:0.038 NUM:0.045 SynTraiAuc:0.490 RFAcc:0.960
+[ 5000/211200] LG:1.251 LD:1.553 D:1.620 GP:0.004 AC: 0.351 RMSEAVG:0.043 NUM:0.043 SynTraiAuc:0.564 RFAcc:0.996
+[ 7500/211200] LG:1.123 LD:1.421 D:1.516 GP:0.006 AC: 0.346 RMSEAVG:0.030 NUM:0.021 SynTraiAuc:0.564 RFAcc:0.965
+[10000/211200] LG:0.950 LD:1.357 D:1.458 GP:0.007 AC: 0.323 RMSEAVG:0.019 NUM:0.035 SynTraiAuc:0.563 RFAcc:0.970
+[12500/211200] LG:1.106 LD:1.484 D:1.603 GP:0.008 AC: 0.375 RMSEAVG:0.023 NUM:0.011 SynTraiAuc:0.563 RFAcc:0.985
+[15000/211200] LG:1.130 LD:1.245 D:1.353 GP:0.007 AC: 0.340 RMSEAVG:0.044 NUM:0.022 SynTraiAuc:0.576 RFAcc:0.985
+[17500/211200] LG:1.398 LD:1.218 D:1.282 GP:0.004 AC: 0.327 RMSEAVG:0.020 NUM:0.011 SynTraiAuc:0.576 RFAcc:0.978
+[20000/211200] LG:1.473 LD:1.188 D:1.320 GP:0.009 AC: 0.328 RMSEAVG:0.015 NUM:0.011 SynTraiAuc:0.549 RFAcc:0.954
+[22500/211200] LG:1.445 LD:0.978 D:1.105 GP:0.009 AC: 0.346 RMSEAVG:0.017 NUM:0.013 SynTraiAuc:0.549 RFAcc:0.956
+[25000/211200] LG:1.526 LD:1.084 D:1.167 GP:0.006 AC: 0.360 RMSEAVG:0.017 NUM:0.006 SynTraiAuc:0.555 RFAcc:0.954
+[27500/211200] LG:1.684 LD:1.042 D:1.144 GP:0.007 AC: 0.313 RMSEAVG:0.013 NUM:0.018 SynTraiAuc:0.555 RFAcc:0.959
+[30000/211200] LG:1.738 LD:1.165 D:1.259 GP:0.006 AC: 0.327 RMSEAVG:0.015 NUM:0.010 SynTraiAuc:0.550 RFAcc:0.939
+[32500/211200] LG:1.850 LD:1.049 D:1.125 GP:0.005 AC: 0.351 RMSEAVG:0.013 NUM:0.022 SynTraiAuc:0.550 RFAcc:0.985
+[35000/211200] LG:1.986 LD:1.114 D:1.241 GP:0.008 AC: 0.358 RMSEAVG:0.016 NUM:0.021 SynTraiAuc:0.566 RFAcc:0.993
+[37500/211200] LG:1.971 LD:1.135 D:1.208 GP:0.005 AC: 0.333 RMSEAVG:0.024 NUM:0.021 SynTraiAuc:0.566 RFAcc:0.983
+[40000/211200] LG:2.006 LD:0.997 D:1.083 GP:0.006 AC: 0.311 RMSEAVG:0.014 NUM:0.012 SynTraiAuc:0.555 RFAcc:0.965
+[42500/211200] LG:2.072 LD:0.987 D:1.060 GP:0.005 AC: 0.317 RMSEAVG:0.015 NUM:0.013 SynTraiAuc:0.555 RFAcc:0.971
+[45000/211200] LG:2.122 LD:0.969 D:1.090 GP:0.008 AC: 0.362 RMSEAVG:0.015 NUM:0.033 SynTraiAuc:0.553 RFAcc:0.964
+[47500/211200] LG:2.230 LD:0.903 D:0.984 GP:0.005 AC: 0.330 RMSEAVG:0.015 NUM:0.016 SynTraiAuc:0.553 RFAcc:0.969
+[50000/211200] LG:2.317 LD:0.894 D:0.976 GP:0.005 AC: 0.356 RMSEAVG:0.011 NUM:0.028 SynTraiAuc:0.556 RFAcc:0.974
+[52500/211200] LG:2.401 LD:0.813 D:0.868 GP:0.004 AC: 0.322 RMSEAVG:0.013 NUM:0.015 SynTraiAuc:0.556 RFAcc:0.969
+[55000/211200] LG:2.438 LD:0.890 D:0.957 GP:0.004 AC: 0.331 RMSEAVG:0.012 NUM:0.013 SynTraiAuc:0.578 RFAcc:0.969
+[57500/211200] LG:2.533 LD:0.862 D:0.916 GP:0.004 AC: 0.359 RMSEAVG:0.013 NUM:0.027 SynTraiAuc:0.578 RFAcc:0.994
+[60000/211200] LG:2.581 LD:0.861 D:0.962 GP:0.007 AC: 0.346 RMSEAVG:0.016 NUM:0.014 SynTraiAuc:0.550 RFAcc:0.981
+[62500/211200] LG:2.467 LD:0.774 D:0.826 GP:0.003 AC: 0.321 RMSEAVG:0.016 NUM:0.022 SynTraiAuc:0.550 RFAcc:0.964
+[65000/211200] LG:2.504 LD:0.683 D:0.744 GP:0.004 AC: 0.358 RMSEAVG:0.021 NUM:0.048 SynTraiAuc:0.543 RFAcc:0.986
+[67500/211200] LG:2.493 LD:0.630 D:0.740 GP:0.007 AC: 0.341 RMSEAVG:0.020 NUM:0.031 SynTraiAuc:0.543 RFAcc:0.980
+[70000/211200] LG:2.515 LD:0.644 D:0.734 GP:0.006 AC: 0.374 RMSEAVG:0.017 NUM:0.016 SynTraiAuc:0.530 RFAcc:0.971
+[72500/211200] LG:2.653 LD:0.657 D:0.735 GP:0.005 AC: 0.328 RMSEAVG:0.018 NUM:0.012 SynTraiAuc:0.530 RFAcc:0.978
+[75000/211200] LG:2.556 LD:0.724 D:0.793 GP:0.005 AC: 0.358 RMSEAVG:0.018 NUM:0.053 SynTraiAuc:0.515 RFAcc:0.995
+[77500/211200] LG:2.631 LD:0.630 D:0.684 GP:0.004 AC: 0.346 RMSEAVG:0.019 NUM:0.032 SynTraiAuc:0.515 RFAcc:0.989
+[80000/211200] LG:2.554 LD:0.740 D:0.795 GP:0.004 AC: 0.341 RMSEAVG:0.016 NUM:0.023 SynTraiAuc:0.542 RFAcc:0.996
+[82500/211200] LG:2.595 LD:0.691 D:0.785 GP:0.006 AC: 0.359 RMSEAVG:0.018 NUM:0.036 SynTraiAuc:0.542 RFAcc:0.993
+[85000/211200] LG:2.670 LD:0.623 D:0.665 GP:0.003 AC: 0.364 RMSEAVG:0.017 NUM:0.036 SynTraiAuc:0.516 RFAcc:0.999
+[87500/211200] LG:2.683 LD:0.566 D:0.630 GP:0.004 AC: 0.368 RMSEAVG:0.015 NUM:0.026 SynTraiAuc:0.516 RFAcc:0.983
+[90000/211200] LG:2.631 LD:0.621 D:0.674 GP:0.003 AC: 0.333 RMSEAVG:0.020 NUM:0.041 SynTraiAuc:0.517 RFAcc:0.999
+[92500/211200] LG:2.782 LD:0.597 D:0.640 GP:0.003 AC: 0.357 RMSEAVG:0.016 NUM:0.031 SynTraiAuc:0.517 RFAcc:0.994
+[95000/211200] LG:2.750 LD:0.643 D:0.696 GP:0.004 AC: 0.384 RMSEAVG:0.020 NUM:0.021 SynTraiAuc:0.520 RFAcc:0.989
+[97500/211200] LG:2.791 LD:0.757 D:0.819 GP:0.004 AC: 0.342 RMSEAVG:0.018 NUM:0.038 SynTraiAuc:0.520 RFAcc:0.998
+[100000/211200] LG:2.835 LD:0.595 D:0.675 GP:0.005 AC: 0.343 RMSEAVG:0.019 NUM:0.033 SynTraiAuc:0.533 RFAcc:0.969
+[102500/211200] LG:2.856 LD:0.692 D:0.740 GP:0.003 AC: 0.378 RMSEAVG:0.017 NUM:0.033 SynTraiAuc:0.533 RFAcc:0.995
+[105000/211200] LG:2.793 LD:0.627 D:0.745 GP:0.008 AC: 0.356 RMSEAVG:0.017 NUM:0.038 SynTraiAuc:0.539 RFAcc:0.999
+[107500/211200] LG:2.804 LD:0.566 D:0.614 GP:0.003 AC: 0.409 RMSEAVG:0.015 NUM:0.024 SynTraiAuc:0.539 RFAcc:0.926
+[110000/211200] LG:2.881 LD:0.628 D:0.669 GP:0.003 AC: 0.352 RMSEAVG:0.017 NUM:0.023 SynTraiAuc:0.535 RFAcc:0.979
+[112500/211200] LG:2.900 LD:0.635 D:0.696 GP:0.004 AC: 0.333 RMSEAVG:0.017 NUM:0.024 SynTraiAuc:0.535 RFAcc:0.989
+[115000/211200] LG:2.773 LD:0.603 D:0.688 GP:0.006 AC: 0.322 RMSEAVG:0.014 NUM:0.022 SynTraiAuc:0.528 RFAcc:0.989
+[117500/211200] LG:2.846 LD:0.605 D:0.655 GP:0.003 AC: 0.354 RMSEAVG:0.017 NUM:0.029 SynTraiAuc:0.528 RFAcc:0.999
+[120000/211200] LG:2.801 LD:0.628 D:0.683 GP:0.004 AC: 0.368 RMSEAVG:0.018 NUM:0.035 SynTraiAuc:0.530 RFAcc:0.983
+[122500/211200] LG:2.724 LD:0.608 D:0.669 GP:0.004 AC: 0.365 RMSEAVG:0.016 NUM:0.035 SynTraiAuc:0.530 RFAcc:0.994
+[125000/211200] LG:2.741 LD:0.680 D:0.747 GP:0.004 AC: 0.324 RMSEAVG:0.016 NUM:0.032 SynTraiAuc:0.528 RFAcc:0.996
+[127500/211200] LG:2.732 LD:0.621 D:0.731 GP:0.007 AC: 0.361 RMSEAVG:0.019 NUM:0.033 SynTraiAuc:0.528 RFAcc:0.984
+[130000/211200] LG:2.725 LD:0.580 D:0.630 GP:0.003 AC: 0.330 RMSEAVG:0.018 NUM:0.040 SynTraiAuc:0.541 RFAcc:0.999
+[132500/211200] LG:2.825 LD:0.582 D:0.634 GP:0.003 AC: 0.326 RMSEAVG:0.018 NUM:0.035 SynTraiAuc:0.541 RFAcc:0.998
+[135000/211200] LG:2.812 LD:0.614 D:0.678 GP:0.004 AC: 0.397 RMSEAVG:0.018 NUM:0.033 SynTraiAuc:0.535 RFAcc:0.988
+[137500/211200] LG:2.710 LD:0.735 D:0.756 GP:0.001 AC: 0.376 RMSEAVG:0.018 NUM:0.035 SynTraiAuc:0.535 RFAcc:0.994
+[140000/211200] LG:2.684 LD:0.583 D:0.662 GP:0.005 AC: 0.347 RMSEAVG:0.017 NUM:0.029 SynTraiAuc:0.543 RFAcc:0.993
+[142500/211200] LG:2.691 LD:0.515 D:0.546 GP:0.002 AC: 0.366 RMSEAVG:0.018 NUM:0.035 SynTraiAuc:0.543 RFAcc:0.993
+[145000/211200] LG:2.707 LD:0.588 D:0.658 GP:0.005 AC: 0.358 RMSEAVG:0.019 NUM:0.032 SynTraiAuc:0.527 RFAcc:0.978
+[147500/211200] LG:2.707 LD:0.656 D:0.705 GP:0.003 AC: 0.373 RMSEAVG:0.018 NUM:0.033 SynTraiAuc:0.527 RFAcc:0.996
+[150000/211200] LG:2.722 LD:0.515 D:0.614 GP:0.007 AC: 0.351 RMSEAVG:0.022 NUM:0.038 SynTraiAuc:0.538 RFAcc:0.973
+[152500/211200] LG:2.672 LD:0.565 D:0.629 GP:0.004 AC: 0.379 RMSEAVG:0.024 NUM:0.048 SynTraiAuc:0.538 RFAcc:0.984
+[155000/211200] LG:2.735 LD:0.577 D:0.633 GP:0.004 AC: 0.387 RMSEAVG:0.018 NUM:0.031 SynTraiAuc:0.527 RFAcc:0.990
+[157500/211200] LG:2.751 LD:0.748 D:0.826 GP:0.005 AC: 0.376 RMSEAVG:0.021 NUM:0.030 SynTraiAuc:0.527 RFAcc:0.974
+[160000/211200] LG:2.831 LD:0.702 D:0.782 GP:0.005 AC: 0.344 RMSEAVG:0.021 NUM:0.036 SynTraiAuc:0.503 RFAcc:0.989
+[162500/211200] LG:2.836 LD:0.517 D:0.754 GP:0.016 AC: 0.378 RMSEAVG:0.018 NUM:0.027 SynTraiAuc:0.503 RFAcc:0.975
+[165000/211200] LG:2.842 LD:0.534 D:0.579 GP:0.003 AC: 0.366 RMSEAVG:0.020 NUM:0.042 SynTraiAuc:0.524 RFAcc:0.986
+[167500/211200] LG:2.831 LD:0.628 D:0.690 GP:0.004 AC: 0.369 RMSEAVG:0.023 NUM:0.034 SynTraiAuc:0.524 RFAcc:0.991
+[170000/211200] LG:2.850 LD:0.552 D:0.612 GP:0.004 AC: 0.372 RMSEAVG:0.021 NUM:0.040 SynTraiAuc:0.518 RFAcc:0.986
+[172500/211200] LG:2.769 LD:0.655 D:0.695 GP:0.003 AC: 0.372 RMSEAVG:0.021 NUM:0.038 SynTraiAuc:0.518 RFAcc:0.985
+[175000/211200] LG:2.811 LD:0.696 D:0.748 GP:0.003 AC: 0.324 RMSEAVG:0.019 NUM:0.036 SynTraiAuc:0.533 RFAcc:0.994
+[177500/211200] LG:2.793 LD:0.566 D:0.661 GP:0.006 AC: 0.399 RMSEAVG:0.022 NUM:0.038 SynTraiAuc:0.533 RFAcc:0.989
+[180000/211200] LG:2.739 LD:0.596 D:0.656 GP:0.004 AC: 0.354 RMSEAVG:0.022 NUM:0.037 SynTraiAuc:0.526 RFAcc:0.975
+[182500/211200] LG:2.721 LD:0.643 D:0.704 GP:0.004 AC: 0.354 RMSEAVG:0.024 NUM:0.029 SynTraiAuc:0.526 RFAcc:0.995
+[185000/211200] LG:2.775 LD:0.499 D:0.597 GP:0.007 AC: 0.385 RMSEAVG:0.025 NUM:0.033 SynTraiAuc:0.537 RFAcc:0.991
+[187500/211200] LG:2.713 LD:0.684 D:0.769 GP:0.006 AC: 0.345 RMSEAVG:0.026 NUM:0.041 SynTraiAuc:0.537 RFAcc:0.994
+[190000/211200] LG:2.772 LD:0.606 D:0.662 GP:0.004 AC: 0.420 RMSEAVG:0.024 NUM:0.027 SynTraiAuc:0.519 RFAcc:0.986
+[192500/211200] LG:2.781 LD:0.627 D:0.673 GP:0.003 AC: 0.361 RMSEAVG:0.023 NUM:0.032 SynTraiAuc:0.519 RFAcc:0.999
+[195000/211200] LG:2.834 LD:0.633 D:0.711 GP:0.005 AC: 0.370 RMSEAVG:0.018 NUM:0.033 SynTraiAuc:0.547 RFAcc:0.979
+[197500/211200] LG:2.787 LD:0.535 D:0.619 GP:0.006 AC: 0.371 RMSEAVG:0.016 NUM:0.031 SynTraiAuc:0.547 RFAcc:0.986
+[200000/211200] LG:2.750 LD:0.516 D:0.583 GP:0.004 AC: 0.364 RMSEAVG:0.014 NUM:0.033 SynTraiAuc:0.528 RFAcc:0.991
+[202500/211200] LG:2.812 LD:0.696 D:0.769 GP:0.005 AC: 0.373 RMSEAVG:0.017 NUM:0.040 SynTraiAuc:0.528 RFAcc:0.994
+[205000/211200] LG:2.739 LD:0.476 D:0.545 GP:0.005 AC: 0.336 RMSEAVG:0.012 NUM:0.040 SynTraiAuc:0.520 RFAcc:0.998
+[207500/211200] LG:2.822 LD:0.664 D:0.725 GP:0.004 AC: 0.420 RMSEAVG:0.015 NUM:0.040 SynTraiAuc:0.520 RFAcc:0.960
+[210000/211200] LG:2.844 LD:0.519 D:0.674 GP:0.010 AC: 0.339 RMSEAVG:0.016 NUM:0.039 SynTraiAuc:0.546 RFAcc:0.995
+[211200/211200] LG:2.750 LD:0.429 D:0.483 GP:0.004 AC: 0.366 RMSEAVG:0.016 NUM:0.039 SynTraiAuc:0.546 RFAcc:0.995
+INFO:root:Finished training after 211200/211200.
+F1-Score: 0.0843
+AUC-ROC: 0.6259
+AUC-PR: 0.3492
+
+############# hmeq #############
+DEBUG:root:GAN initilisation finished.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no auxillary classifier during init, but use_aux_classifier_loss is True. Initialising now.
+DEBUG:root:Using an auxiliary classifier loss. Starting pretraining.
+INFO:root:Finished training auxiliary classifier. ACC: 0.8878 AUC: 0.9052 BCE: 0.2815
+INFO:root:Pretrained the aux classifier. Proceeding to training GAN or aux teacher if used.
+INFO:root:Starting training. Expecting to train for 300 epochs at 84 iters per epoch to reach target of 25200.
+[ 2500/25200] LG:0.250 LD:0.219 D:0.287 GP:0.005 AC: 0.760 RMSEAVG:0.058 NUM:0.068 SynTraiAuc:0.377 RFAcc:0.873
+[ 5000/25200] LG:0.306 LD:0.241 D:0.268 GP:0.002 AC: 0.495 RMSEAVG:0.045 NUM:0.036 SynTraiAuc:0.797 RFAcc:0.800
+[ 7500/25200] LG:0.392 LD:0.269 D:0.290 GP:0.001 AC: 0.390 RMSEAVG:0.040 NUM:0.030 SynTraiAuc:0.797 RFAcc:0.802
+[10000/25200] LG:0.378 LD:0.247 D:0.261 GP:0.001 AC: 0.461 RMSEAVG:0.034 NUM:0.028 SynTraiAuc:0.812 RFAcc:0.797
+[12500/25200] LG:0.364 LD:0.236 D:0.247 GP:0.001 AC: 0.363 RMSEAVG:0.030 NUM:0.020 SynTraiAuc:0.812 RFAcc:0.761
+[15000/25200] LG:0.310 LD:0.207 D:0.239 GP:0.002 AC: 0.380 RMSEAVG:0.032 NUM:0.018 SynTraiAuc:0.789 RFAcc:0.766
+[17500/25200] LG:0.307 LD:0.184 D:0.203 GP:0.001 AC: 0.379 RMSEAVG:0.028 NUM:0.017 SynTraiAuc:0.789 RFAcc:0.750
+[20000/25200] LG:0.339 LD:0.158 D:0.173 GP:0.001 AC: 0.430 RMSEAVG:0.036 NUM:0.021 SynTraiAuc:0.765 RFAcc:0.735
+[22500/25200] LG:0.335 LD:0.187 D:0.207 GP:0.001 AC: 0.466 RMSEAVG:0.027 NUM:0.022 SynTraiAuc:0.765 RFAcc:0.849
+[25000/25200] LG:0.414 LD:0.160 D:0.173 GP:0.001 AC: 0.413 RMSEAVG:0.040 NUM:0.028 SynTraiAuc:0.760 RFAcc:0.849
+[25200/25200] LG:0.364 LD:0.157 D:0.176 GP:0.001 AC: 0.412 RMSEAVG:0.040 NUM:0.028 SynTraiAuc:0.760 RFAcc:0.849
+INFO:root:Finished training after 25200/25200.
+F1-Score: 0.8263
+AUC-ROC: 0.9761
+AUC-PR: 0.9350
+
+############# gmsc #############
+DEBUG:root:GAN initilisation finished.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no netG during init. Initialising now.
+DEBUG:root:GAN got no auxillary classifier during init, but use_aux_classifier_loss is True. Initialising now.
+DEBUG:root:Using an auxiliary classifier loss. Starting pretraining.
+INFO:root:Finished training auxiliary classifier. ACC: 0.9360 AUC: 0.8328 BCE: 0.1896
+INFO:root:Pretrained the aux classifier. Proceeding to training GAN or aux teacher if used.
+INFO:root:Starting training. Expecting to train for 300 epochs at 2110 iters per epoch to reach target of 633000.
+[ 2500/633000] LG:0.023 LD:-0.027 D:0.020 GP:0.003 AC: 0.643 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.565 RFAcc:0.944
+[ 5000/633000] LG:0.009 LD:0.003 D:0.011 GP:0.001 AC: 0.412 RMSEAVG:0.017 NUM:0.017 SynTraiAuc:0.620 RFAcc:0.950
+[ 7500/633000] LG:0.043 LD:0.006 D:0.018 GP:0.001 AC: 0.484 RMSEAVG:0.026 NUM:0.026 SynTraiAuc:0.620 RFAcc:0.886
+[10000/633000] LG:0.081 LD:0.011 D:0.019 GP:0.001 AC: 0.402 RMSEAVG:0.017 NUM:0.017 SynTraiAuc:0.654 RFAcc:0.925
+[12500/633000] LG:0.218 LD:0.008 D:0.015 GP:0.000 AC: 0.349 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.654 RFAcc:0.920
+[15000/633000] LG:0.231 LD:0.008 D:0.017 GP:0.001 AC: 0.331 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.773 RFAcc:0.943
+[17500/633000] LG:0.215 LD:-0.005 D:0.001 GP:0.000 AC: 0.339 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.773 RFAcc:0.917
+[20000/633000] LG:0.113 LD:-0.008 D:-0.004 GP:0.000 AC: 0.410 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.737 RFAcc:0.978
+[22500/633000] LG:0.080 LD:0.003 D:0.005 GP:0.000 AC: 0.315 RMSEAVG:0.021 NUM:0.021 SynTraiAuc:0.737 RFAcc:0.935
+[25000/633000] LG:0.135 LD:-0.003 D:-0.000 GP:0.000 AC: 0.321 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.731 RFAcc:0.956
+[27500/633000] LG:0.107 LD:-0.002 D:-0.000 GP:0.000 AC: 0.359 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.731 RFAcc:0.939
+[30000/633000] LG:0.104 LD:0.005 D:0.018 GP:0.001 AC: 0.333 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.817 RFAcc:0.896
+[32500/633000] LG:0.105 LD:-0.000 D:0.001 GP:0.000 AC: 0.365 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.817 RFAcc:0.874
+[35000/633000] LG:0.103 LD:-0.003 D:-0.002 GP:0.000 AC: 0.382 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.774 RFAcc:0.958
+[37500/633000] LG:0.105 LD:-0.003 D:-0.001 GP:0.000 AC: 0.342 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.774 RFAcc:0.968
+[40000/633000] LG:0.127 LD:-0.001 D:0.001 GP:0.000 AC: 0.328 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.787 RFAcc:0.916
+[42500/633000] LG:0.135 LD:0.013 D:0.022 GP:0.001 AC: 0.349 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.787 RFAcc:0.954
+[45000/633000] LG:0.124 LD:0.017 D:0.019 GP:0.000 AC: 0.341 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.787 RFAcc:0.861
+[47500/633000] LG:0.136 LD:0.022 D:0.025 GP:0.000 AC: 0.326 RMSEAVG:0.004 NUM:0.004 SynTraiAuc:0.787 RFAcc:0.983
+[50000/633000] LG:0.144 LD:-0.001 D:-0.000 GP:0.000 AC: 0.325 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.780 RFAcc:0.978
+[52500/633000] LG:0.133 LD:-0.010 D:-0.006 GP:0.000 AC: 0.322 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.780 RFAcc:0.932
+[55000/633000] LG:0.173 LD:-0.005 D:-0.000 GP:0.000 AC: 0.335 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.781 RFAcc:0.984
+[57500/633000] LG:0.158 LD:-0.002 D:-0.000 GP:0.000 AC: 0.347 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.781 RFAcc:0.976
+[60000/633000] LG:0.148 LD:-0.001 D:-0.000 GP:0.000 AC: 0.325 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.788 RFAcc:0.989
+[62500/633000] LG:0.181 LD:-0.007 D:-0.003 GP:0.000 AC: 0.371 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.788 RFAcc:0.960
+[65000/633000] LG:0.193 LD:0.000 D:0.001 GP:0.000 AC: 0.346 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.801 RFAcc:0.958
+[67500/633000] LG:0.187 LD:-0.001 D:0.001 GP:0.000 AC: 0.327 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.801 RFAcc:0.948
+[70000/633000] LG:0.201 LD:0.025 D:0.027 GP:0.000 AC: 0.338 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.808 RFAcc:0.902
+[72500/633000] LG:0.189 LD:-0.003 D:-0.003 GP:0.000 AC: 0.316 RMSEAVG:0.004 NUM:0.004 SynTraiAuc:0.808 RFAcc:0.940
+[75000/633000] LG:0.201 LD:0.025 D:0.027 GP:0.000 AC: 0.329 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.696 RFAcc:0.945
+[77500/633000] LG:0.212 LD:-0.004 D:-0.003 GP:0.000 AC: 0.329 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.696 RFAcc:0.955
+[80000/633000] LG:0.219 LD:-0.005 D:-0.002 GP:0.000 AC: 0.347 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.783 RFAcc:0.944
+[82500/633000] LG:0.214 LD:-0.008 D:0.000 GP:0.001 AC: 0.324 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.783 RFAcc:0.968
+[85000/633000] LG:0.228 LD:-0.003 D:0.001 GP:0.000 AC: 0.326 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.787 RFAcc:0.906
+[87500/633000] LG:0.248 LD:0.024 D:0.027 GP:0.000 AC: 0.304 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.787 RFAcc:0.922
+[90000/633000] LG:0.292 LD:-0.006 D:0.000 GP:0.000 AC: 0.327 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.764 RFAcc:0.929
+[92500/633000] LG:0.287 LD:-0.001 D:0.000 GP:0.000 AC: 0.323 RMSEAVG:0.020 NUM:0.020 SynTraiAuc:0.764 RFAcc:0.892
+[95000/633000] LG:0.330 LD:-0.003 D:-0.002 GP:0.000 AC: 0.317 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.743 RFAcc:0.925
+[97500/633000] LG:0.394 LD:-0.000 D:0.003 GP:0.000 AC: 0.300 RMSEAVG:0.025 NUM:0.025 SynTraiAuc:0.743 RFAcc:0.991
+[100000/633000] LG:0.462 LD:0.000 D:0.001 GP:0.000 AC: 0.318 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.765 RFAcc:0.949
+[102500/633000] LG:0.488 LD:-0.002 D:0.000 GP:0.000 AC: 0.314 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.765 RFAcc:0.961
+[105000/633000] LG:0.532 LD:-0.003 D:-0.002 GP:0.000 AC: 0.308 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.782 RFAcc:0.936
+[107500/633000] LG:0.515 LD:0.001 D:0.002 GP:0.000 AC: 0.311 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.782 RFAcc:0.958
+[110000/633000] LG:0.537 LD:0.001 D:0.002 GP:0.000 AC: 0.311 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.771 RFAcc:0.879
+[112500/633000] LG:0.557 LD:-0.003 D:0.002 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.771 RFAcc:0.939
+[115000/633000] LG:0.548 LD:-0.000 D:0.001 GP:0.000 AC: 0.308 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.764 RFAcc:0.979
+[117500/633000] LG:0.529 LD:0.025 D:0.028 GP:0.000 AC: 0.305 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.764 RFAcc:0.940
+[120000/633000] LG:0.527 LD:-0.001 D:0.000 GP:0.000 AC: 0.315 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.774 RFAcc:0.880
+[122500/633000] LG:0.526 LD:0.024 D:0.026 GP:0.000 AC: 0.309 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.774 RFAcc:0.956
+[125000/633000] LG:0.517 LD:0.001 D:0.004 GP:0.000 AC: 0.319 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.805 RFAcc:0.943
+[127500/633000] LG:0.540 LD:0.003 D:0.004 GP:0.000 AC: 0.314 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.805 RFAcc:0.973
+[130000/633000] LG:0.569 LD:0.001 D:0.001 GP:0.000 AC: 0.311 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.768 RFAcc:0.964
+[132500/633000] LG:0.593 LD:-0.005 D:0.001 GP:0.000 AC: 0.307 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.768 RFAcc:0.956
+[135000/633000] LG:0.593 LD:0.002 D:0.003 GP:0.000 AC: 0.313 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.800 RFAcc:0.894
+[137500/633000] LG:0.603 LD:-0.002 D:-0.001 GP:0.000 AC: 0.309 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.800 RFAcc:0.974
+[140000/633000] LG:0.655 LD:-0.000 D:0.001 GP:0.000 AC: 0.307 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.797 RFAcc:0.810
+[142500/633000] LG:0.681 LD:0.000 D:0.002 GP:0.000 AC: 0.304 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.797 RFAcc:0.970
+[145000/633000] LG:0.680 LD:0.025 D:0.027 GP:0.000 AC: 0.303 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.783 RFAcc:0.894
+[147500/633000] LG:0.676 LD:0.001 D:0.002 GP:0.000 AC: 0.313 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.783 RFAcc:0.904
+[150000/633000] LG:0.671 LD:-0.007 D:-0.006 GP:0.000 AC: 0.304 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.770 RFAcc:0.970
+[152500/633000] LG:0.672 LD:0.001 D:0.002 GP:0.000 AC: 0.308 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.770 RFAcc:0.924
+[155000/633000] LG:0.672 LD:-0.000 D:0.003 GP:0.000 AC: 0.324 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.798 RFAcc:0.897
+[157500/633000] LG:0.678 LD:-0.001 D:-0.000 GP:0.000 AC: 0.305 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.798 RFAcc:0.910
+[160000/633000] LG:0.670 LD:0.028 D:0.029 GP:0.000 AC: 0.306 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.734 RFAcc:0.938
+[162500/633000] LG:0.686 LD:0.003 D:0.004 GP:0.000 AC: 0.307 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.734 RFAcc:0.949
+[165000/633000] LG:0.704 LD:0.000 D:0.001 GP:0.000 AC: 0.303 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.756 RFAcc:0.985
+[167500/633000] LG:0.677 LD:-0.001 D:0.000 GP:0.000 AC: 0.368 RMSEAVG:0.004 NUM:0.004 SynTraiAuc:0.756 RFAcc:0.943
+[170000/633000] LG:0.700 LD:-0.000 D:0.000 GP:0.000 AC: 0.304 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.754 RFAcc:0.945
+[172500/633000] LG:0.690 LD:0.000 D:0.002 GP:0.000 AC: 0.314 RMSEAVG:0.017 NUM:0.017 SynTraiAuc:0.754 RFAcc:0.920
+[175000/633000] LG:0.700 LD:-0.001 D:0.002 GP:0.000 AC: 0.318 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.769 RFAcc:0.925
+[177500/633000] LG:0.696 LD:0.001 D:0.005 GP:0.000 AC: 0.305 RMSEAVG:0.020 NUM:0.020 SynTraiAuc:0.769 RFAcc:0.966
+[180000/633000] LG:0.688 LD:0.004 D:0.004 GP:0.000 AC: 0.301 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.765 RFAcc:0.938
+[182500/633000] LG:0.670 LD:0.000 D:0.001 GP:0.000 AC: 0.305 RMSEAVG:0.019 NUM:0.019 SynTraiAuc:0.765 RFAcc:0.904
+[185000/633000] LG:0.681 LD:0.004 D:0.006 GP:0.000 AC: 0.303 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.779 RFAcc:0.985
+[187500/633000] LG:0.655 LD:-0.003 D:-0.002 GP:0.000 AC: 0.301 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.779 RFAcc:0.914
+[190000/633000] LG:0.670 LD:-0.003 D:-0.000 GP:0.000 AC: 0.305 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.726 RFAcc:0.955
+[192500/633000] LG:0.687 LD:0.000 D:0.001 GP:0.000 AC: 0.303 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.726 RFAcc:0.907
+[195000/633000] LG:0.687 LD:0.001 D:0.002 GP:0.000 AC: 0.309 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.768 RFAcc:0.945
+[197500/633000] LG:0.689 LD:-0.000 D:0.002 GP:0.000 AC: 0.303 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.768 RFAcc:0.929
+[200000/633000] LG:0.698 LD:0.003 D:0.003 GP:0.000 AC: 0.302 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.735 RFAcc:0.964
+[202500/633000] LG:0.684 LD:0.003 D:0.003 GP:0.000 AC: 0.307 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.735 RFAcc:0.916
+[205000/633000] LG:0.712 LD:0.001 D:0.001 GP:0.000 AC: 0.302 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.754 RFAcc:0.960
+[207500/633000] LG:0.753 LD:0.002 D:0.002 GP:0.000 AC: 0.305 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.754 RFAcc:0.949
+[210000/633000] LG:0.787 LD:0.003 D:0.003 GP:0.000 AC: 0.310 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.789 RFAcc:0.922
+[212500/633000] LG:0.806 LD:0.002 D:0.002 GP:0.000 AC: 0.302 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.789 RFAcc:0.959
+[215000/633000] LG:0.844 LD:0.001 D:0.001 GP:0.000 AC: 0.303 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.719 RFAcc:0.959
+[217500/633000] LG:0.894 LD:-0.006 D:-0.002 GP:0.000 AC: 0.302 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.719 RFAcc:0.976
+[220000/633000] LG:0.891 LD:-0.001 D:0.001 GP:0.000 AC: 0.306 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.749 RFAcc:0.915
+[222500/633000] LG:0.893 LD:0.001 D:0.001 GP:0.000 AC: 0.301 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.749 RFAcc:0.960
+[225000/633000] LG:0.894 LD:-0.002 D:0.004 GP:0.000 AC: 0.301 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.736 RFAcc:0.989
+[227500/633000] LG:0.881 LD:0.002 D:0.004 GP:0.000 AC: 0.306 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.736 RFAcc:0.944
+[230000/633000] LG:0.925 LD:-0.002 D:0.002 GP:0.000 AC: 0.329 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.669 RFAcc:0.991
+[232500/633000] LG:0.914 LD:0.001 D:0.002 GP:0.000 AC: 0.302 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.669 RFAcc:0.958
+[235000/633000] LG:0.895 LD:0.022 D:0.028 GP:0.000 AC: 0.301 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.761 RFAcc:0.949
+[237500/633000] LG:0.900 LD:-0.001 D:-0.001 GP:0.000 AC: 0.302 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.761 RFAcc:0.959
+[240000/633000] LG:0.880 LD:-0.000 D:0.001 GP:0.000 AC: 0.302 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.796 RFAcc:0.959
+[242500/633000] LG:0.880 LD:-0.005 D:-0.001 GP:0.000 AC: 0.303 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.796 RFAcc:0.971
+[245000/633000] LG:0.875 LD:-0.002 D:-0.001 GP:0.000 AC: 0.301 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.666 RFAcc:0.951
+[247500/633000] LG:0.898 LD:0.001 D:0.001 GP:0.000 AC: 0.302 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.666 RFAcc:0.910
+[250000/633000] LG:0.898 LD:0.002 D:0.003 GP:0.000 AC: 0.303 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.776 RFAcc:0.956
+[252500/633000] LG:0.928 LD:0.003 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.776 RFAcc:0.948
+[255000/633000] LG:0.880 LD:-0.002 D:-0.002 GP:0.000 AC: 0.303 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.758 RFAcc:0.936
+[257500/633000] LG:0.911 LD:-0.002 D:-0.000 GP:0.000 AC: 0.302 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.758 RFAcc:0.969
+[260000/633000] LG:0.911 LD:0.027 D:0.030 GP:0.000 AC: 0.302 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.736 RFAcc:0.932
+[262500/633000] LG:0.922 LD:-0.001 D:0.001 GP:0.000 AC: 0.301 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.736 RFAcc:0.954
+[265000/633000] LG:0.934 LD:-0.001 D:0.002 GP:0.000 AC: 0.301 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.717 RFAcc:0.850
+[267500/633000] LG:0.950 LD:-0.006 D:0.000 GP:0.000 AC: 0.301 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.717 RFAcc:0.968
+[270000/633000] LG:1.042 LD:0.001 D:0.001 GP:0.000 AC: 0.302 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.760 RFAcc:0.915
+[272500/633000] LG:1.039 LD:-0.002 D:-0.000 GP:0.000 AC: 0.305 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.760 RFAcc:0.925
+[275000/633000] LG:1.054 LD:0.027 D:0.028 GP:0.000 AC: 0.302 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.751 RFAcc:0.961
+[277500/633000] LG:1.053 LD:-0.000 D:0.001 GP:0.000 AC: 0.302 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.751 RFAcc:0.954
+[280000/633000] LG:0.990 LD:-0.001 D:-0.001 GP:0.000 AC: 0.300 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.757 RFAcc:0.941
+[282500/633000] LG:1.005 LD:-0.001 D:-0.001 GP:0.000 AC: 0.302 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.757 RFAcc:0.914
+[285000/633000] LG:1.023 LD:-0.002 D:-0.001 GP:0.000 AC: 0.301 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.746 RFAcc:0.960
+[287500/633000] LG:1.071 LD:0.002 D:0.003 GP:0.000 AC: 0.302 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.746 RFAcc:0.976
+[290000/633000] LG:1.054 LD:0.027 D:0.028 GP:0.000 AC: 0.301 RMSEAVG:0.022 NUM:0.022 SynTraiAuc:0.716 RFAcc:0.961
+[292500/633000] LG:1.067 LD:-0.002 D:-0.001 GP:0.000 AC: 0.302 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.716 RFAcc:0.906
+[295000/633000] LG:1.064 LD:0.004 D:0.005 GP:0.000 AC: 0.301 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.701 RFAcc:0.950
+[297500/633000] LG:1.069 LD:0.004 D:0.004 GP:0.000 AC: 0.302 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.701 RFAcc:0.920
+[300000/633000] LG:1.064 LD:0.025 D:0.025 GP:0.000 AC: 0.300 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.676 RFAcc:0.961
+[302500/633000] LG:1.099 LD:0.002 D:0.003 GP:0.000 AC: 0.303 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.676 RFAcc:0.951
+[305000/633000] LG:1.119 LD:0.001 D:0.002 GP:0.000 AC: 0.303 RMSEAVG:0.018 NUM:0.018 SynTraiAuc:0.764 RFAcc:0.966
+[307500/633000] LG:1.116 LD:0.001 D:0.002 GP:0.000 AC: 0.302 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.764 RFAcc:0.965
+[310000/633000] LG:1.143 LD:0.002 D:0.002 GP:0.000 AC: 0.301 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.754 RFAcc:0.940
+[312500/633000] LG:1.179 LD:-0.000 D:0.001 GP:0.000 AC: 0.305 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.754 RFAcc:0.940
+[315000/633000] LG:1.193 LD:0.003 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.751 RFAcc:0.940
+[317500/633000] LG:1.285 LD:-0.001 D:-0.000 GP:0.000 AC: 0.308 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.751 RFAcc:0.874
+[320000/633000] LG:1.225 LD:0.005 D:0.005 GP:0.000 AC: 0.301 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.759 RFAcc:0.891
+[322500/633000] LG:1.245 LD:0.001 D:0.001 GP:0.000 AC: 0.304 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.759 RFAcc:0.925
+[325000/633000] LG:1.277 LD:0.029 D:0.030 GP:0.000 AC: 0.302 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.789 RFAcc:0.920
+[327500/633000] LG:1.287 LD:-0.002 D:-0.001 GP:0.000 AC: 0.301 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.789 RFAcc:0.926
+[330000/633000] LG:1.353 LD:0.002 D:0.003 GP:0.000 AC: 0.303 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.789 RFAcc:0.961
+[332500/633000] LG:1.348 LD:-0.004 D:-0.001 GP:0.000 AC: 0.302 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.789 RFAcc:0.935
+[335000/633000] LG:1.337 LD:0.000 D:0.001 GP:0.000 AC: 0.300 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.766 RFAcc:0.932
+[337500/633000] LG:1.317 LD:0.003 D:0.004 GP:0.000 AC: 0.301 RMSEAVG:0.018 NUM:0.018 SynTraiAuc:0.766 RFAcc:0.971
+[340000/633000] LG:1.359 LD:-0.001 D:0.001 GP:0.000 AC: 0.300 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.757 RFAcc:0.940
+[342500/633000] LG:1.452 LD:-0.003 D:-0.001 GP:0.000 AC: 0.302 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.757 RFAcc:0.959
+[345000/633000] LG:1.420 LD:0.000 D:0.001 GP:0.000 AC: 0.300 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.695 RFAcc:0.963
+[347500/633000] LG:1.440 LD:-0.001 D:-0.001 GP:0.000 AC: 0.301 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.695 RFAcc:0.938
+[350000/633000] LG:1.421 LD:-0.003 D:0.001 GP:0.000 AC: 0.327 RMSEAVG:0.004 NUM:0.004 SynTraiAuc:0.744 RFAcc:0.932
+[352500/633000] LG:1.408 LD:0.002 D:0.003 GP:0.000 AC: 0.302 RMSEAVG:0.017 NUM:0.017 SynTraiAuc:0.744 RFAcc:0.902
+[355000/633000] LG:1.414 LD:-0.002 D:-0.000 GP:0.000 AC: 0.301 RMSEAVG:0.018 NUM:0.018 SynTraiAuc:0.786 RFAcc:0.981
+[357500/633000] LG:1.402 LD:0.001 D:0.001 GP:0.000 AC: 0.304 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.786 RFAcc:0.919
+[360000/633000] LG:1.455 LD:0.003 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.750 RFAcc:0.950
+[362500/633000] LG:1.458 LD:0.000 D:0.001 GP:0.000 AC: 0.300 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.750 RFAcc:0.975
+[365000/633000] LG:1.390 LD:0.024 D:0.025 GP:0.000 AC: 0.300 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.712 RFAcc:0.970
+[367500/633000] LG:1.430 LD:-0.001 D:-0.000 GP:0.000 AC: 0.300 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.712 RFAcc:0.960
+[370000/633000] LG:1.450 LD:0.002 D:0.002 GP:0.000 AC: 0.301 RMSEAVG:0.004 NUM:0.004 SynTraiAuc:0.733 RFAcc:0.927
+[372500/633000] LG:1.434 LD:-0.001 D:-0.001 GP:0.000 AC: 0.300 RMSEAVG:0.019 NUM:0.019 SynTraiAuc:0.733 RFAcc:0.958
+[375000/633000] LG:1.505 LD:0.026 D:0.029 GP:0.000 AC: 0.302 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.758 RFAcc:0.938
+[377500/633000] LG:1.466 LD:0.002 D:0.002 GP:0.000 AC: 0.300 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.758 RFAcc:0.931
+[380000/633000] LG:1.507 LD:-0.001 D:-0.001 GP:0.000 AC: 0.303 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.769 RFAcc:0.959
+[382500/633000] LG:1.558 LD:-0.001 D:0.001 GP:0.000 AC: 0.302 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.769 RFAcc:0.889
+[385000/633000] LG:1.498 LD:0.003 D:0.003 GP:0.000 AC: 0.302 RMSEAVG:0.018 NUM:0.018 SynTraiAuc:0.757 RFAcc:0.943
+[387500/633000] LG:1.505 LD:-0.002 D:-0.002 GP:0.000 AC: 0.300 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.757 RFAcc:0.958
+[390000/633000] LG:1.492 LD:-0.001 D:-0.000 GP:0.000 AC: 0.302 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.761 RFAcc:0.958
+[392500/633000] LG:1.483 LD:0.002 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.761 RFAcc:0.965
+[395000/633000] LG:1.551 LD:0.029 D:0.031 GP:0.000 AC: 0.301 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.755 RFAcc:0.958
+[397500/633000] LG:1.494 LD:0.001 D:0.001 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.755 RFAcc:0.959
+[400000/633000] LG:1.580 LD:0.002 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.762 RFAcc:0.927
+[402500/633000] LG:1.538 LD:0.001 D:0.001 GP:0.000 AC: 0.302 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.762 RFAcc:0.912
+[405000/633000] LG:1.599 LD:-0.001 D:-0.001 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.698 RFAcc:0.978
+[407500/633000] LG:1.523 LD:0.000 D:0.001 GP:0.000 AC: 0.300 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.698 RFAcc:0.949
+[410000/633000] LG:1.571 LD:0.001 D:0.002 GP:0.000 AC: 0.300 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.739 RFAcc:0.980
+[412500/633000] LG:1.528 LD:0.000 D:0.001 GP:0.000 AC: 0.301 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.739 RFAcc:0.979
+[415000/633000] LG:1.547 LD:0.002 D:0.003 GP:0.000 AC: 0.302 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.759 RFAcc:0.965
+[417500/633000] LG:1.604 LD:0.003 D:0.004 GP:0.000 AC: 0.300 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.759 RFAcc:0.965
+[420000/633000] LG:1.583 LD:0.002 D:0.002 GP:0.000 AC: 0.300 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.779 RFAcc:0.960
+[422500/633000] LG:1.578 LD:-0.005 D:-0.004 GP:0.000 AC: 0.300 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.779 RFAcc:0.988
+[425000/633000] LG:1.603 LD:-0.001 D:0.000 GP:0.000 AC: 0.303 RMSEAVG:0.017 NUM:0.017 SynTraiAuc:0.700 RFAcc:0.961
+[427500/633000] LG:1.533 LD:0.026 D:0.027 GP:0.000 AC: 0.300 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.700 RFAcc:0.939
+[430000/633000] LG:1.575 LD:0.026 D:0.027 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.723 RFAcc:0.964
+[432500/633000] LG:1.608 LD:-0.000 D:0.001 GP:0.000 AC: 0.301 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.723 RFAcc:0.960
+[435000/633000] LG:1.590 LD:-0.006 D:-0.004 GP:0.000 AC: 0.300 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.799 RFAcc:0.934
+[437500/633000] LG:1.615 LD:0.001 D:0.001 GP:0.000 AC: 0.301 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.799 RFAcc:0.951
+[440000/633000] LG:1.590 LD:0.003 D:0.003 GP:0.000 AC: 0.300 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.769 RFAcc:0.964
+[442500/633000] LG:1.657 LD:-0.003 D:-0.002 GP:0.000 AC: 0.300 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.769 RFAcc:0.968
+[445000/633000] LG:1.649 LD:0.026 D:0.027 GP:0.000 AC: 0.300 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.781 RFAcc:0.912
+[447500/633000] LG:1.615 LD:-0.001 D:0.000 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.781 RFAcc:0.965
+[450000/633000] LG:1.677 LD:0.003 D:0.004 GP:0.000 AC: 0.301 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.767 RFAcc:0.938
+[452500/633000] LG:1.665 LD:0.003 D:0.004 GP:0.000 AC: 0.301 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.767 RFAcc:0.932
+[455000/633000] LG:1.681 LD:-0.000 D:0.002 GP:0.000 AC: 0.300 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.733 RFAcc:0.948
+[457500/633000] LG:1.681 LD:0.001 D:0.002 GP:0.000 AC: 0.301 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.733 RFAcc:0.971
+[460000/633000] LG:1.757 LD:-0.000 D:0.000 GP:0.000 AC: 0.300 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.759 RFAcc:0.856
+[462500/633000] LG:1.730 LD:-0.001 D:0.001 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.759 RFAcc:0.909
+[465000/633000] LG:1.682 LD:-0.003 D:-0.002 GP:0.000 AC: 0.301 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.717 RFAcc:0.939
+[467500/633000] LG:1.722 LD:-0.001 D:0.000 GP:0.000 AC: 0.301 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.717 RFAcc:0.936
+[470000/633000] LG:1.673 LD:-0.000 D:0.000 GP:0.000 AC: 0.300 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.778 RFAcc:0.946
+[472500/633000] LG:1.750 LD:0.001 D:0.001 GP:0.000 AC: 0.302 RMSEAVG:0.017 NUM:0.017 SynTraiAuc:0.778 RFAcc:0.978
+[475000/633000] LG:1.709 LD:0.001 D:0.003 GP:0.000 AC: 0.302 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.764 RFAcc:0.911
+[477500/633000] LG:1.727 LD:0.000 D:0.002 GP:0.000 AC: 0.302 RMSEAVG:0.018 NUM:0.018 SynTraiAuc:0.764 RFAcc:0.948
+[480000/633000] LG:1.642 LD:-0.003 D:-0.002 GP:0.000 AC: 0.300 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.739 RFAcc:0.983
+[482500/633000] LG:1.667 LD:0.029 D:0.030 GP:0.000 AC: 0.301 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.739 RFAcc:0.902
+[485000/633000] LG:1.625 LD:0.000 D:0.001 GP:0.000 AC: 0.300 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.756 RFAcc:0.901
+[487500/633000] LG:1.620 LD:0.000 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.756 RFAcc:0.944
+[490000/633000] LG:1.699 LD:0.004 D:0.004 GP:0.000 AC: 0.300 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.734 RFAcc:0.963
+[492500/633000] LG:1.737 LD:0.006 D:0.007 GP:0.000 AC: 0.302 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.734 RFAcc:0.929
+[495000/633000] LG:1.664 LD:0.002 D:0.002 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.735 RFAcc:0.974
+[497500/633000] LG:1.659 LD:-0.001 D:0.000 GP:0.000 AC: 0.302 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.735 RFAcc:0.961
+[500000/633000] LG:1.559 LD:0.001 D:0.002 GP:0.000 AC: 0.304 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.698 RFAcc:0.980
+[502500/633000] LG:1.634 LD:-0.002 D:-0.001 GP:0.000 AC: 0.302 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.698 RFAcc:0.963
+[505000/633000] LG:1.670 LD:0.002 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.794 RFAcc:0.954
+[507500/633000] LG:1.649 LD:-0.000 D:0.002 GP:0.000 AC: 0.301 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.794 RFAcc:0.948
+[510000/633000] LG:1.636 LD:-0.001 D:0.001 GP:0.000 AC: 0.301 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.742 RFAcc:0.929
+[512500/633000] LG:1.608 LD:0.001 D:0.003 GP:0.000 AC: 0.308 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.742 RFAcc:0.980
+[515000/633000] LG:1.657 LD:0.001 D:0.002 GP:0.000 AC: 0.319 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.771 RFAcc:0.939
+[517500/633000] LG:1.681 LD:0.002 D:0.002 GP:0.000 AC: 0.300 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.771 RFAcc:0.973
+[520000/633000] LG:1.723 LD:0.003 D:0.004 GP:0.000 AC: 0.307 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.769 RFAcc:0.824
+[522500/633000] LG:1.719 LD:-0.002 D:-0.001 GP:0.000 AC: 0.301 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.769 RFAcc:0.971
+[525000/633000] LG:1.682 LD:0.001 D:0.001 GP:0.000 AC: 0.303 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.781 RFAcc:0.896
+[527500/633000] LG:1.694 LD:0.001 D:0.003 GP:0.000 AC: 0.302 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.781 RFAcc:0.936
+[530000/633000] LG:1.689 LD:0.002 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.773 RFAcc:0.969
+[532500/633000] LG:1.722 LD:0.025 D:0.026 GP:0.000 AC: 0.300 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.773 RFAcc:0.964
+[535000/633000] LG:1.764 LD:0.002 D:0.002 GP:0.000 AC: 0.300 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.714 RFAcc:0.949
+[537500/633000] LG:1.811 LD:0.052 D:0.056 GP:0.000 AC: 0.300 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.714 RFAcc:0.974
+[540000/633000] LG:1.671 LD:0.001 D:0.001 GP:0.000 AC: 0.300 RMSEAVG:0.017 NUM:0.017 SynTraiAuc:0.733 RFAcc:0.994
+[542500/633000] LG:1.715 LD:-0.003 D:-0.002 GP:0.000 AC: 0.300 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.733 RFAcc:0.980
+[545000/633000] LG:1.705 LD:-0.001 D:-0.000 GP:0.000 AC: 0.302 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.744 RFAcc:0.954
+[547500/633000] LG:1.613 LD:0.004 D:0.004 GP:0.000 AC: 0.300 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.744 RFAcc:0.946
+[550000/633000] LG:1.692 LD:0.002 D:0.002 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.791 RFAcc:0.941
+[552500/633000] LG:1.725 LD:0.003 D:0.003 GP:0.000 AC: 0.300 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.791 RFAcc:0.991
+[555000/633000] LG:1.751 LD:0.023 D:0.024 GP:0.000 AC: 0.301 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.790 RFAcc:0.954
+[557500/633000] LG:1.718 LD:0.001 D:0.002 GP:0.000 AC: 0.301 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.790 RFAcc:0.986
+[560000/633000] LG:1.714 LD:0.001 D:0.001 GP:0.000 AC: 0.300 RMSEAVG:0.017 NUM:0.017 SynTraiAuc:0.781 RFAcc:0.979
+[562500/633000] LG:1.661 LD:0.002 D:0.003 GP:0.000 AC: 0.300 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.781 RFAcc:0.934
+[565000/633000] LG:1.748 LD:0.001 D:0.002 GP:0.000 AC: 0.303 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.781 RFAcc:0.934
+[567500/633000] LG:1.730 LD:-0.002 D:-0.001 GP:0.000 AC: 0.300 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.781 RFAcc:0.986
+[570000/633000] LG:1.737 LD:0.005 D:0.006 GP:0.000 AC: 0.300 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.724 RFAcc:0.974
+[572500/633000] LG:1.722 LD:0.004 D:0.004 GP:0.000 AC: 0.305 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.724 RFAcc:0.950
+[575000/633000] LG:1.764 LD:0.001 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.807 RFAcc:0.941
+[577500/633000] LG:1.728 LD:-0.003 D:-0.002 GP:0.000 AC: 0.305 RMSEAVG:0.009 NUM:0.009 SynTraiAuc:0.807 RFAcc:0.930
+[580000/633000] LG:1.817 LD:0.001 D:0.002 GP:0.000 AC: 0.344 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.820 RFAcc:0.922
+[582500/633000] LG:1.801 LD:0.000 D:0.001 GP:0.000 AC: 0.301 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.820 RFAcc:0.956
+[585000/633000] LG:1.856 LD:0.004 D:0.005 GP:0.000 AC: 0.300 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.589 RFAcc:0.983
+[587500/633000] LG:1.784 LD:0.025 D:0.026 GP:0.000 AC: 0.300 RMSEAVG:0.014 NUM:0.014 SynTraiAuc:0.589 RFAcc:0.983
+[590000/633000] LG:1.797 LD:0.004 D:0.004 GP:0.000 AC: 0.301 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.790 RFAcc:0.936
+[592500/633000] LG:1.824 LD:0.002 D:0.003 GP:0.000 AC: 0.303 RMSEAVG:0.013 NUM:0.013 SynTraiAuc:0.790 RFAcc:0.985
+[595000/633000] LG:1.826 LD:0.026 D:0.027 GP:0.000 AC: 0.300 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.771 RFAcc:0.974
+[597500/633000] LG:1.889 LD:0.002 D:0.002 GP:0.000 AC: 0.300 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.771 RFAcc:0.970
+[600000/633000] LG:1.804 LD:-0.002 D:-0.001 GP:0.000 AC: 0.301 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.791 RFAcc:0.963
+[602500/633000] LG:1.883 LD:0.002 D:0.003 GP:0.000 AC: 0.302 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.791 RFAcc:0.910
+[605000/633000] LG:1.807 LD:0.002 D:0.002 GP:0.000 AC: 0.300 RMSEAVG:0.007 NUM:0.007 SynTraiAuc:0.770 RFAcc:0.961
+[607500/633000] LG:1.868 LD:0.025 D:0.027 GP:0.000 AC: 0.314 RMSEAVG:0.016 NUM:0.016 SynTraiAuc:0.770 RFAcc:0.944
+[610000/633000] LG:1.851 LD:0.002 D:0.002 GP:0.000 AC: 0.300 RMSEAVG:0.006 NUM:0.006 SynTraiAuc:0.771 RFAcc:0.892
+[612500/633000] LG:1.838 LD:0.025 D:0.027 GP:0.000 AC: 0.300 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.771 RFAcc:0.983
+[615000/633000] LG:1.841 LD:0.002 D:0.003 GP:0.000 AC: 0.300 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.753 RFAcc:0.969
+[617500/633000] LG:1.827 LD:0.002 D:0.003 GP:0.000 AC: 0.302 RMSEAVG:0.010 NUM:0.010 SynTraiAuc:0.753 RFAcc:0.948
+[620000/633000] LG:1.881 LD:0.003 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.008 NUM:0.008 SynTraiAuc:0.764 RFAcc:0.976
+[622500/633000] LG:1.844 LD:0.002 D:0.003 GP:0.000 AC: 0.301 RMSEAVG:0.015 NUM:0.015 SynTraiAuc:0.764 RFAcc:0.961
+[625000/633000] LG:1.946 LD:0.003 D:0.003 GP:0.000 AC: 0.300 RMSEAVG:0.005 NUM:0.005 SynTraiAuc:0.785 RFAcc:0.956
+[627500/633000] LG:1.916 LD:0.002 D:0.004 GP:0.000 AC: 0.305 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.785 RFAcc:0.914
+[630000/633000] LG:1.897 LD:0.004 D:0.004 GP:0.000 AC: 0.301 RMSEAVG:0.011 NUM:0.011 SynTraiAuc:0.783 RFAcc:0.983
+[632500/633000] LG:1.848 LD:-0.003 D:-0.001 GP:0.000 AC: 0.301 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.783 RFAcc:0.961
+[633000/633000] LG:1.831 LD:-0.002 D:-0.000 GP:0.000 AC: 0.348 RMSEAVG:0.012 NUM:0.012 SynTraiAuc:0.783 RFAcc:0.961
+INFO:root:Finished training after 633000/633000.
+F1-Score: 0.2766
+AUC-ROC: 0.8377
+AUC-PR: 0.3655
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 800 samples, Labels: {0: 559, 1: 241}
+- Generated data: 1055 samples, Labels: {0: 740, 1: 315}
+- Combined training data: 1115 samples, Labels: {0: 559, 1: 556}
+Training set merged, preprocessed, and saved in Merged/uci_german.
+Training and evaluating Random Forest on uci_german dataset...
+F1-Score: 0.5714
+AUC-ROC: 0.8122
+AUC-PR: 0.6797
+
+Results for Random Forest:
+ F1-Score: 0.5714, AUC-ROC: 0.8122, AUC-PR: 0.6797
+
+Training and evaluating AdaBoost on uci_german dataset...
+F1-Score: 0.5794
+AUC-ROC: 0.8144
+AUC-PR: 0.6048
+
+Results for AdaBoost:
+ F1-Score: 0.5794, AUC-ROC: 0.8144, AUC-PR: 0.6048
+
+Training and evaluating Gradient Boosting on uci_german dataset...
+F1-Score: 0.6667
+AUC-ROC: 0.8309
+AUC-PR: 0.6494
+
+Results for Gradient Boosting:
+ F1-Score: 0.6667, AUC-ROC: 0.8309, AUC-PR: 0.6494
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 800 samples, Labels: {0: 559, 1: 241}
+- Generated data: 1055 samples, Labels: {0: 752, 1: 303}
+- Combined training data: 1103 samples, Labels: {0: 559, 1: 544}
+Training set merged, preprocessed, and saved in Merged/uci_german.
+Training and evaluating Random Forest on uci_german dataset...
+F1-Score: 0.4842
+AUC-ROC: 0.8306
+AUC-PR: 0.6644
+
+Results for Random Forest:
+ F1-Score: 0.4842, AUC-ROC: 0.8306, AUC-PR: 0.6644
+
+Training and evaluating AdaBoost on uci_german dataset...
+F1-Score: 0.5505
+AUC-ROC: 0.8036
+AUC-PR: 0.5570
+
+Results for AdaBoost:
+ F1-Score: 0.5505, AUC-ROC: 0.8036, AUC-PR: 0.5570
+
+Training and evaluating Gradient Boosting on uci_german dataset...
+F1-Score: 0.5688
+AUC-ROC: 0.8020
+AUC-PR: 0.5994
+
+Results for Gradient Boosting:
+ F1-Score: 0.5688, AUC-ROC: 0.8020, AUC-PR: 0.5994
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 24000 samples, Labels: {0: 18677, 1: 5323}
+- Generated data: 60209 samples, Labels: {0: 46883, 1: 13326}
+- Combined training data: 37326 samples, Labels: {0: 18677, 1: 18649}
+Training set merged, preprocessed, and saved in Merged/uci_taiwan.
+Training and evaluating Random Forest on uci_taiwan dataset...
+F1-Score: 0.4637
+AUC-ROC: 0.7605
+AUC-PR: 0.5273
+
+Results for Random Forest:
+ F1-Score: 0.4637, AUC-ROC: 0.7605, AUC-PR: 0.5273
+
+Training and evaluating AdaBoost on uci_taiwan dataset...
+F1-Score: 0.4290
+AUC-ROC: 0.7723
+AUC-PR: 0.5282
+
+Results for AdaBoost:
+ F1-Score: 0.4290, AUC-ROC: 0.7723, AUC-PR: 0.5282
+
+Training and evaluating Gradient Boosting on uci_taiwan dataset...
+F1-Score: 0.4585
+AUC-ROC: 0.7793
+AUC-PR: 0.5402
+
+Results for Gradient Boosting:
+ F1-Score: 0.4585, AUC-ROC: 0.7793, AUC-PR: 0.5402
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 24000 samples, Labels: {0: 18677, 1: 5323}
+- Generated data: 60209 samples, Labels: {0: 46709, 1: 13500}
+- Combined training data: 37500 samples, Labels: {1: 18823, 0: 18677}
+Training set merged, preprocessed, and saved in Merged/uci_taiwan.
+Training and evaluating Random Forest on uci_taiwan dataset...
+F1-Score: 0.4624
+AUC-ROC: 0.7580
+AUC-PR: 0.5246
+
+Results for Random Forest:
+ F1-Score: 0.4624, AUC-ROC: 0.7580, AUC-PR: 0.5246
+
+Training and evaluating AdaBoost on uci_taiwan dataset...
+F1-Score: 0.4314
+AUC-ROC: 0.7746
+AUC-PR: 0.5220
+
+Results for AdaBoost:
+ F1-Score: 0.4314, AUC-ROC: 0.7746, AUC-PR: 0.5220
+
+Training and evaluating Gradient Boosting on uci_taiwan dataset...
+F1-Score: 0.4585
+AUC-ROC: 0.7741
+AUC-PR: 0.5357
+
+Results for Gradient Boosting:
+ F1-Score: 0.4585, AUC-ROC: 0.7741, AUC-PR: 0.5357
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 40000 samples, Labels: {0: 29623, 1: 10377}
+- Generated data: 74187 samples, Labels: {0: 54961, 1: 19226}
+- Combined training data: 59226 samples, Labels: {0: 29623, 1: 29603}
+Training set merged, preprocessed, and saved in Merged/pakdd.
+Training and evaluating Random Forest on pakdd dataset...
+F1-Score: 0.0754
+AUC-ROC: 0.6014
+AUC-PR: 0.3415
+
+Results for Random Forest:
+ F1-Score: 0.0754, AUC-ROC: 0.6014, AUC-PR: 0.3415
+
+Training and evaluating AdaBoost on pakdd dataset...
+F1-Score: 0.0155
+AUC-ROC: 0.6196
+AUC-PR: 0.3519
+
+Results for AdaBoost:
+ F1-Score: 0.0155, AUC-ROC: 0.6196, AUC-PR: 0.3519
+
+Training and evaluating Gradient Boosting on pakdd dataset...
+F1-Score: 0.0236
+AUC-ROC: 0.6305
+AUC-PR: 0.3728
+
+Results for Gradient Boosting:
+ F1-Score: 0.0236, AUC-ROC: 0.6305, AUC-PR: 0.3728
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 40000 samples, Labels: {0: 29623, 1: 10377}
+- Generated data: 74187 samples, Labels: {0: 54910, 1: 19277}
+- Combined training data: 59277 samples, Labels: {1: 29654, 0: 29623}
+Training set merged, preprocessed, and saved in Merged/pakdd.
+Training and evaluating Random Forest on pakdd dataset...
+F1-Score: 0.0777
+AUC-ROC: 0.6012
+AUC-PR: 0.3394
+
+Results for Random Forest:
+ F1-Score: 0.0777, AUC-ROC: 0.6012, AUC-PR: 0.3394
+
+Training and evaluating AdaBoost on pakdd dataset...
+F1-Score: 0.0176
+AUC-ROC: 0.6171
+AUC-PR: 0.3441
+
+Results for AdaBoost:
+ F1-Score: 0.0176, AUC-ROC: 0.6171, AUC-PR: 0.3441
+
+Training and evaluating Gradient Boosting on pakdd dataset...
+F1-Score: 0.0037
+AUC-ROC: 0.6246
+AUC-PR: 0.3601
+
+Results for Gradient Boosting:
+ F1-Score: 0.0037, AUC-ROC: 0.6246, AUC-PR: 0.3601
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 4768 samples, Labels: {0: 3844, 1: 924}
+- Generated data: 15067 samples, Labels: {0: 12232, 1: 2835}
+- Combined training data: 7603 samples, Labels: {0: 3844, 1: 3759}
+Training set merged, preprocessed, and saved in Merged/hmeq.
+Training and evaluating Random Forest on hmeq dataset...
+F1-Score: 0.7615
+AUC-ROC: 0.9639
+AUC-PR: 0.8788
+
+Results for Random Forest:
+ F1-Score: 0.7615, AUC-ROC: 0.9639, AUC-PR: 0.8788
+
+Training and evaluating AdaBoost on hmeq dataset...
+F1-Score: 0.7220
+AUC-ROC: 0.9152
+AUC-PR: 0.8207
+
+Results for AdaBoost:
+ F1-Score: 0.7220, AUC-ROC: 0.9152, AUC-PR: 0.8207
+
+Training and evaluating Gradient Boosting on hmeq dataset...
+F1-Score: 0.7238
+AUC-ROC: 0.9327
+AUC-PR: 0.8483
+
+Results for Gradient Boosting:
+ F1-Score: 0.7238, AUC-ROC: 0.9327, AUC-PR: 0.8483
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 4768 samples, Labels: {0: 3844, 1: 924}
+- Generated data: 15067 samples, Labels: {0: 12301, 1: 2766}
+- Combined training data: 7534 samples, Labels: {0: 3844, 1: 3690}
+Training set merged, preprocessed, and saved in Merged/hmeq.
+Training and evaluating Random Forest on hmeq dataset...
+F1-Score: 0.7325
+AUC-ROC: 0.9634
+AUC-PR: 0.8781
+
+Results for Random Forest:
+ F1-Score: 0.7325, AUC-ROC: 0.9634, AUC-PR: 0.8781
+
+Training and evaluating AdaBoost on hmeq dataset...
+F1-Score: 0.6584
+AUC-ROC: 0.8931
+AUC-PR: 0.7705
+
+Results for AdaBoost:
+ F1-Score: 0.6584, AUC-ROC: 0.8931, AUC-PR: 0.7705
+
+Training and evaluating Gradient Boosting on hmeq dataset...
+F1-Score: 0.7212
+AUC-ROC: 0.9254
+AUC-PR: 0.8391
+
+Results for Gradient Boosting:
+ F1-Score: 0.7212, AUC-ROC: 0.9254, AUC-PR: 0.8391
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 120000 samples, Labels: {0: 111930, 1: 8070}
+- Generated data: 1544386 samples, Labels: {0: 1441031, 1: 103355}
+- Combined training data: 223355 samples, Labels: {0: 111930, 1: 111425}
+Training set merged, preprocessed, and saved in Merged/gmsc.
+Training and evaluating Random Forest on gmsc dataset...
+F1-Score: 0.2951
+AUC-ROC: 0.7982
+AUC-PR: 0.3133
+
+Results for Random Forest:
+ F1-Score: 0.2951, AUC-ROC: 0.7982, AUC-PR: 0.3133
+
+Training and evaluating AdaBoost on gmsc dataset...
+F1-Score: 0.3046
+AUC-ROC: 0.8332
+AUC-PR: 0.3437
+
+Results for AdaBoost:
+ F1-Score: 0.3046, AUC-ROC: 0.8332, AUC-PR: 0.3437
+
+Training and evaluating Gradient Boosting on gmsc dataset...
+F1-Score: 0.2967
+AUC-ROC: 0.8380
+AUC-PR: 0.3589
+
+Results for Gradient Boosting:
+ F1-Score: 0.2967, AUC-ROC: 0.8380, AUC-PR: 0.3589
+
+[INFO] Data merged successfully (training set includes validation set):
+- Original data (training + validation): 120000 samples, Labels: {0: 111930, 1: 8070}
+- Generated data: 1544386 samples, Labels: {0: 1441816, 1: 102570}
+- Combined training data: 222570 samples, Labels: {0: 111930, 1: 110640}
+Training set merged, preprocessed, and saved in Merged/gmsc.
+Training and evaluating Random Forest on gmsc dataset...
+F1-Score: 0.2770
+AUC-ROC: 0.7922
+AUC-PR: 0.3133
+
+Results for Random Forest:
+ F1-Score: 0.2770, AUC-ROC: 0.7922, AUC-PR: 0.3133
+
+Training and evaluating AdaBoost on gmsc dataset...
+F1-Score: 0.2868
+AUC-ROC: 0.8248
+AUC-PR: 0.3304
+
+Results for AdaBoost:
+ F1-Score: 0.2868, AUC-ROC: 0.8248, AUC-PR: 0.3304
+
+Training and evaluating Gradient Boosting on gmsc dataset...
+F1-Score: 0.2729
+AUC-ROC: 0.8297
+AUC-PR: 0.3527
+
+Results for Gradient Boosting:
+ F1-Score: 0.2729, AUC-ROC: 0.8297, AUC-PR: 0.3527
+
+Complete Results DataFrame:
+        dataset resample_method         classifier    metric     value
+0    uci_german             ros      Random Forest  F1-Score  0.565217
+1    uci_german             ros      Random Forest   AUC-ROC  0.785603
+2    uci_german             ros      Random Forest    AUC-PR  0.563668
+3    uci_german             ros           AdaBoost  F1-Score  0.571429
+4    uci_german             ros           AdaBoost   AUC-ROC  0.762474
+..          ...             ...                ...       ...       ...
+595        gmsc     tabddpm_bgm           AdaBoost   AUC-ROC  0.824843
+596        gmsc     tabddpm_bgm           AdaBoost    AUC-PR  0.330423
+597        gmsc     tabddpm_bgm  Gradient Boosting  F1-Score  0.272904
+598        gmsc     tabddpm_bgm  Gradient Boosting   AUC-ROC  0.829651
+599        gmsc     tabddpm_bgm  Gradient Boosting    AUC-PR  0.352721
+
+[600 rows x 5 columns]
+
+================================================================================
+
+
+ANALYSIS FOR DATASET: uci_german
+==================================================
+
+All Results:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+adasyn           AdaBoost           0.509310  0.787422  0.622951
+                 Gradient Boosting  0.518638  0.793139  0.592593
+                 Random Forest      0.648193  0.812110  0.565217
+cwgan            Random forest      0.594965  0.795478  0.545455
+enn              AdaBoost           0.443985  0.771310  0.617647
+                 Gradient Boosting  0.572804  0.777547  0.540541
+                 Random Forest      0.597760  0.785343  0.605263
+nearmiss         AdaBoost           0.405866  0.707900  0.539683
+                 Gradient Boosting  0.434809  0.696466  0.492754
+                 Random Forest      0.430121  0.689709  0.468750
+ros              AdaBoost           0.464614  0.762474  0.571429
+                 Gradient Boosting  0.545642  0.785343  0.571429
+                 Random Forest      0.563668  0.785603  0.565217
+rus              AdaBoost           0.441203  0.776507  0.597015
+                 Gradient Boosting  0.485986  0.785863  0.584615
+                 Random Forest      0.619757  0.801975  0.597015
+smote            AdaBoost           0.489220  0.785863  0.655172
+                 Gradient Boosting  0.562884  0.804574  0.576923
+                 Random Forest      0.580915  0.791580  0.541667
+smote_bs1        AdaBoost           0.503087  0.788981  0.666667
+                 Gradient Boosting  0.545742  0.798857  0.603774
+                 Random Forest      0.641044  0.800416  0.629630
+smote_bs2        AdaBoost           0.460603  0.761954  0.535714
+                 Gradient Boosting  0.523710  0.801455  0.615385
+                 Random Forest      0.602453  0.808472  0.600000
+smote_enn        AdaBoost           0.532423  0.796258  0.571429
+                 Gradient Boosting  0.524243  0.788462  0.591549
+                 Random Forest      0.571405  0.791060  0.611111
+smote_tomek      AdaBoost           0.498032  0.795738  0.642857
+                 Gradient Boosting  0.577250  0.799376  0.566038
+                 Random Forest      0.639356  0.801195  0.600000
+tabddpm_bgm      AdaBoost           0.556982  0.803582  0.550459
+                 Gradient Boosting  0.599445  0.802019  0.568807
+                 Random Forest      0.664382  0.830569  0.484211
+tabddpm_identity AdaBoost           0.604833  0.814401  0.579439
+                 Gradient Boosting  0.649435  0.830869  0.666667
+                 Random Forest      0.679702  0.812237  0.571429
+tomek            AdaBoost           0.474484  0.773389  0.458333
+                 Gradient Boosting  0.464456  0.774948  0.500000
+                 Random Forest      0.540138  0.762214  0.541667
+
+Sorted by AUC-PR:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+tabddpm_identity Random Forest      0.679702  0.812237  0.571429
+tabddpm_bgm      Random Forest      0.664382  0.830569  0.484211
+tabddpm_identity Gradient Boosting  0.649435  0.830869  0.666667
+adasyn           Random Forest      0.648193  0.812110  0.565217
+smote_bs1        Random Forest      0.641044  0.800416  0.629630
+smote_tomek      Random Forest      0.639356  0.801195  0.600000
+rus              Random Forest      0.619757  0.801975  0.597015
+tabddpm_identity AdaBoost           0.604833  0.814401  0.579439
+smote_bs2        Random Forest      0.602453  0.808472  0.600000
+tabddpm_bgm      Gradient Boosting  0.599445  0.802019  0.568807
+enn              Random Forest      0.597760  0.785343  0.605263
+cwgan            Random forest      0.594965  0.795478  0.545455
+smote            Random Forest      0.580915  0.791580  0.541667
+smote_tomek      Gradient Boosting  0.577250  0.799376  0.566038
+enn              Gradient Boosting  0.572804  0.777547  0.540541
+smote_enn        Random Forest      0.571405  0.791060  0.611111
+ros              Random Forest      0.563668  0.785603  0.565217
+smote            Gradient Boosting  0.562884  0.804574  0.576923
+tabddpm_bgm      AdaBoost           0.556982  0.803582  0.550459
+smote_bs1        Gradient Boosting  0.545742  0.798857  0.603774
+ros              Gradient Boosting  0.545642  0.785343  0.571429
+tomek            Random Forest      0.540138  0.762214  0.541667
+smote_enn        AdaBoost           0.532423  0.796258  0.571429
+                 Gradient Boosting  0.524243  0.788462  0.591549
+smote_bs2        Gradient Boosting  0.523710  0.801455  0.615385
+adasyn           Gradient Boosting  0.518638  0.793139  0.592593
+                 AdaBoost           0.509310  0.787422  0.622951
+smote_bs1        AdaBoost           0.503087  0.788981  0.666667
+smote_tomek      AdaBoost           0.498032  0.795738  0.642857
+smote            AdaBoost           0.489220  0.785863  0.655172
+rus              Gradient Boosting  0.485986  0.785863  0.584615
+tomek            AdaBoost           0.474484  0.773389  0.458333
+ros              AdaBoost           0.464614  0.762474  0.571429
+tomek            Gradient Boosting  0.464456  0.774948  0.500000
+smote_bs2        AdaBoost           0.460603  0.761954  0.535714
+enn              AdaBoost           0.443985  0.771310  0.617647
+rus              AdaBoost           0.441203  0.776507  0.597015
+nearmiss         Gradient Boosting  0.434809  0.696466  0.492754
+                 Random Forest      0.430121  0.689709  0.468750
+                 AdaBoost           0.405866  0.707900  0.539683
+
+Sorted by AUC-ROC:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+tabddpm_identity Gradient Boosting  0.649435  0.830869  0.666667
+tabddpm_bgm      Random Forest      0.664382  0.830569  0.484211
+tabddpm_identity AdaBoost           0.604833  0.814401  0.579439
+                 Random Forest      0.679702  0.812237  0.571429
+adasyn           Random Forest      0.648193  0.812110  0.565217
+smote_bs2        Random Forest      0.602453  0.808472  0.600000
+smote            Gradient Boosting  0.562884  0.804574  0.576923
+tabddpm_bgm      AdaBoost           0.556982  0.803582  0.550459
+                 Gradient Boosting  0.599445  0.802019  0.568807
+rus              Random Forest      0.619757  0.801975  0.597015
+smote_bs2        Gradient Boosting  0.523710  0.801455  0.615385
+smote_tomek      Random Forest      0.639356  0.801195  0.600000
+smote_bs1        Random Forest      0.641044  0.800416  0.629630
+smote_tomek      Gradient Boosting  0.577250  0.799376  0.566038
+smote_bs1        Gradient Boosting  0.545742  0.798857  0.603774
+smote_enn        AdaBoost           0.532423  0.796258  0.571429
+smote_tomek      AdaBoost           0.498032  0.795738  0.642857
+cwgan            Random forest      0.594965  0.795478  0.545455
+adasyn           Gradient Boosting  0.518638  0.793139  0.592593
+smote            Random Forest      0.580915  0.791580  0.541667
+smote_enn        Random Forest      0.571405  0.791060  0.611111
+smote_bs1        AdaBoost           0.503087  0.788981  0.666667
+smote_enn        Gradient Boosting  0.524243  0.788462  0.591549
+adasyn           AdaBoost           0.509310  0.787422  0.622951
+smote            AdaBoost           0.489220  0.785863  0.655172
+rus              Gradient Boosting  0.485986  0.785863  0.584615
+ros              Random Forest      0.563668  0.785603  0.565217
+                 Gradient Boosting  0.545642  0.785343  0.571429
+enn              Random Forest      0.597760  0.785343  0.605263
+                 Gradient Boosting  0.572804  0.777547  0.540541
+rus              AdaBoost           0.441203  0.776507  0.597015
+tomek            Gradient Boosting  0.464456  0.774948  0.500000
+                 AdaBoost           0.474484  0.773389  0.458333
+enn              AdaBoost           0.443985  0.771310  0.617647
+ros              AdaBoost           0.464614  0.762474  0.571429
+tomek            Random Forest      0.540138  0.762214  0.541667
+smote_bs2        AdaBoost           0.460603  0.761954  0.535714
+nearmiss         AdaBoost           0.405866  0.707900  0.539683
+                 Gradient Boosting  0.434809  0.696466  0.492754
+                 Random Forest      0.430121  0.689709  0.468750
+
+Sorted by F1-Score:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+tabddpm_identity Gradient Boosting  0.649435  0.830869  0.666667
+smote_bs1        AdaBoost           0.503087  0.788981  0.666667
+smote            AdaBoost           0.489220  0.785863  0.655172
+smote_tomek      AdaBoost           0.498032  0.795738  0.642857
+smote_bs1        Random Forest      0.641044  0.800416  0.629630
+adasyn           AdaBoost           0.509310  0.787422  0.622951
+enn              AdaBoost           0.443985  0.771310  0.617647
+smote_bs2        Gradient Boosting  0.523710  0.801455  0.615385
+smote_enn        Random Forest      0.571405  0.791060  0.611111
+enn              Random Forest      0.597760  0.785343  0.605263
+smote_bs1        Gradient Boosting  0.545742  0.798857  0.603774
+smote_bs2        Random Forest      0.602453  0.808472  0.600000
+smote_tomek      Random Forest      0.639356  0.801195  0.600000
+rus              AdaBoost           0.441203  0.776507  0.597015
+                 Random Forest      0.619757  0.801975  0.597015
+adasyn           Gradient Boosting  0.518638  0.793139  0.592593
+smote_enn        Gradient Boosting  0.524243  0.788462  0.591549
+rus              Gradient Boosting  0.485986  0.785863  0.584615
+tabddpm_identity AdaBoost           0.604833  0.814401  0.579439
+smote            Gradient Boosting  0.562884  0.804574  0.576923
+ros              Gradient Boosting  0.545642  0.785343  0.571429
+tabddpm_identity Random Forest      0.679702  0.812237  0.571429
+smote_enn        AdaBoost           0.532423  0.796258  0.571429
+ros              AdaBoost           0.464614  0.762474  0.571429
+tabddpm_bgm      Gradient Boosting  0.599445  0.802019  0.568807
+smote_tomek      Gradient Boosting  0.577250  0.799376  0.566038
+ros              Random Forest      0.563668  0.785603  0.565217
+adasyn           Random Forest      0.648193  0.812110  0.565217
+tabddpm_bgm      AdaBoost           0.556982  0.803582  0.550459
+cwgan            Random forest      0.594965  0.795478  0.545455
+smote            Random Forest      0.580915  0.791580  0.541667
+tomek            Random Forest      0.540138  0.762214  0.541667
+enn              Gradient Boosting  0.572804  0.777547  0.540541
+nearmiss         AdaBoost           0.405866  0.707900  0.539683
+smote_bs2        AdaBoost           0.460603  0.761954  0.535714
+tomek            Gradient Boosting  0.464456  0.774948  0.500000
+nearmiss         Gradient Boosting  0.434809  0.696466  0.492754
+tabddpm_bgm      Random Forest      0.664382  0.830569  0.484211
+nearmiss         Random Forest      0.430121  0.689709  0.468750
+tomek            AdaBoost           0.474484  0.773389  0.458333
+
+================================================================================
+
+
+ANALYSIS FOR DATASET: uci_taiwan
+==================================================
+
+All Results:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+adasyn           AdaBoost           0.549939  0.760056  0.528827
+                 Gradient Boosting  0.579500  0.780291  0.547945
+                 Random Forest      0.539947  0.761406  0.518219
+cwgan            Random forest      0.580291  0.780994  0.501938
+enn              AdaBoost           0.585322  0.800890  0.549263
+                 Gradient Boosting  0.586578  0.802124  0.563636
+                 Random Forest      0.587964  0.786008  0.558824
+nearmiss         AdaBoost           0.295983  0.638243  0.413672
+                 Gradient Boosting  0.314471  0.658749  0.414154
+                 Random Forest      0.335191  0.633629  0.409981
+ros              AdaBoost           0.577516  0.792857  0.547745
+                 Gradient Boosting  0.590013  0.798558  0.560213
+                 Random Forest      0.566425  0.778623  0.527354
+rus              AdaBoost           0.576733  0.793379  0.553467
+                 Gradient Boosting  0.586022  0.799156  0.558998
+                 Random Forest      0.572139  0.786932  0.532310
+smote            AdaBoost           0.563264  0.771261  0.553846
+                 Gradient Boosting  0.585007  0.786239  0.554160
+                 Random Forest      0.549329  0.767539  0.519310
+smote_bs1        AdaBoost           0.544023  0.759201  0.516211
+                 Gradient Boosting  0.573286  0.783568  0.552207
+                 Random Forest      0.518001  0.767028  0.523810
+smote_bs2        AdaBoost           0.555773  0.780616  0.532923
+                 Gradient Boosting  0.565018  0.787615  0.548732
+                 Random Forest      0.529024  0.773336  0.520767
+smote_enn        AdaBoost           0.569976  0.781311  0.523869
+                 Gradient Boosting  0.582789  0.789103  0.550938
+                 Random Forest      0.562460  0.774917  0.539860
+smote_tomek      AdaBoost           0.563349  0.764640  0.539886
+                 Gradient Boosting  0.581067  0.785447  0.557632
+                 Random Forest      0.541150  0.762999  0.517551
+tabddpm_bgm      AdaBoost           0.521985  0.774620  0.431373
+                 Gradient Boosting  0.535707  0.774090  0.458458
+                 Random Forest      0.524646  0.757981  0.462355
+tabddpm_identity AdaBoost           0.528214  0.772314  0.429016
+                 Gradient Boosting  0.540210  0.779256  0.458541
+                 Random Forest      0.527283  0.760472  0.463740
+tomek            AdaBoost           0.578309  0.795087  0.505792
+                 Gradient Boosting  0.590492  0.801174  0.525424
+                 Random Forest      0.571649  0.783089  0.522852
+
+Sorted by AUC-PR:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+tomek            Gradient Boosting  0.590492  0.801174  0.525424
+ros              Gradient Boosting  0.590013  0.798558  0.560213
+enn              Random Forest      0.587964  0.786008  0.558824
+                 Gradient Boosting  0.586578  0.802124  0.563636
+rus              Gradient Boosting  0.586022  0.799156  0.558998
+enn              AdaBoost           0.585322  0.800890  0.549263
+smote            Gradient Boosting  0.585007  0.786239  0.554160
+smote_enn        Gradient Boosting  0.582789  0.789103  0.550938
+smote_tomek      Gradient Boosting  0.581067  0.785447  0.557632
+cwgan            Random forest      0.580291  0.780994  0.501938
+adasyn           Gradient Boosting  0.579500  0.780291  0.547945
+tomek            AdaBoost           0.578309  0.795087  0.505792
+ros              AdaBoost           0.577516  0.792857  0.547745
+rus              AdaBoost           0.576733  0.793379  0.553467
+smote_bs1        Gradient Boosting  0.573286  0.783568  0.552207
+rus              Random Forest      0.572139  0.786932  0.532310
+tomek            Random Forest      0.571649  0.783089  0.522852
+smote_enn        AdaBoost           0.569976  0.781311  0.523869
+ros              Random Forest      0.566425  0.778623  0.527354
+smote_bs2        Gradient Boosting  0.565018  0.787615  0.548732
+smote_tomek      AdaBoost           0.563349  0.764640  0.539886
+smote            AdaBoost           0.563264  0.771261  0.553846
+smote_enn        Random Forest      0.562460  0.774917  0.539860
+smote_bs2        AdaBoost           0.555773  0.780616  0.532923
+adasyn           AdaBoost           0.549939  0.760056  0.528827
+smote            Random Forest      0.549329  0.767539  0.519310
+smote_bs1        AdaBoost           0.544023  0.759201  0.516211
+smote_tomek      Random Forest      0.541150  0.762999  0.517551
+tabddpm_identity Gradient Boosting  0.540210  0.779256  0.458541
+adasyn           Random Forest      0.539947  0.761406  0.518219
+tabddpm_bgm      Gradient Boosting  0.535707  0.774090  0.458458
+smote_bs2        Random Forest      0.529024  0.773336  0.520767
+tabddpm_identity AdaBoost           0.528214  0.772314  0.429016
+                 Random Forest      0.527283  0.760472  0.463740
+tabddpm_bgm      Random Forest      0.524646  0.757981  0.462355
+                 AdaBoost           0.521985  0.774620  0.431373
+smote_bs1        Random Forest      0.518001  0.767028  0.523810
+nearmiss         Random Forest      0.335191  0.633629  0.409981
+                 Gradient Boosting  0.314471  0.658749  0.414154
+                 AdaBoost           0.295983  0.638243  0.413672
+
+Sorted by AUC-ROC:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+enn              Gradient Boosting  0.586578  0.802124  0.563636
+tomek            Gradient Boosting  0.590492  0.801174  0.525424
+enn              AdaBoost           0.585322  0.800890  0.549263
+rus              Gradient Boosting  0.586022  0.799156  0.558998
+ros              Gradient Boosting  0.590013  0.798558  0.560213
+tomek            AdaBoost           0.578309  0.795087  0.505792
+rus              AdaBoost           0.576733  0.793379  0.553467
+ros              AdaBoost           0.577516  0.792857  0.547745
+smote_enn        Gradient Boosting  0.582789  0.789103  0.550938
+smote_bs2        Gradient Boosting  0.565018  0.787615  0.548732
+rus              Random Forest      0.572139  0.786932  0.532310
+smote            Gradient Boosting  0.585007  0.786239  0.554160
+enn              Random Forest      0.587964  0.786008  0.558824
+smote_tomek      Gradient Boosting  0.581067  0.785447  0.557632
+smote_bs1        Gradient Boosting  0.573286  0.783568  0.552207
+tomek            Random Forest      0.571649  0.783089  0.522852
+smote_enn        AdaBoost           0.569976  0.781311  0.523869
+cwgan            Random forest      0.580291  0.780994  0.501938
+smote_bs2        AdaBoost           0.555773  0.780616  0.532923
+adasyn           Gradient Boosting  0.579500  0.780291  0.547945
+tabddpm_identity Gradient Boosting  0.540210  0.779256  0.458541
+ros              Random Forest      0.566425  0.778623  0.527354
+smote_enn        Random Forest      0.562460  0.774917  0.539860
+tabddpm_bgm      AdaBoost           0.521985  0.774620  0.431373
+                 Gradient Boosting  0.535707  0.774090  0.458458
+smote_bs2        Random Forest      0.529024  0.773336  0.520767
+tabddpm_identity AdaBoost           0.528214  0.772314  0.429016
+smote            AdaBoost           0.563264  0.771261  0.553846
+                 Random Forest      0.549329  0.767539  0.519310
+smote_bs1        Random Forest      0.518001  0.767028  0.523810
+smote_tomek      AdaBoost           0.563349  0.764640  0.539886
+                 Random Forest      0.541150  0.762999  0.517551
+adasyn           Random Forest      0.539947  0.761406  0.518219
+tabddpm_identity Random Forest      0.527283  0.760472  0.463740
+adasyn           AdaBoost           0.549939  0.760056  0.528827
+smote_bs1        AdaBoost           0.544023  0.759201  0.516211
+tabddpm_bgm      Random Forest      0.524646  0.757981  0.462355
+nearmiss         Gradient Boosting  0.314471  0.658749  0.414154
+                 AdaBoost           0.295983  0.638243  0.413672
+                 Random Forest      0.335191  0.633629  0.409981
+
+Sorted by F1-Score:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+enn              Gradient Boosting  0.586578  0.802124  0.563636
+ros              Gradient Boosting  0.590013  0.798558  0.560213
+rus              Gradient Boosting  0.586022  0.799156  0.558998
+enn              Random Forest      0.587964  0.786008  0.558824
+smote_tomek      Gradient Boosting  0.581067  0.785447  0.557632
+smote            Gradient Boosting  0.585007  0.786239  0.554160
+                 AdaBoost           0.563264  0.771261  0.553846
+rus              AdaBoost           0.576733  0.793379  0.553467
+smote_bs1        Gradient Boosting  0.573286  0.783568  0.552207
+smote_enn        Gradient Boosting  0.582789  0.789103  0.550938
+enn              AdaBoost           0.585322  0.800890  0.549263
+smote_bs2        Gradient Boosting  0.565018  0.787615  0.548732
+adasyn           Gradient Boosting  0.579500  0.780291  0.547945
+ros              AdaBoost           0.577516  0.792857  0.547745
+smote_tomek      AdaBoost           0.563349  0.764640  0.539886
+smote_enn        Random Forest      0.562460  0.774917  0.539860
+smote_bs2        AdaBoost           0.555773  0.780616  0.532923
+rus              Random Forest      0.572139  0.786932  0.532310
+adasyn           AdaBoost           0.549939  0.760056  0.528827
+ros              Random Forest      0.566425  0.778623  0.527354
+tomek            Gradient Boosting  0.590492  0.801174  0.525424
+smote_enn        AdaBoost           0.569976  0.781311  0.523869
+smote_bs1        Random Forest      0.518001  0.767028  0.523810
+tomek            Random Forest      0.571649  0.783089  0.522852
+smote_bs2        Random Forest      0.529024  0.773336  0.520767
+smote            Random Forest      0.549329  0.767539  0.519310
+adasyn           Random Forest      0.539947  0.761406  0.518219
+smote_tomek      Random Forest      0.541150  0.762999  0.517551
+smote_bs1        AdaBoost           0.544023  0.759201  0.516211
+tomek            AdaBoost           0.578309  0.795087  0.505792
+cwgan            Random forest      0.580291  0.780994  0.501938
+tabddpm_identity Random Forest      0.527283  0.760472  0.463740
+tabddpm_bgm      Random Forest      0.524646  0.757981  0.462355
+tabddpm_identity Gradient Boosting  0.540210  0.779256  0.458541
+tabddpm_bgm      Gradient Boosting  0.535707  0.774090  0.458458
+                 AdaBoost           0.521985  0.774620  0.431373
+tabddpm_identity AdaBoost           0.528214  0.772314  0.429016
+nearmiss         Gradient Boosting  0.314471  0.658749  0.414154
+                 AdaBoost           0.295983  0.638243  0.413672
+                 Random Forest      0.335191  0.633629  0.409981
+
+================================================================================
+
+
+ANALYSIS FOR DATASET: pakdd
+==================================================
+
+All Results:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+adasyn           AdaBoost           0.329513  0.604949  0.341244
+                 Gradient Boosting  0.348370  0.631064  0.093878
+                 Random Forest      0.344634  0.616172  0.171637
+cwgan            Random forest      0.349173  0.625873  0.084254
+enn              AdaBoost           0.351188  0.634802  0.414160
+                 Gradient Boosting  0.360567  0.647261  0.428932
+                 Random Forest      0.355352  0.636638  0.439109
+nearmiss         AdaBoost           0.281189  0.553401  0.399350
+                 Gradient Boosting  0.289347  0.556893  0.396058
+                 Random Forest      0.284431  0.548321  0.397302
+ros              AdaBoost           0.353928  0.639810  0.440519
+                 Gradient Boosting  0.367111  0.652908  0.456057
+                 Random Forest      0.347424  0.625295  0.202703
+rus              AdaBoost           0.352757  0.639060  0.438386
+                 Gradient Boosting  0.362194  0.652481  0.458355
+                 Random Forest      0.344642  0.624728  0.429444
+smote            AdaBoost           0.329032  0.601221  0.318903
+                 Gradient Boosting  0.352901  0.635081  0.096664
+                 Random Forest      0.342644  0.618555  0.167789
+smote_bs1        AdaBoost           0.341141  0.611425  0.318576
+                 Gradient Boosting  0.350235  0.631838  0.072727
+                 Random Forest      0.345815  0.621807  0.162562
+smote_bs2        AdaBoost           0.325868  0.601831  0.312687
+                 Gradient Boosting  0.351021  0.629359  0.111989
+                 Random Forest      0.344742  0.623183  0.175165
+smote_enn        AdaBoost           0.337868  0.622056  0.443182
+                 Gradient Boosting  0.367150  0.644687  0.450213
+                 Random Forest      0.355362  0.635259  0.450530
+smote_tomek      AdaBoost           0.328541  0.601498  0.316645
+                 Gradient Boosting  0.349003  0.632973  0.102633
+                 Random Forest      0.345516  0.620719  0.156116
+tabddpm_bgm      AdaBoost           0.344051  0.617146  0.017608
+                 Gradient Boosting  0.360132  0.624573  0.003738
+                 Random Forest      0.339398  0.601233  0.077683
+tabddpm_identity AdaBoost           0.351915  0.619572  0.015487
+                 Gradient Boosting  0.372830  0.630537  0.023599
+                 Random Forest      0.341453  0.601423  0.075408
+tomek            AdaBoost           0.346741  0.636121  0.051502
+                 Gradient Boosting  0.366080  0.651303  0.019578
+                 Random Forest      0.349886  0.624441  0.132231
+
+Sorted by AUC-PR:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+tabddpm_identity Gradient Boosting  0.372830  0.630537  0.023599
+smote_enn        Gradient Boosting  0.367150  0.644687  0.450213
+ros              Gradient Boosting  0.367111  0.652908  0.456057
+tomek            Gradient Boosting  0.366080  0.651303  0.019578
+rus              Gradient Boosting  0.362194  0.652481  0.458355
+enn              Gradient Boosting  0.360567  0.647261  0.428932
+tabddpm_bgm      Gradient Boosting  0.360132  0.624573  0.003738
+smote_enn        Random Forest      0.355362  0.635259  0.450530
+enn              Random Forest      0.355352  0.636638  0.439109
+ros              AdaBoost           0.353928  0.639810  0.440519
+smote            Gradient Boosting  0.352901  0.635081  0.096664
+rus              AdaBoost           0.352757  0.639060  0.438386
+tabddpm_identity AdaBoost           0.351915  0.619572  0.015487
+enn              AdaBoost           0.351188  0.634802  0.414160
+smote_bs2        Gradient Boosting  0.351021  0.629359  0.111989
+smote_bs1        Gradient Boosting  0.350235  0.631838  0.072727
+tomek            Random Forest      0.349886  0.624441  0.132231
+cwgan            Random forest      0.349173  0.625873  0.084254
+smote_tomek      Gradient Boosting  0.349003  0.632973  0.102633
+adasyn           Gradient Boosting  0.348370  0.631064  0.093878
+ros              Random Forest      0.347424  0.625295  0.202703
+tomek            AdaBoost           0.346741  0.636121  0.051502
+smote_bs1        Random Forest      0.345815  0.621807  0.162562
+smote_tomek      Random Forest      0.345516  0.620719  0.156116
+smote_bs2        Random Forest      0.344742  0.623183  0.175165
+rus              Random Forest      0.344642  0.624728  0.429444
+adasyn           Random Forest      0.344634  0.616172  0.171637
+tabddpm_bgm      AdaBoost           0.344051  0.617146  0.017608
+smote            Random Forest      0.342644  0.618555  0.167789
+tabddpm_identity Random Forest      0.341453  0.601423  0.075408
+smote_bs1        AdaBoost           0.341141  0.611425  0.318576
+tabddpm_bgm      Random Forest      0.339398  0.601233  0.077683
+smote_enn        AdaBoost           0.337868  0.622056  0.443182
+adasyn           AdaBoost           0.329513  0.604949  0.341244
+smote            AdaBoost           0.329032  0.601221  0.318903
+smote_tomek      AdaBoost           0.328541  0.601498  0.316645
+smote_bs2        AdaBoost           0.325868  0.601831  0.312687
+nearmiss         Gradient Boosting  0.289347  0.556893  0.396058
+                 Random Forest      0.284431  0.548321  0.397302
+                 AdaBoost           0.281189  0.553401  0.399350
+
+Sorted by AUC-ROC:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+ros              Gradient Boosting  0.367111  0.652908  0.456057
+rus              Gradient Boosting  0.362194  0.652481  0.458355
+tomek            Gradient Boosting  0.366080  0.651303  0.019578
+enn              Gradient Boosting  0.360567  0.647261  0.428932
+smote_enn        Gradient Boosting  0.367150  0.644687  0.450213
+ros              AdaBoost           0.353928  0.639810  0.440519
+rus              AdaBoost           0.352757  0.639060  0.438386
+enn              Random Forest      0.355352  0.636638  0.439109
+tomek            AdaBoost           0.346741  0.636121  0.051502
+smote_enn        Random Forest      0.355362  0.635259  0.450530
+smote            Gradient Boosting  0.352901  0.635081  0.096664
+enn              AdaBoost           0.351188  0.634802  0.414160
+smote_tomek      Gradient Boosting  0.349003  0.632973  0.102633
+smote_bs1        Gradient Boosting  0.350235  0.631838  0.072727
+adasyn           Gradient Boosting  0.348370  0.631064  0.093878
+tabddpm_identity Gradient Boosting  0.372830  0.630537  0.023599
+smote_bs2        Gradient Boosting  0.351021  0.629359  0.111989
+cwgan            Random forest      0.349173  0.625873  0.084254
+ros              Random Forest      0.347424  0.625295  0.202703
+rus              Random Forest      0.344642  0.624728  0.429444
+tabddpm_bgm      Gradient Boosting  0.360132  0.624573  0.003738
+tomek            Random Forest      0.349886  0.624441  0.132231
+smote_bs2        Random Forest      0.344742  0.623183  0.175165
+smote_enn        AdaBoost           0.337868  0.622056  0.443182
+smote_bs1        Random Forest      0.345815  0.621807  0.162562
+smote_tomek      Random Forest      0.345516  0.620719  0.156116
+tabddpm_identity AdaBoost           0.351915  0.619572  0.015487
+smote            Random Forest      0.342644  0.618555  0.167789
+tabddpm_bgm      AdaBoost           0.344051  0.617146  0.017608
+adasyn           Random Forest      0.344634  0.616172  0.171637
+smote_bs1        AdaBoost           0.341141  0.611425  0.318576
+adasyn           AdaBoost           0.329513  0.604949  0.341244
+smote_bs2        AdaBoost           0.325868  0.601831  0.312687
+smote_tomek      AdaBoost           0.328541  0.601498  0.316645
+tabddpm_identity Random Forest      0.341453  0.601423  0.075408
+tabddpm_bgm      Random Forest      0.339398  0.601233  0.077683
+smote            AdaBoost           0.329032  0.601221  0.318903
+nearmiss         Gradient Boosting  0.289347  0.556893  0.396058
+                 AdaBoost           0.281189  0.553401  0.399350
+                 Random Forest      0.284431  0.548321  0.397302
+
+Sorted by F1-Score:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+rus              Gradient Boosting  0.362194  0.652481  0.458355
+ros              Gradient Boosting  0.367111  0.652908  0.456057
+smote_enn        Random Forest      0.355362  0.635259  0.450530
+                 Gradient Boosting  0.367150  0.644687  0.450213
+                 AdaBoost           0.337868  0.622056  0.443182
+ros              AdaBoost           0.353928  0.639810  0.440519
+enn              Random Forest      0.355352  0.636638  0.439109
+rus              AdaBoost           0.352757  0.639060  0.438386
+                 Random Forest      0.344642  0.624728  0.429444
+enn              Gradient Boosting  0.360567  0.647261  0.428932
+                 AdaBoost           0.351188  0.634802  0.414160
+nearmiss         AdaBoost           0.281189  0.553401  0.399350
+                 Random Forest      0.284431  0.548321  0.397302
+                 Gradient Boosting  0.289347  0.556893  0.396058
+adasyn           AdaBoost           0.329513  0.604949  0.341244
+smote            AdaBoost           0.329032  0.601221  0.318903
+smote_bs1        AdaBoost           0.341141  0.611425  0.318576
+smote_tomek      AdaBoost           0.328541  0.601498  0.316645
+smote_bs2        AdaBoost           0.325868  0.601831  0.312687
+ros              Random Forest      0.347424  0.625295  0.202703
+smote_bs2        Random Forest      0.344742  0.623183  0.175165
+adasyn           Random Forest      0.344634  0.616172  0.171637
+smote            Random Forest      0.342644  0.618555  0.167789
+smote_bs1        Random Forest      0.345815  0.621807  0.162562
+smote_tomek      Random Forest      0.345516  0.620719  0.156116
+tomek            Random Forest      0.349886  0.624441  0.132231
+smote_bs2        Gradient Boosting  0.351021  0.629359  0.111989
+smote_tomek      Gradient Boosting  0.349003  0.632973  0.102633
+smote            Gradient Boosting  0.352901  0.635081  0.096664
+adasyn           Gradient Boosting  0.348370  0.631064  0.093878
+cwgan            Random forest      0.349173  0.625873  0.084254
+tabddpm_bgm      Random Forest      0.339398  0.601233  0.077683
+tabddpm_identity Random Forest      0.341453  0.601423  0.075408
+smote_bs1        Gradient Boosting  0.350235  0.631838  0.072727
+tomek            AdaBoost           0.346741  0.636121  0.051502
+tabddpm_identity Gradient Boosting  0.372830  0.630537  0.023599
+tomek            Gradient Boosting  0.366080  0.651303  0.019578
+tabddpm_bgm      AdaBoost           0.344051  0.617146  0.017608
+tabddpm_identity AdaBoost           0.351915  0.619572  0.015487
+tabddpm_bgm      Gradient Boosting  0.360132  0.624573  0.003738
+
+================================================================================
+
+
+ANALYSIS FOR DATASET: hmeq
+==================================================
+
+All Results:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+adasyn           AdaBoost           0.787464  0.895937  0.681319
+                 Gradient Boosting  0.830110  0.920592  0.751020
+                 Random Forest      0.927409  0.978556  0.826087
+cwgan            Random forest      0.934972  0.976103  0.826291
+enn              AdaBoost           0.815958  0.911005  0.731481
+                 Gradient Boosting  0.841927  0.924332  0.705314
+                 Random Forest      0.916634  0.972788  0.809302
+nearmiss         AdaBoost           0.480540  0.802732  0.491400
+                 Gradient Boosting  0.648859  0.853728  0.508728
+                 Random Forest      0.585694  0.840957  0.483940
+ros              AdaBoost           0.829392  0.918643  0.698182
+                 Gradient Boosting  0.835648  0.920661  0.727273
+                 Random Forest      0.900732  0.969743  0.789474
+rus              AdaBoost           0.805823  0.916216  0.685714
+                 Gradient Boosting  0.835387  0.925176  0.727273
+                 Random Forest      0.853232  0.948586  0.750903
+smote            AdaBoost           0.801818  0.901836  0.686567
+                 Gradient Boosting  0.828723  0.919060  0.730924
+                 Random Forest      0.934014  0.979635  0.840708
+smote_bs1        AdaBoost           0.778182  0.891283  0.669065
+                 Gradient Boosting  0.818741  0.916938  0.719368
+                 Random Forest      0.921685  0.974833  0.826667
+smote_bs2        AdaBoost           0.767721  0.892736  0.655052
+                 Gradient Boosting  0.822701  0.919861  0.721569
+                 Random Forest      0.934954  0.979104  0.841629
+smote_enn        AdaBoost           0.786747  0.890883  0.697318
+                 Gradient Boosting  0.829212  0.915685  0.757202
+                 Random Forest      0.909533  0.973554  0.819383
+smote_tomek      AdaBoost           0.796829  0.895963  0.689139
+                 Gradient Boosting  0.828820  0.917251  0.730924
+                 Random Forest      0.927662  0.977512  0.838428
+tabddpm_bgm      AdaBoost           0.770539  0.893053  0.658385
+                 Gradient Boosting  0.839066  0.925385  0.721174
+                 Random Forest      0.878088  0.963402  0.732510
+tabddpm_identity AdaBoost           0.820707  0.915206  0.721992
+                 Gradient Boosting  0.848255  0.932668  0.723769
+                 Random Forest      0.878835  0.963913  0.761506
+tomek            AdaBoost           0.818017  0.911779  0.728972
+                 Gradient Boosting  0.842925  0.919565  0.736842
+                 Random Forest      0.920331  0.973301  0.800000
+
+Sorted by AUC-PR:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+cwgan            Random forest      0.934972  0.976103  0.826291
+smote_bs2        Random Forest      0.934954  0.979104  0.841629
+smote            Random Forest      0.934014  0.979635  0.840708
+smote_tomek      Random Forest      0.927662  0.977512  0.838428
+adasyn           Random Forest      0.927409  0.978556  0.826087
+smote_bs1        Random Forest      0.921685  0.974833  0.826667
+tomek            Random Forest      0.920331  0.973301  0.800000
+enn              Random Forest      0.916634  0.972788  0.809302
+smote_enn        Random Forest      0.909533  0.973554  0.819383
+ros              Random Forest      0.900732  0.969743  0.789474
+tabddpm_identity Random Forest      0.878835  0.963913  0.761506
+tabddpm_bgm      Random Forest      0.878088  0.963402  0.732510
+rus              Random Forest      0.853232  0.948586  0.750903
+tabddpm_identity Gradient Boosting  0.848255  0.932668  0.723769
+tomek            Gradient Boosting  0.842925  0.919565  0.736842
+enn              Gradient Boosting  0.841927  0.924332  0.705314
+tabddpm_bgm      Gradient Boosting  0.839066  0.925385  0.721174
+ros              Gradient Boosting  0.835648  0.920661  0.727273
+rus              Gradient Boosting  0.835387  0.925176  0.727273
+adasyn           Gradient Boosting  0.830110  0.920592  0.751020
+ros              AdaBoost           0.829392  0.918643  0.698182
+smote_enn        Gradient Boosting  0.829212  0.915685  0.757202
+smote_tomek      Gradient Boosting  0.828820  0.917251  0.730924
+smote            Gradient Boosting  0.828723  0.919060  0.730924
+smote_bs2        Gradient Boosting  0.822701  0.919861  0.721569
+tabddpm_identity AdaBoost           0.820707  0.915206  0.721992
+smote_bs1        Gradient Boosting  0.818741  0.916938  0.719368
+tomek            AdaBoost           0.818017  0.911779  0.728972
+enn              AdaBoost           0.815958  0.911005  0.731481
+rus              AdaBoost           0.805823  0.916216  0.685714
+smote            AdaBoost           0.801818  0.901836  0.686567
+smote_tomek      AdaBoost           0.796829  0.895963  0.689139
+adasyn           AdaBoost           0.787464  0.895937  0.681319
+smote_enn        AdaBoost           0.786747  0.890883  0.697318
+smote_bs1        AdaBoost           0.778182  0.891283  0.669065
+tabddpm_bgm      AdaBoost           0.770539  0.893053  0.658385
+smote_bs2        AdaBoost           0.767721  0.892736  0.655052
+nearmiss         Gradient Boosting  0.648859  0.853728  0.508728
+                 Random Forest      0.585694  0.840957  0.483940
+                 AdaBoost           0.480540  0.802732  0.491400
+
+Sorted by AUC-ROC:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+smote            Random Forest      0.934014  0.979635  0.840708
+smote_bs2        Random Forest      0.934954  0.979104  0.841629
+adasyn           Random Forest      0.927409  0.978556  0.826087
+smote_tomek      Random Forest      0.927662  0.977512  0.838428
+cwgan            Random forest      0.934972  0.976103  0.826291
+smote_bs1        Random Forest      0.921685  0.974833  0.826667
+smote_enn        Random Forest      0.909533  0.973554  0.819383
+tomek            Random Forest      0.920331  0.973301  0.800000
+enn              Random Forest      0.916634  0.972788  0.809302
+ros              Random Forest      0.900732  0.969743  0.789474
+tabddpm_identity Random Forest      0.878835  0.963913  0.761506
+tabddpm_bgm      Random Forest      0.878088  0.963402  0.732510
+rus              Random Forest      0.853232  0.948586  0.750903
+tabddpm_identity Gradient Boosting  0.848255  0.932668  0.723769
+tabddpm_bgm      Gradient Boosting  0.839066  0.925385  0.721174
+rus              Gradient Boosting  0.835387  0.925176  0.727273
+enn              Gradient Boosting  0.841927  0.924332  0.705314
+ros              Gradient Boosting  0.835648  0.920661  0.727273
+adasyn           Gradient Boosting  0.830110  0.920592  0.751020
+smote_bs2        Gradient Boosting  0.822701  0.919861  0.721569
+tomek            Gradient Boosting  0.842925  0.919565  0.736842
+smote            Gradient Boosting  0.828723  0.919060  0.730924
+ros              AdaBoost           0.829392  0.918643  0.698182
+smote_tomek      Gradient Boosting  0.828820  0.917251  0.730924
+smote_bs1        Gradient Boosting  0.818741  0.916938  0.719368
+rus              AdaBoost           0.805823  0.916216  0.685714
+smote_enn        Gradient Boosting  0.829212  0.915685  0.757202
+tabddpm_identity AdaBoost           0.820707  0.915206  0.721992
+tomek            AdaBoost           0.818017  0.911779  0.728972
+enn              AdaBoost           0.815958  0.911005  0.731481
+smote            AdaBoost           0.801818  0.901836  0.686567
+smote_tomek      AdaBoost           0.796829  0.895963  0.689139
+adasyn           AdaBoost           0.787464  0.895937  0.681319
+tabddpm_bgm      AdaBoost           0.770539  0.893053  0.658385
+smote_bs2        AdaBoost           0.767721  0.892736  0.655052
+smote_bs1        AdaBoost           0.778182  0.891283  0.669065
+smote_enn        AdaBoost           0.786747  0.890883  0.697318
+nearmiss         Gradient Boosting  0.648859  0.853728  0.508728
+                 Random Forest      0.585694  0.840957  0.483940
+                 AdaBoost           0.480540  0.802732  0.491400
+
+Sorted by F1-Score:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+smote_bs2        Random Forest      0.934954  0.979104  0.841629
+smote            Random Forest      0.934014  0.979635  0.840708
+smote_tomek      Random Forest      0.927662  0.977512  0.838428
+smote_bs1        Random Forest      0.921685  0.974833  0.826667
+cwgan            Random forest      0.934972  0.976103  0.826291
+adasyn           Random Forest      0.927409  0.978556  0.826087
+smote_enn        Random Forest      0.909533  0.973554  0.819383
+enn              Random Forest      0.916634  0.972788  0.809302
+tomek            Random Forest      0.920331  0.973301  0.800000
+ros              Random Forest      0.900732  0.969743  0.789474
+tabddpm_identity Random Forest      0.878835  0.963913  0.761506
+smote_enn        Gradient Boosting  0.829212  0.915685  0.757202
+adasyn           Gradient Boosting  0.830110  0.920592  0.751020
+rus              Random Forest      0.853232  0.948586  0.750903
+tomek            Gradient Boosting  0.842925  0.919565  0.736842
+tabddpm_bgm      Random Forest      0.878088  0.963402  0.732510
+enn              AdaBoost           0.815958  0.911005  0.731481
+smote_tomek      Gradient Boosting  0.828820  0.917251  0.730924
+smote            Gradient Boosting  0.828723  0.919060  0.730924
+tomek            AdaBoost           0.818017  0.911779  0.728972
+ros              Gradient Boosting  0.835648  0.920661  0.727273
+rus              Gradient Boosting  0.835387  0.925176  0.727273
+tabddpm_identity Gradient Boosting  0.848255  0.932668  0.723769
+                 AdaBoost           0.820707  0.915206  0.721992
+smote_bs2        Gradient Boosting  0.822701  0.919861  0.721569
+tabddpm_bgm      Gradient Boosting  0.839066  0.925385  0.721174
+smote_bs1        Gradient Boosting  0.818741  0.916938  0.719368
+enn              Gradient Boosting  0.841927  0.924332  0.705314
+ros              AdaBoost           0.829392  0.918643  0.698182
+smote_enn        AdaBoost           0.786747  0.890883  0.697318
+smote_tomek      AdaBoost           0.796829  0.895963  0.689139
+smote            AdaBoost           0.801818  0.901836  0.686567
+rus              AdaBoost           0.805823  0.916216  0.685714
+adasyn           AdaBoost           0.787464  0.895937  0.681319
+smote_bs1        AdaBoost           0.778182  0.891283  0.669065
+tabddpm_bgm      AdaBoost           0.770539  0.893053  0.658385
+smote_bs2        AdaBoost           0.767721  0.892736  0.655052
+nearmiss         Gradient Boosting  0.648859  0.853728  0.508728
+                 AdaBoost           0.480540  0.802732  0.491400
+                 Random Forest      0.585694  0.840957  0.483940
+
+================================================================================
+
+
+ANALYSIS FOR DATASET: gmsc
+==================================================
+
+All Results:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+adasyn           AdaBoost           0.318681  0.803322  0.369052
+                 Gradient Boosting  0.339183  0.815890  0.403803
+                 Random Forest      0.301639  0.818391  0.323424
+cwgan            Random forest      0.365466  0.837687  0.276580
+enn              AdaBoost           0.368129  0.825312  0.371121
+                 Gradient Boosting  0.380785  0.830812  0.401198
+                 Random Forest      0.366399  0.840301  0.386721
+nearmiss         AdaBoost           0.118109  0.688322  0.169540
+                 Gradient Boosting  0.218863  0.744820  0.168473
+                 Random Forest      0.322053  0.750976  0.160409
+ros              AdaBoost           0.356996  0.825673  0.345889
+                 Gradient Boosting  0.374420  0.830456  0.344075
+                 Random Forest      0.317711  0.822828  0.330311
+rus              AdaBoost           0.346518  0.825738  0.340119
+                 Gradient Boosting  0.375477  0.838991  0.339424
+                 Random Forest      0.359229  0.848064  0.326008
+smote            AdaBoost           0.326516  0.800849  0.371429
+                 Gradient Boosting  0.344699  0.818798  0.406467
+                 Random Forest      0.305791  0.824649  0.314904
+smote_bs1        AdaBoost           0.323186  0.808338  0.377302
+                 Gradient Boosting  0.336933  0.821698  0.405549
+                 Random Forest      0.315039  0.831935  0.321472
+smote_bs2        AdaBoost           0.325775  0.807613  0.350141
+                 Gradient Boosting  0.340910  0.821636  0.370634
+                 Random Forest      0.302794  0.835216  0.328217
+smote_enn        AdaBoost           0.342788  0.815325  0.369737
+                 Gradient Boosting  0.357769  0.828603  0.383880
+                 Random Forest      0.354440  0.840615  0.416441
+smote_tomek      AdaBoost           0.329682  0.809689  0.384494
+                 Gradient Boosting  0.347268  0.821383  0.410163
+                 Random Forest      0.306641  0.825735  0.325526
+tabddpm_bgm      AdaBoost           0.330423  0.824843  0.286776
+                 Gradient Boosting  0.352721  0.829651  0.272904
+                 Random Forest      0.313326  0.792167  0.276990
+tabddpm_identity AdaBoost           0.343670  0.833244  0.304569
+                 Gradient Boosting  0.358907  0.837974  0.296716
+                 Random Forest      0.313269  0.798173  0.295118
+tomek            AdaBoost           0.353659  0.825039  0.294203
+                 Gradient Boosting  0.385126  0.830312  0.316327
+                 Random Forest      0.360056  0.837585  0.315565
+
+Sorted by AUC-PR:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+tomek            Gradient Boosting  0.385126  0.830312  0.316327
+enn              Gradient Boosting  0.380785  0.830812  0.401198
+rus              Gradient Boosting  0.375477  0.838991  0.339424
+ros              Gradient Boosting  0.374420  0.830456  0.344075
+enn              AdaBoost           0.368129  0.825312  0.371121
+                 Random Forest      0.366399  0.840301  0.386721
+cwgan            Random forest      0.365466  0.837687  0.276580
+tomek            Random Forest      0.360056  0.837585  0.315565
+rus              Random Forest      0.359229  0.848064  0.326008
+tabddpm_identity Gradient Boosting  0.358907  0.837974  0.296716
+smote_enn        Gradient Boosting  0.357769  0.828603  0.383880
+ros              AdaBoost           0.356996  0.825673  0.345889
+smote_enn        Random Forest      0.354440  0.840615  0.416441
+tomek            AdaBoost           0.353659  0.825039  0.294203
+tabddpm_bgm      Gradient Boosting  0.352721  0.829651  0.272904
+smote_tomek      Gradient Boosting  0.347268  0.821383  0.410163
+rus              AdaBoost           0.346518  0.825738  0.340119
+smote            Gradient Boosting  0.344699  0.818798  0.406467
+tabddpm_identity AdaBoost           0.343670  0.833244  0.304569
+smote_enn        AdaBoost           0.342788  0.815325  0.369737
+smote_bs2        Gradient Boosting  0.340910  0.821636  0.370634
+adasyn           Gradient Boosting  0.339183  0.815890  0.403803
+smote_bs1        Gradient Boosting  0.336933  0.821698  0.405549
+tabddpm_bgm      AdaBoost           0.330423  0.824843  0.286776
+smote_tomek      AdaBoost           0.329682  0.809689  0.384494
+smote            AdaBoost           0.326516  0.800849  0.371429
+smote_bs2        AdaBoost           0.325775  0.807613  0.350141
+smote_bs1        AdaBoost           0.323186  0.808338  0.377302
+nearmiss         Random Forest      0.322053  0.750976  0.160409
+adasyn           AdaBoost           0.318681  0.803322  0.369052
+ros              Random Forest      0.317711  0.822828  0.330311
+smote_bs1        Random Forest      0.315039  0.831935  0.321472
+tabddpm_bgm      Random Forest      0.313326  0.792167  0.276990
+tabddpm_identity Random Forest      0.313269  0.798173  0.295118
+smote_tomek      Random Forest      0.306641  0.825735  0.325526
+smote            Random Forest      0.305791  0.824649  0.314904
+smote_bs2        Random Forest      0.302794  0.835216  0.328217
+adasyn           Random Forest      0.301639  0.818391  0.323424
+nearmiss         Gradient Boosting  0.218863  0.744820  0.168473
+                 AdaBoost           0.118109  0.688322  0.169540
+
+Sorted by AUC-ROC:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+rus              Random Forest      0.359229  0.848064  0.326008
+smote_enn        Random Forest      0.354440  0.840615  0.416441
+enn              Random Forest      0.366399  0.840301  0.386721
+rus              Gradient Boosting  0.375477  0.838991  0.339424
+tabddpm_identity Gradient Boosting  0.358907  0.837974  0.296716
+cwgan            Random forest      0.365466  0.837687  0.276580
+tomek            Random Forest      0.360056  0.837585  0.315565
+smote_bs2        Random Forest      0.302794  0.835216  0.328217
+tabddpm_identity AdaBoost           0.343670  0.833244  0.304569
+smote_bs1        Random Forest      0.315039  0.831935  0.321472
+enn              Gradient Boosting  0.380785  0.830812  0.401198
+ros              Gradient Boosting  0.374420  0.830456  0.344075
+tomek            Gradient Boosting  0.385126  0.830312  0.316327
+tabddpm_bgm      Gradient Boosting  0.352721  0.829651  0.272904
+smote_enn        Gradient Boosting  0.357769  0.828603  0.383880
+rus              AdaBoost           0.346518  0.825738  0.340119
+smote_tomek      Random Forest      0.306641  0.825735  0.325526
+ros              AdaBoost           0.356996  0.825673  0.345889
+enn              AdaBoost           0.368129  0.825312  0.371121
+tomek            AdaBoost           0.353659  0.825039  0.294203
+tabddpm_bgm      AdaBoost           0.330423  0.824843  0.286776
+smote            Random Forest      0.305791  0.824649  0.314904
+ros              Random Forest      0.317711  0.822828  0.330311
+smote_bs1        Gradient Boosting  0.336933  0.821698  0.405549
+smote_bs2        Gradient Boosting  0.340910  0.821636  0.370634
+smote_tomek      Gradient Boosting  0.347268  0.821383  0.410163
+smote            Gradient Boosting  0.344699  0.818798  0.406467
+adasyn           Random Forest      0.301639  0.818391  0.323424
+                 Gradient Boosting  0.339183  0.815890  0.403803
+smote_enn        AdaBoost           0.342788  0.815325  0.369737
+smote_tomek      AdaBoost           0.329682  0.809689  0.384494
+smote_bs1        AdaBoost           0.323186  0.808338  0.377302
+smote_bs2        AdaBoost           0.325775  0.807613  0.350141
+adasyn           AdaBoost           0.318681  0.803322  0.369052
+smote            AdaBoost           0.326516  0.800849  0.371429
+tabddpm_identity Random Forest      0.313269  0.798173  0.295118
+tabddpm_bgm      Random Forest      0.313326  0.792167  0.276990
+nearmiss         Random Forest      0.322053  0.750976  0.160409
+                 Gradient Boosting  0.218863  0.744820  0.168473
+                 AdaBoost           0.118109  0.688322  0.169540
+
+Sorted by F1-Score:
+metric                                AUC-PR   AUC-ROC  F1-Score
+resample_method  classifier
+smote_enn        Random Forest      0.354440  0.840615  0.416441
+smote_tomek      Gradient Boosting  0.347268  0.821383  0.410163
+smote            Gradient Boosting  0.344699  0.818798  0.406467
+smote_bs1        Gradient Boosting  0.336933  0.821698  0.405549
+adasyn           Gradient Boosting  0.339183  0.815890  0.403803
+enn              Gradient Boosting  0.380785  0.830812  0.401198
+                 Random Forest      0.366399  0.840301  0.386721
+smote_tomek      AdaBoost           0.329682  0.809689  0.384494
+smote_enn        Gradient Boosting  0.357769  0.828603  0.383880
+smote_bs1        AdaBoost           0.323186  0.808338  0.377302
+smote            AdaBoost           0.326516  0.800849  0.371429
+enn              AdaBoost           0.368129  0.825312  0.371121
+smote_bs2        Gradient Boosting  0.340910  0.821636  0.370634
+smote_enn        AdaBoost           0.342788  0.815325  0.369737
+adasyn           AdaBoost           0.318681  0.803322  0.369052
+smote_bs2        AdaBoost           0.325775  0.807613  0.350141
+ros              AdaBoost           0.356996  0.825673  0.345889
+                 Gradient Boosting  0.374420  0.830456  0.344075
+rus              AdaBoost           0.346518  0.825738  0.340119
+                 Gradient Boosting  0.375477  0.838991  0.339424
+ros              Random Forest      0.317711  0.822828  0.330311
+smote_bs2        Random Forest      0.302794  0.835216  0.328217
+rus              Random Forest      0.359229  0.848064  0.326008
+smote_tomek      Random Forest      0.306641  0.825735  0.325526
+adasyn           Random Forest      0.301639  0.818391  0.323424
+smote_bs1        Random Forest      0.315039  0.831935  0.321472
+tomek            Gradient Boosting  0.385126  0.830312  0.316327
+                 Random Forest      0.360056  0.837585  0.315565
+smote            Random Forest      0.305791  0.824649  0.314904
+tabddpm_identity AdaBoost           0.343670  0.833244  0.304569
+                 Gradient Boosting  0.358907  0.837974  0.296716
+                 Random Forest      0.313269  0.798173  0.295118
+tomek            AdaBoost           0.353659  0.825039  0.294203
+tabddpm_bgm      AdaBoost           0.330423  0.824843  0.286776
+                 Random Forest      0.313326  0.792167  0.276990
+cwgan            Random forest      0.365466  0.837687  0.276580
+tabddpm_bgm      Gradient Boosting  0.352721  0.829651  0.272904
+nearmiss         AdaBoost           0.118109  0.688322  0.169540
+                 Gradient Boosting  0.218863  0.744820  0.168473
+                 Random Forest      0.322053  0.750976  0.160409
+
+================================================================================
+
+Finished python src\main.py at: Fri 12/06/2024  7:02:48.63
+All tasks completed at: Fri 12/06/2024  7:02:48.63
+Press any key to continue . . .
