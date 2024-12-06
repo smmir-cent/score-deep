@@ -1,6 +1,7 @@
 from sklearn.ensemble import RandomForestClassifier
 from models import WGANGP
 from helpers import evaluate_model, store_results
+import numpy as np
 
 def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
     gan = WGANGP(write_to_disk=False, # whether to create an output folder. Plotting will be surpressed if flase
@@ -14,7 +15,16 @@ def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
                 d_updates_per_g=3, gp_weight=15)
 
     condition_num_on_cat = bool(cat_cols)
-    gan.fit(preprocessed_dataset["X_train_trans"], y=preprocessed_dataset["y_train"].values, 
+    X_combined = np.concatenate(
+        [preprocessed_dataset["X_train_trans"], preprocessed_dataset["X_val_trans"]],
+        axis=0
+    )
+
+    y_combined = np.concatenate(
+        [preprocessed_dataset["y_train"].values, preprocessed_dataset["y_val"].values],
+        axis=0
+    )
+    gan.fit(X_combined, y=y_combined, 
             condition=True,
             epochs=300,  
             batch_size=64,
@@ -38,7 +48,7 @@ def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
                             'layer_norm':True,}
         )
 
-    X_res, y_res = gan.resample(preprocessed_dataset["X_train_trans"], y=preprocessed_dataset["y_train"])
+    X_res, y_res = gan.resample(X_combined, y=y_combined)
     clf = RandomForestClassifier(n_estimators=300, min_samples_leaf=1, max_features='sqrt', bootstrap=True,
                                 random_state=2020, n_jobs=2)
 
