@@ -3,6 +3,14 @@ from models import WGANGP
 from helpers import evaluate_model, store_results
 import numpy as np
 
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier, GradientBoostingClassifier
+
+classifiers = {
+    'Random Forest': RandomForestClassifier(random_state=2020),
+    'AdaBoost': AdaBoostClassifier(random_state=2020),
+    'Gradient Boosting': GradientBoostingClassifier(random_state=2020)
+}
+
 def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
     gan = WGANGP(write_to_disk=False, # whether to create an output folder. Plotting will be surpressed if flase
                 compute_metrics_every=1250, print_every=2500, plot_every=10000,
@@ -49,19 +57,22 @@ def run_wgan_pipeline(preprocessed_dataset, num_cols, cat_cols, cat_dims, prep):
         )
 
     X_res, y_res = gan.resample(X_combined, y=y_combined)
-    clf = RandomForestClassifier(n_estimators=300, min_samples_leaf=1, max_features='sqrt', bootstrap=True,
-                                random_state=2020, n_jobs=2)
-
-    clf.fit(X_res, y_res)
-    return evaluate_model(clf, preprocessed_dataset["X_test_trans"], preprocessed_dataset["y_test"])
+    return X_res, y_res
 
 def run_all_cwgan(preprocessed_datasets):
+    print("###########################################")
+    print("###########################################")
+    print("################## CWGAN ##################")
+    print("###########################################")
+    print("###########################################")
     for ds_name in preprocessed_datasets:
-        print("############# " + ds_name + " #############")
-        
-        f1, roc_auc, auc_pr = run_wgan_pipeline(preprocessed_datasets[ds_name], preprocessed_datasets[ds_name]["num_cols"], preprocessed_datasets[ds_name]["cat_cols"], preprocessed_datasets[ds_name]["cat_dims"], preprocessed_datasets[ds_name]["prep"])
-        store_results(ds_name, "cwgan", "Random forest", 'F1-Score', f1)
-        store_results(ds_name, "cwgan", "Random forest", 'AUC-ROC', roc_auc)
-        store_results(ds_name, "cwgan", "Random forest", 'AUC-PR', auc_pr)
-        
+        print("############# " + ds_name + " #############")        
+        X_res, y_res = run_wgan_pipeline(preprocessed_datasets[ds_name], preprocessed_datasets[ds_name]["num_cols"], preprocessed_datasets[ds_name]["cat_cols"], preprocessed_datasets[ds_name]["cat_dims"], preprocessed_datasets[ds_name]["prep"])
+        for clf_name, clf in classifiers.items():
+            print(f"Training and evaluating {clf_name} on {ds_name} dataset...")
+            clf.fit(X_res, y_res)
+            brier, roc_auc, auc_pr = evaluate_model(clf, preprocessed_datasets[ds_name]["X_test_trans"], preprocessed_datasets[ds_name]["y_test"])
+            store_results(ds_name, "cwgan", clf_name, 'Brier-Score', brier)
+            store_results(ds_name, "cwgan", clf_name, 'AUC-ROC', roc_auc)
+            store_results(ds_name, "cwgan", clf_name, 'AUC-PR', auc_pr)
 

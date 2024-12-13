@@ -1,4 +1,4 @@
-from sklearn.metrics import confusion_matrix, classification_report, roc_auc_score, precision_recall_curve, auc, f1_score
+from sklearn.metrics import confusion_matrix, classification_report, roc_auc_score, precision_recall_curve, auc, brier_score_loss
 
 import numpy as np
 import pandas as pd
@@ -581,11 +581,11 @@ def evaluate_model(clf, X_test, y_test):
     # Confusion Matrix and Classification Report
     # print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
     # print("\nClassification Report:\n", classification_report(y_test, y_pred))
-    
-    # F1-Score
-    f1 = f1_score(y_test, y_pred)
-    print(f"F1-Score: {f1:.4f}")
-    
+
+    # Brier Score
+    brier = brier_score_loss(y_test, y_proba)
+    print(f"Brier Score: {brier:.4f}")
+        
     # AUC-ROC
     roc_auc = roc_auc_score(y_test, y_proba)
     print(f"AUC-ROC: {roc_auc:.4f}")
@@ -595,7 +595,7 @@ def evaluate_model(clf, X_test, y_test):
     auc_pr = auc(recall, precision)
     print(f"AUC-PR: {auc_pr:.4f}\n")
     
-    return f1, roc_auc, auc_pr 
+    return brier, roc_auc, auc_pr 
 
 def store_results(ds_name, resample_method, clf_type, metric, value):
     global results
@@ -642,8 +642,8 @@ def rank_models():
         print("\nSorted by AUC-ROC:")
         print(pivot_df.sort_values(by='AUC-ROC', ascending=False))
         
-        print("\nSorted by F1-Score:")
-        print(pivot_df.sort_values(by='F1-Score', ascending=False))
+        print("\nSorted by Brier-Score:")
+        print(pivot_df.sort_values(by='Brier-Score', ascending=False))
         
         print("\n" + "="*80 + "\n")
     

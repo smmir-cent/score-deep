@@ -235,3 +235,4 @@ Experiments/
 outputs/
 *.npy
 *.pt
+__bin__

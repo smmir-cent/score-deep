@@ -15,7 +15,7 @@ d_layers = [
     256,
     256,
 ]
-dropout = 0.8
+dropout = 0.0
 
 [diffusion_params]
 num_timesteps = 1000

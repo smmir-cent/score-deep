@@ -48,6 +48,11 @@ def run_pipeline( X_res, y_res, X_test_trans, y_test, clf_type='rf'):
 
 
 def run_all(preprocessed_datasets):
+    print("###########################################")
+    print("###########################################")
+    print("########### TRADITIONAL METHODS ###########")
+    print("###########################################")
+    print("###########################################")
     for ds_name in preprocessed_datasets:
         for resample_method in resampling_methods:
             X_train_combined = np.concatenate((preprocessed_datasets[ds_name]["X_train_trans"], preprocessed_datasets[ds_name]["X_val_trans"]), axis=0)
@@ -55,8 +60,8 @@ def run_all(preprocessed_datasets):
             X_res, y_res = resample_data(X_train_combined, y_train_combined, resample_method)
             for clf_type in classifiers:
                 print(f"############### Dataset: {ds_name}, resampling method: {resample_method}, classifier: {clf_type} ###############")
-                f1, roc_auc, auc_pr = run_pipeline(X_res, y_res, preprocessed_datasets[ds_name]["X_test_trans"], preprocessed_datasets[ds_name]["y_test"], clf_type)
-                store_results(ds_name, resample_method, clf_type, 'F1-Score', f1)
+                brier, roc_auc, auc_pr = run_pipeline(X_res, y_res, preprocessed_datasets[ds_name]["X_test_trans"], preprocessed_datasets[ds_name]["y_test"], clf_type)
+                store_results(ds_name, resample_method, clf_type, 'Brier-Score', brier)
                 store_results(ds_name, resample_method, clf_type, 'AUC-ROC', roc_auc)
                 store_results(ds_name, resample_method, clf_type, 'AUC-PR', auc_pr)
 

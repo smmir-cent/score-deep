@@ -99,17 +99,22 @@ def run_benchmark(ds_name, tab_version, X_train, X_test, y_train, y_test):
     for clf_name, clf in classifiers.items():
         print(f"Training and evaluating {clf_name} on {ds_name} dataset...")
         clf.fit(X_train, y_train)
-        f1, roc_auc, auc_pr = evaluate_model(clf, X_test, y_test)
+        brier, roc_auc, auc_pr = evaluate_model(clf, X_test, y_test)
         
         # Store results
-        store_results(ds_name, f"tabddpm_{tab_version}" ,clf_name, 'F1-Score', f1)
+        store_results(ds_name, f"tabddpm_{tab_version}" ,clf_name, 'Brier-Score', brier)
         store_results(ds_name, f"tabddpm_{tab_version}" ,clf_name, 'AUC-ROC', roc_auc)
         store_results(ds_name, f"tabddpm_{tab_version}" ,clf_name, 'AUC-PR', auc_pr)
 
-        print(f"Results for {clf_name}:\n F1-Score: {f1:.4f}, AUC-ROC: {roc_auc:.4f}, AUC-PR: {auc_pr:.4f}\n")
+        print(f"Results for {clf_name}:\n Brier-Score: {brier:.4f}, AUC-ROC: {roc_auc:.4f}, AUC-PR: {auc_pr:.4f}\n")
 
 def run_all_diff(ds_names):
     global generated_dir
+    print("###########################################")
+    print("###########################################")
+    print("################# TABDDPM #################")
+    print("###########################################")
+    print("###########################################")
     for ds_name in ds_names:
         infos = get_datasets_nums_cat(ds_name)
         for tab_version in tabddpm_version:
