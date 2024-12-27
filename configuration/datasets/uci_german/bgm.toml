@@ -1,6 +1,6 @@
 parent_dir = "Experiments/tabddpm/bgm/uci_german"
 real_data_path = "configuration/datasets/uci_german/"
-num_numerical_features = 6
+num_numerical_features = 7
 model_type = "mlp"
 seed = 0
 # device = "cuda:0"
