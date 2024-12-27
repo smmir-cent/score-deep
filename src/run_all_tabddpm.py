@@ -10,7 +10,7 @@ original_dir = "configuration/datasets/"
 generated_dir = "Experiments/tabddpm/"
 output_dir = "Merged/"
 
-tabddpm_version = ['identity', 'bgm']
+tabddpm_version = ['identity', 'bgm', 'res_identity', 'res_bgm']
 
 # Define classifiers
 classifiers = {

@@ -35,6 +35,7 @@ def get_model(
     if model_name == 'mlp':
         model = MLPDiffusion(**model_params)
     elif model_name == 'resnet':
+        model_params.pop('is_y_cond', None)
         model = ResNetDiffusion(**model_params)
     else:
         raise "Unknown model!"

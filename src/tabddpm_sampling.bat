@@ -5,6 +5,46 @@ echo Starting script at: %date% %time%
 python src\data_prep.py
 echo Finished data prep at: %date% %time%
 
+echo ######################### myTabddpm (resnet_iden): uci_german #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\uci_german\resnet_iden.toml --train --sample
+echo Finished uci_german (resnet_iden) at: %date% %time%
+
+echo ######################### myTabddpm (resnet_iden): uci_taiwan #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\uci_taiwan\resnet_iden.toml --train --sample
+echo Finished uci_taiwan (resnet_iden) at: %date% %time%
+
+echo ######################### myTabddpm (resnet_iden): hmeq #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\hmeq\resnet_iden.toml --train --sample
+echo Finished hmeq (resnet_iden) at: %date% %time%
+
+echo ######################### myTabddpm (resnet_iden): gmsc #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\gmsc\resnet_iden.toml --train --sample
+echo Finished gmsc (resnet_iden) at: %date% %time%
+
+echo ######################### myTabddpm (resnet_iden): pakdd #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\pakdd\resnet_iden.toml --train --sample
+echo Finished pakdd (resnet_iden) at: %date% %time%
+
+echo ######################### myTabddpm (resnet_bgm): uci_german #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\uci_german\resnet_bgm.toml --train --sample
+echo Finished uci_german (resnet_bgm) at: %date% %time%
+
+echo ######################### myTabddpm (resnet_bgm): uci_taiwan #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\uci_taiwan\resnet_bgm.toml --train --sample
+echo Finished uci_taiwan (resnet_bgm) at: %date% %time%
+
+echo ######################### myTabddpm (resnet_bgm): hmeq #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\hmeq\resnet_bgm.toml --train --sample
+echo Finished hmeq (resnet_bgm) at: %date% %time%
+
+echo ######################### myTabddpm (resnet_bgm): gmsc #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\gmsc\resnet_bgm.toml --train --sample
+echo Finished gmsc (resnet_bgm) at: %date% %time%
+
+echo ######################### myTabddpm (resnet_bgm): pakdd #########################
+python src\myTabddpm\pipeline.py --config configuration\datasets\pakdd\resnet_bgm.toml --train --sample
+echo Finished pakdd (resnet_bgm) at: %date% %time%
+
 echo ######################### myTabddpm (identity): uci_german #########################
 python src\myTabddpm\pipeline.py --config configuration\datasets\uci_german\identity.toml --train --sample
 echo Finished uci_german (identity) at: %date% %time%

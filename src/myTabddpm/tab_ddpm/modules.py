@@ -414,9 +414,12 @@ class ResNet(nn.Module):
             d_out=d_out,
         )
 
-    def forward(self, x: Tensor) -> Tensor:
+    def forward(self, x, emb=None):
         x = x.float()
         x = self.first_layer(x)
+        if emb is not None:
+            emb = nn.Linear(emb.shape[1], x.shape[1]).to(x.device)(emb)
+            x = x + emb        
         x = self.blocks(x)
         x = self.head(x)
         return x
@@ -467,7 +470,7 @@ class ResNetDiffusion(nn.Module):
 
         rtdl_params['d_in'] = d_in
         rtdl_params['d_out'] = d_in
-        rtdl_params['emb_d'] = dim_t
+        # rtdl_params['emb_d'] = dim_t
         self.resnet = ResNet.make_baseline(**rtdl_params)
 
         if self.num_classes > 0:

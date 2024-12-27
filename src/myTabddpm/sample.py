@@ -89,6 +89,7 @@ def sample(
     """
     zero.improve_reproducibility(seed)
 
+    model_params.setdefault('is_y_cond', True)    
     # add TabularDataController to revert transform synthetic sampled data at the end
     tabular_controller = TabularDataController(
         real_data_path, 
